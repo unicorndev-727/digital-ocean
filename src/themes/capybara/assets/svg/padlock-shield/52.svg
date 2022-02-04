@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" style="enable-background:new 0 0 841.891 595.279;" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="52">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '52(PS)')" transform="translate(32.51611243057249, -6.830272338867189) translate(33.7702661590576, 18.912113525390623)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '52(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '52(PS)')" tooltip="#UNDEFINED" id="52-Graphic" objecttype="GRAPHIC">
+<g id="49::Valvula_de_expansion_aire_acondicionado">
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="121.715,179.281 121.715,185.51    120.969,185.991 120.969,185.992 120.969,187.291 119.069,188.517 117.247,187.466 117.247,185.254 117.248,185.255    116.501,184.823 116.501,178.594 118.401,177.368  " fill="#ffffff" g2gfill="#ECC35D" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="119.815" x2="121.715" y1="180.507" y2="179.281" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="119.815" x2="120.969" y1="186.736" y2="185.991" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="116.501" x2="119.815" y1="178.594" y2="180.507" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="119.091" x2="117.248" y1="186.319" y2="185.255" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="119.815" x2="119.091" y1="186.736" y2="186.319" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="119.815" x2="119.815" y1="180.507" y2="186.736" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="119.069" x2="119.069" y1="186.36" y2="188.517" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="118.753" x2="120.764" y1="179.894" y2="178.733" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="117.747" x2="119.219" y1="179.313" y2="177.841" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="14">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '14(PS)')" transform="translate(119.4590917663574, 53.34608493041992) translate(-120,-64) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '14(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '14(PS)')" tooltip="#UNDEFINED" id="14-Graphic" objecttype="GRAPHIC">
+<g zvalue="13">
+<g>
+<ellipse orgstroke="#000000" stroke="#000000" outline-element="true" stroke-miterlimit="10" orgfill="#ffffff" fill="#ffffff" stroke-width="0.5" g2gfill="#ECC35D" cx="457.247" rx="7.946" g2gstroke="#312783" cy="439.659" ry="7.946"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="6.711" cx="457.247" cy="439.659" ry="6.711" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M455.5249938964844 433.1709899902344L457.3760070800781 437.27899169921875" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M457.447998046875 437.27899169921875L459.08099365234375 433.2019958496094" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M450.55499267578125 438.72601318359375L454.14599609375 445.6109924316406" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M463.9580078125 438.72601318359375L460.22100830078125 445.6109924316406" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M455.6650085449219 446.1820068359375L457.4849853515625 441.2090148925781" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M457.4849853515625 441.2090148925781L458.5159912109375 446.1820068359375" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M451.3169860839844 436.5159912109375L454.7170104980469 442.85400390625" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M454.7170104980469 442.85400390625L456.3320007324219 439.1449890136719" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M456.3320007324219 439.1449890136719L453.80999755859375 433.8940124511719" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M460.8940124511719 434.02398681640625L458.635986328125 439.1449890136719" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M458.635986328125 439.1449890136719L459.7650146484375 442.9750061035156" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M459.7650146484375 442.9750061035156L463.2749938964844 436.7049865722656" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M456.3320007324219 439.1449890136719L458.635986328125 439.1449890136719" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g></svg>

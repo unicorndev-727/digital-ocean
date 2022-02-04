@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="13">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '13(PS)')" transform="translate(119.4590917663574, 53.34608493041992) translate(-120,-64) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '13(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '13(PS)')" tooltip="#UNDEFINED" id="13-Graphic" objecttype="GRAPHIC">
+<g zvalue="12">
+<g>
+<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M498.623,421.948   c9.777,0,17.706,7.93,17.706,17.709c0,9.777-7.929,17.707-17.706,17.707c-9.783,0-17.712-7.93-17.712-17.707   C480.911,429.878,488.84,421.948,498.623,421.948z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="14.023" cx="498.623" cy="439.659" ry="14.023" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="505.774" cy="425.635" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="505.506" cy="453.978" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="513.072" cy="446.2" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="513.492" cy="434.686" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="491.795" cy="425.457" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="491.795" cy="453.978" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="484.285" cy="446.2" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.199" cx="483.865" cy="434.686" ry="1.199" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M495.02398681640625 426.10198974609375L498.8909912109375 434.6860046386719" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M499.0419921875 434.6860046386719L502.4549865722656 426.1669921875" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M484.6390075683594 437.7099914550781L492.1409912109375 452.09600830078125" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M512.64501953125 437.7099914550781L504.83599853515625 452.09600830078125" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M495.3169860839844 453.2900085449219L499.11700439453125 442.8970031738281" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M499.11700439453125 442.8970031738281L501.27398681640625 453.2900085449219" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M486.2300109863281 433.0929870605469L493.33599853515625 446.3349914550781" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M493.33599853515625 446.3349914550781L496.71099853515625 438.5849914550781" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M496.71099853515625 438.5849914550781L491.4410095214844 427.6130065917969" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M506.2409973144531 427.885009765625L501.52398681640625 438.5849914550781" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M501.52398681640625 438.5849914550781L503.88299560546875 446.5889892578125" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M503.88299560546875 446.5889892578125L511.21600341796875 433.48699951171875" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M496.71099853515625 438.5849914550781L501.52398681640625 438.5849914550781" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g></svg>

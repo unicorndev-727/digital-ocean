@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" width="1841.891px" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="9">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '9(PS)')" transform="translate(6.0, 7.0) translate(-4.0, -16.0)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '9(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '9(PS)')" tooltip="#UNDEFINED" id="9-Graphic" objecttype="GRAPHIC">
+<g>
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="278.504,241.34 280.353,241.545    285.077,239.696 284.675,233.265 282.933,231.871 276.968,234.604 275.941,235.426 275.324,237.069 275.736,238.507    276.762,239.945  " fill="#ffffff" g2gfill="#ECC35D" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" stroke-linecap="round" orgfill="none" points="284.675,233.265 278.709,235.999    277.682,236.82 277.066,238.464 277.477,239.902 277.844,240.422  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+	<polygon orgstroke="#000000" stroke-linecap="round" orgfill="none" points="280.693,237.13 282.832,236.248    283.185,236.329 283.277,238.386 283.01,238.765 281.003,239.521 280.558,239.433 280.332,237.675  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+</g>
+</g>
+</g></svg>

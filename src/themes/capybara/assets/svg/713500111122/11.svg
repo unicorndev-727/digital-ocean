@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" width="1841.891px" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="11">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '11(PS)')" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '11(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '11(PS)')" tooltip="#UNDEFINED" id="11-Graphic" objecttype="GRAPHIC">
+<g id="10::XMLID_2_">
+	<g>
+		<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M584.19,225.724    c-0.277-0.822-0.896-1.171-1.857-1.824l-6.604-3.825l1.465,3.896l8.084,5.229C585.262,229.199,584.465,226.537,584.19,225.724z     M597.335,233.279c-0.271-0.823-0.896-1.172-1.856-1.824l-6.613-3.826l0.979,3.575l8.569,5.55    C598.406,236.755,597.614,234.101,597.335,233.279z M631.754,258.856l-52.734-30.421l-2.166-1.986l-8.091-12.211l51.893,29.787    L631.754,258.856z M611.606,245.497c-0.153-0.521-0.801-2.646-1.041-3.354c-0.271-0.814-0.896-1.165-1.854-1.824l-6.618-3.817    l0.979,3.566L611.606,245.497z M615.342,247.598l8.313,4.396c0,0-0.546-1.506-0.813-2.313c-0.277-0.822-0.896-1.188-1.854-1.832    l-6.618-3.817L615.342,247.598z" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	</g>
+	<g>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M611.606,245.505    c0.021,0.063,0.03,0.104,0.03,0.104" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="611.606" x2="611.606" y1="245.497" y2="245.505" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="611.637" x2="611.606" y1="245.523" y2="245.505" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	</g>
+</g>
+</g>
+</g></svg>

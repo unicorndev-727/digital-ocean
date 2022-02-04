@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="168">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '168(PS)')" transform="translate(-1.0864257831144641E-5, 66.80804286193847) translate(-478.1112626953125, -9.244252822875978) translate(-17.089213678819306, -23.447990861635873) translate(20,20) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '168(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '168(PS)')" tooltip="#UNDEFINED" id="168-Graphic" objecttype="GRAPHIC">
+<g zvalue="69">
+<g zvalue="42">
+<g>
+<path orgstroke="#000000" orgfill="#ffffff" transform="translate(59.0, -37.0) translate(572.0, -62.0) translate(10.0, 10.00006103515625) " fill="#ffffff" g2gfill="#ECC35D" d="M288.702,310.342l-3.848,2.217   c-1.092,0.631-1.341,1.516-1.341,2.484v9c0,0.719,0.48,1.365,1.404,0.832l4.114-2.373c0.769-0.443,1.17-1.195,1.17-2.08v-9.1   C290.202,310.256,289.425,309.924,288.702,310.342z M289.081,319.209c0,0.65-0.06,1.438-0.771,1.85l-2.357,1.363   c-0.746,0.43-1.113,0.217-1.113-0.508v-6.1c0-0.77,0.523-1.686,1.151-2.051l2.01-1.154c0.679-0.393,1.08-0.141,1.08,0.738V319.209z   " stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g>
+</g></svg>

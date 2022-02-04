@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="30">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '30(PS)')" transform="translate(-18.01092089843752, -7.293701173693989E-6) translate(8.328388793945294, -42.254741333007814)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '30(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '30(PS)')" tooltip="#UNDEFINED" id="30-Graphic" objecttype="GRAPHIC">
+<g>
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="641.18,315.802 639.975,314.677    639.225,314.302 638.225,314.552 635.35,316.052 635.1,316.552 635.725,317.802 636.1,318.802 635.725,319.802 635.225,319.927    633.096,319.515 632.518,319.927 632.1,320.427 632.6,321.177 633.85,322.177 635.225,322.802 636.975,323.052 638.35,322.677    641.852,320.469 642.231,319.052 642.231,317.802  " fill="#ffffff" g2gfill="#BCBEC0" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="637.434,319.052 637.518,319.844    637.477,320.552 637.143,321.219 636.934,321.344 636.352,321.427 635.727,321.26 635.018,320.969 633.096,319.515  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="635.602,316.094 636.471,316.927    637.184,318.135  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="636.1,318.802 636.309,319.76    636.227,320.219 635.893,320.469 635.434,320.469 635.018,320.26 633.096,319.515  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="641.768" x2="638.227" y1="318.594" y2="320.177" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

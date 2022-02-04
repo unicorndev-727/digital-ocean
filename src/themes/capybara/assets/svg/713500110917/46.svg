@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Capa_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="46">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '46(PS)')" transform="translate(33.34486065673826, 21.74257693481445) translate(111.98058252427185, -67.33009708737865) translate(-602.0, 11.0) translate(-2.0, 25.0) translate(425.0, 51.0) translate(10.0, 10.00006103515625)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '46(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '46(PS)')" tooltip="#UNDEFINED" id="46-Graphic" objecttype="GRAPHIC">
+<g zvalue="10">
+<g>
+<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M366.566,261.188l0.627,1.816   c0.15,0.723,0.078,1.109-0.732,1.26l-6.059,1.125l-17.861,3.115l-13.381,2.662l-8.732,1.932c-0.566,0.127-0.711,0.043-1.162-0.123   c-0.117-0.043-0.455-0.201-0.455-0.201c-0.34-0.195-0.484-0.439-0.563-0.883l-0.996-5.947c-0.111-1.279-0.047-2.021,1.658-2.283   c0,0,13.416-2.215,17.916-2.75c2.422-0.289,25.451-2.246,26.273-2.246s1.678,0.395,2.121,0.738   C365.922,259.945,366.299,260.414,366.566,261.188z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M319.74,273.098l-0.902-6.01   c-0.119-0.955-0.381-1.852,1.805-2.301c0,0,13.313-2.199,17.777-2.73c2.42-0.287,21.252-2.004,25.111-2.174   c0.842-0.037,2.455,0.025,2.82,0.795" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M317.2229919433594 264.5140075683594L318.9670104980469 265.59600830078125" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="55">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '55(PS)')" transform="translate(-18.01092089843752, -7.293701173693989E-6) translate(39.0, -8.0) translate(-1.0, 1.0) translate(6.0, -14.400000000000034) translate(20,20) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '55(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '55(PS)')" tooltip="#UNDEFINED" id="55-Graphic" objecttype="GRAPHIC">
+<g zvalue="45">
+<g>
+<g id="41::XMLID_6_">
+<g>
+<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M141.677,331.99     c0-0.104-0.017-0.211-0.041-0.294l-0.15-0.137c-0.188,0.011-0.396,0.072-0.639,0.197c-0.77,0.425-1.401,1.354-1.401,2.086     c0,0.13,0.021,0.229,0.063,0.333l0.188,0.099c0.188-0.023,0.367-0.085,0.57-0.194     C141.045,333.657,141.677,332.721,141.677,331.99z M142.953,331.933c0,1.1-0.939,2.498-2.109,3.135     c-0.602,0.33-1.149,0.387-1.533,0.205l-0.688-0.312c-0.271-0.188-0.438-0.521-0.438-0.979c0-1.097,0.946-2.501,2.108-3.133     c0.583-0.313,1.104-0.379,1.49-0.229l0.646,0.271C142.76,331.094,142.953,331.433,142.953,331.933z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M138.896,333.397   c0.313-0.896,1.07-1.82,1.951-2.302c0.514-0.279,0.988-0.361,1.351-0.273" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M139.061,335.103   c-0.202-0.197-0.313-0.493-0.313-0.877c0-0.091,0.008-0.188,0.021-0.278" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M141.699,331.566   c0.337,0.063,0.555,0.321,0.555,0.751c0,0.729-0.63,1.666-1.407,2.085c-0.562,0.313-1.047,0.259-1.27-0.063" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g></svg>

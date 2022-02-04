@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" width="1841.891px" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="46">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '46(PS)')" transform="translate(-217.0, -146.0) translate(10.0, 10.00006103515625)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '46(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '46(PS)')" tooltip="#UNDEFINED" id="46-Graphic" objecttype="GRAPHIC">
+<g zvalue="27">
+<g>
+<g id="31::Manguito_superior_lateral_radiador">
+<path stroke-linecap="round" orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M643.304,419.177l3.138-2.073    c0,0,2.396-1.775,4.22-3.153c1.829-1.378,5.462-7.229,7.73-11.601c2.293-4.402-0.59-9.448-4.272-11.454    c-3.686-2.003-16.18-10.979-17.344-11.691c-1.164-0.723-0.52-1.354,0.58-2.161c1.098-0.804,4.149-2.979,4.149-2.979l0.004,0.006    c0.642-0.438,1.021-1.283,1.021-2.469c0-2.492-1.729-5.521-3.886-6.757c-1.114-0.646-2.122-0.687-2.83-0.209l0.005,0.005    c0,0-7.354,5.992-9.228,8.454c-1.78,2.339-1.667,8.021-0.037,9.479c2.235,2.006,9.292,7.605,10.894,8.729    c1.604,1.118,9.06,5.769,10.57,6.889c1.521,1.121,1.739,2.107-0.488,4.165c-2.229,2.059-3,2.519-3,2.519l-3.885,2.896    l-3.002,2.002c-0.551,0.461-0.881,1.271-0.881,2.354c0,2.486,1.734,5.521,3.882,6.76c1.021,0.595,1.956,0.669,2.65,0.313" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M641.509,374.053    c-0.71,0.479-1.729,0.457-2.854-0.191c-2.146-1.229-3.882-4.266-3.882-6.756c0-1.195,0.396-2.055,1.052-2.482" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M637.656,409.749    c0.712-0.599,1.792-0.607,3.001,0.081c2.146,1.236,3.884,4.271,3.884,6.766c0,1.303-0.475,2.193-1.229,2.589" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M640.656,407.747    c0.712-0.598,1.791-0.605,2.999,0.083c2.146,1.236,3.884,4.271,3.884,6.766c0,1.227-0.418,2.092-1.098,2.516" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M644.531,404.856    c0.707-0.699,1.853-0.766,3.118-0.023c2.146,1.236,3.884,4.271,3.884,6.766c0,1.086-0.317,1.896-0.879,2.354" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M636.156,378.405c0,0-1.104-0.412-2.226-0.41" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M649.196,399.94c0,0,1.173-1.042,2.354-1.042" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M641.531,371.01    c0,1.85-1.288,2.604-2.878,1.688c-1.588-0.918-2.876-3.16-2.876-5.006c0-1.852,1.288-2.604,2.876-1.688    C640.24,366.927,641.531,369.161,641.531,371.01z" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M643.644,416.07c0,1.918-1.338,2.7-2.986,1.748    c-1.646-0.952-2.979-3.277-2.979-5.194c0-1.919,1.337-2.69,2.979-1.738C642.305,411.826,643.642,414.153,643.644,416.07z" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g>
+</g></svg>

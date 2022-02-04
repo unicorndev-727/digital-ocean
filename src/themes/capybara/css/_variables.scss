@@ -1,0 +1,44 @@
+:root{
+  //global
+  --c-primary: #1c69d4 !important;
+  // header
+  --height-header: 70px;
+  --header-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  // Confidence Bar
+  --height-confidence-bar: 40px;
+  --c-confidence-bar: #1c69d4;
+  --button-background: #1c69d4;
+   /* Navigation */
+ --nav-font-weight: 700;
+ --nav-font-size: 16px;
+ --nav-font-transform: none;
+}
+:root.theme-2{
+  //global
+  --c-primary: #1c69d4 !important;
+  // header
+  --height-header: 70px;
+  --header-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  // Confidence Bar
+  --height-confidence-bar: 40px;
+  --c-confidence-bar: #1c69d4;
+  --button-background: #1c69d4;
+   /* Navigation */
+ --nav-font-weight: 700;
+ --nav-font-size: 16px;
+ --nav-font-transform: none;
+}
+:root.theme-3{
+  //global
+  --c-primary: #007da3 !important;
+  // header
+  --height-header: 81px;
+  // Confidence Bar
+  --height-confidence-bar: 40px;
+  --c-confidence-bar: #007da3;
+  --button-background: #007da3;
+   /* Navigation */
+ --nav-font-weight: inherit;
+ --nav-font-size: 16px;
+ --nav-font-transform: uppercase;
+}

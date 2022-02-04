@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1541512339925" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="70">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '70(PS)')" transform="translate(-9.433746356535266E-6, 3.356933575560106E-7) translate(-35.71980609130861, -13.200809143066408) translate(44.708733184814434, 94.79042849731445) matrix(0.6117410612267968 0 0 0.6117410612267968 0.2921243287958965 0.477310974878083) translate(-92,-34) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '70(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '70(PS)')" tooltip="#UNDEFINED" id="70-Graphic" objecttype="GRAPHIC">
+<g zvalue="71">
+<g zvalue="63">
+<g zvalue="174">
+<g zvalue="62">
+<g>
+<path orgstroke="#000000" orgfill="#ffffff" transform="translate(1.6666666666666288, 45.0) translate(5.0, 141.66666666666663) translate(-1.0, 0.0) translate(-65,-56) translate(-135.7864793701172, -15.95862927246094) translate(-23.810883895874042, -7.293701173693989E-6) translate(-637.1092790527343, 18.13041815948486) translate(-7.083954655725847, -7.320086477583345) translate(-10.0, -10.0) translate(20,20) matrix(1 0 0 1 694.9222253281832 -8.105520255503592)" fill="#ffffff" g2gfill="#ECC35D" d="M696.007,282.264   c-0.629,0-1.211-0.014-1.729-0.035c-31.811-1.377-66.191-13.543-105.107-37.189c-46.846-28.465-53.27-51.658-53.848-54.209   c-0.316-1.391-0.502-2.676-0.574-3.928l-0.008-0.123c0.039-0.877,0.133-1.674,0.285-2.506c0.025-0.146,0.057-0.328,0.057-0.5   v-1.145c0-0.344,0.279-0.625,0.625-0.625c0.344,0,0.625,0.281,0.625,0.625v1.145c0,0.25-0.037,0.514-0.078,0.727   c-0.141,0.775-0.229,1.52-0.266,2.271l0.008,0.059c0.064,1.184,0.246,2.402,0.545,3.725c0.566,2.498,6.871,25.219,53.277,53.416   c38.73,23.535,72.92,35.641,104.514,37.01c2.338,0.098,6.006-0.002,9.275-0.59c0.328-0.064,0.662,0.164,0.725,0.506   c0.061,0.34-0.164,0.664-0.504,0.725C701.185,282.096,698.294,282.264,696.007,282.264z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g></svg>

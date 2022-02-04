@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" width="1841.891px" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="82">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '82(PS)')" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '82(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '82(PS)')" tooltip="#UNDEFINED" id="82-Graphic" objecttype="GRAPHIC">
+<g id="69::Rueda_dentada_del_cigueñal_1_">
+	<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECF5E4" d="M543.588,392.091l4.224,2.711   c1.604,1.015,4.508-0.284,6.47-2.896c1.971-2.608,2.269-5.558,0.666-6.557l-4.351-2.755c-1.654-0.503-4.189,0.771-5.955,3.134   C542.864,388.076,542.466,390.854,543.588,392.091z" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M547.399,394.464   c-1.119-1.229-0.703-3.861,1.072-6.229c1.773-2.349,4.3-3.638,5.958-3.134" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M554.696,389.137   c0.041-0.156,0.076-0.318,0.108-0.475c0.027-0.162,0.042-0.348,0.042-0.521c0-1.778-1.534-2.384-3.419-1.358   c-1.896,1.023-3.416,3.303-3.416,5.074s1.539,2.377,3.416,1.354c0.067-0.048,0.235-0.142,0.316-0.193   C551.74,393.019,554.032,391.492,554.696,389.137z" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="545.646" x2="549.757" y1="384.565" y2="386.805" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="544.87" x2="549.034" y1="385.415" y2="387.574" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="544.189" x2="548.252" y1="386.372" y2="388.469" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="543.285" x2="547.305" y1="388.26" y2="390.37" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="543.048" x2="546.953" y1="389.205" y2="391.279" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="542.964" x2="546.823" y1="390.309" y2="392.348" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="543.172" x2="546.865" y1="391.406" y2="393.409" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="543.685" x2="547.726" y1="387.281" y2="389.385" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="546.582" x2="550.783" y1="383.765" y2="385.983" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="547.512" x2="551.828" y1="383.161" y2="385.415" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="548.618" x2="553.061" y1="382.677" y2="384.989" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M552.975,388.938   c-0.134-0.619-0.769-0.772-1.535-0.368c-0.859,0.47-1.558,1.5-1.558,2.317c0,0.803,0.697,1.075,1.558,0.62   C552.703,390.685,552.975,389.616,552.975,388.938" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

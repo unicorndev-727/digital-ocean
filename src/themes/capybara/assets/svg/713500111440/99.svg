@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" width="1841.891px" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="99">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '99(PS)')" transform="translate(-20.0, 14.0) translate(1,-11) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '99(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '99(PS)')" tooltip="#UNDEFINED" id="99-Graphic" objecttype="GRAPHIC">
+<g zvalue="54">
+<g>
+<g id="86::Regulador_de_presion_de_combustible">
+<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECF5E4" d="M523.781,91.09l-0.756,2.188l-3.119,1.955    l-0.003-0.001c-0.188,0.104-0.308,0.354-0.308,0.688c0,0.708,0.499,1.569,1.116,1.938c0.307,0.177,0.585,0.188,0.788,0.081    l3.229-2.104l1.823,0.52l-0.003,0.016c0.424,0.104,0.797,0.024,1.084-0.169l-0.005-0.021l5.425-2.967l0.004,0.01    c0.379-0.261,0.604-0.759,0.604-1.438c0-1.479-1.023-3.271-2.313-4.021c-0.646-0.369-1.229-0.396-1.646-0.167l0.063-0.021    l-5.66,3.104h-0.005c-0.146,0.112-0.261,0.271-0.354,0.458" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M524.112,90.676    c0.427-0.346,1.073-0.352,1.794,0.064c1.284,0.742,2.323,2.536,2.323,4.01c0,0.688-0.218,1.166-0.58,1.438" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M523.964,90.992    c0.313,0,0.668,0.104,1.043,0.32c1.271,0.742,2.313,2.536,2.313,4.009c0,0.391-0.063,0.717-0.188,0.976" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M525.719,89.747    c0.426-0.348,1.063-0.353,1.793,0.064c1.283,0.742,2.324,2.536,2.324,4.01c0,0.675-0.229,1.166-0.579,1.428" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M519.906,95.219    c0.202-0.146,0.489-0.114,0.813,0.063c0.604,0.357,1.104,1.218,1.104,1.924c0,0.354-0.13,0.604-0.313,0.715" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M522.99,93.278    c0.197-0.116,0.479-0.098,0.786,0.081c0.616,0.354,1.115,1.217,1.115,1.923c0,0.233-0.054,0.421-0.146,0.554" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" style="enable-background:new 0 0 841.891 595.279;" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="57">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '57(PS)')" transform="translate(32.51611243057249, -6.830272338867189) translate(33.7702661590576, 18.912113525390623)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '57(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '57(PS)')" tooltip="#UNDEFINED" id="57-Graphic" objecttype="GRAPHIC">
+<g>
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="314.597,292.038 314.353,292.034    314.244,292.002 312.801,291.363 312.51,291.154 311.982,290.184 311.892,289.979 309.228,283.752 309.357,283.257    322.819,275.933 323.838,275.381 336.714,268.37 337.585,267.872 338.255,267.474 338.399,267.389 338.529,267.405    340.053,267.992 340.191,268.048 340.279,268.139 340.323,268.326 340.701,276.913 340.701,276.913 340.616,277.45 340.41,277.658    339.878,277.97 339.985,277.911 330.135,283.391 328.127,284.509 314.987,291.821  " fill="#ffffff" g2gfill="#ECC35D" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="313.961,291.608 313.508,290.774    313.418,290.568 310.681,284.331 310.883,283.845 324.344,276.522 325.362,275.969 338.237,268.957 339.109,268.46    339.779,268.063  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="309.385" x2="310.676" y1="283.497" y2="283.975" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="39">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '39(PS)')" transform="translate(65.41986523437498, 61.739147521972654) translate(-72.0, -25.0) translate(33.0, -48.0) translate(-188.0, -75.0) translate(347.0, 136.0)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '39(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '39(PS)')" tooltip="#UNDEFINED" id="39-Graphic" objecttype="GRAPHIC">
+<g>
+	<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M157.847,73.694   c0.345-0.199-0.116-0.426-0.116-0.426l-0.321-0.188v-1.777l4.217-2.436h0.533l2.401,1.388l0.181,0.313v1.235v0.438l-4.083,2.357   h-0.625l-0.604-0.351c-0.149-0.086-0.666,0.181-0.666,0.181L138.139,86.16c-1.302,0.53-0.917-0.731-0.917-0.731L157.847,73.694z" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="157.575,71.552 160.015,72.96    160.534,72.96 164.04,70.937  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M160.347,69.865c0,0,2.628-0.192,2.376,1.372" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="160.222" x2="160.222" y1="72.96" y2="74.427" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M158.253,73.365c0,0,0.594-0.641,1.047,0.547" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="29">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '29(PS)')" transform="rotate(67.88858740680573 503.04337882995605 261.67809009552) translate(-87.0, -41.0) translate(-147.0, -58.0) rotate(300.1940735747521 737.0433654785156 360.6781311035156) translate(271.0, 78.0) translate(65.41986523437498, 61.739147521972654) translate(-72.0, -25.0) translate(33.0, -48.0) translate(-188.0, -75.0)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '29(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '29(PS)')" tooltip="#UNDEFINED" id="29-Graphic" objecttype="GRAPHIC">
+<g>
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="618.739,372.26 623.3,375.523    624.073,375.672 636.463,367.486 636.799,366.863 636.741,365.472 636.604,365.101 636.425,364.903 631.203,362.261    630.98,362.206 630.634,362.261 630.384,362.377 618.906,369.278 618.592,369.532 618.509,369.732 618.448,369.988    618.482,371.552 618.482,371.833  " fill="#ffffff" g2gfill="#ECC35D" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="630.866" x2="636.15" y1="368.728" y2="365.244" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="627.294" x2="629.8" y1="371.092" y2="369.432" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="620.763,371.393 623.076,373.111    623.481,373.226 623.738,373.226 624.134,373.14 624.531,372.915 626.825,371.397  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="618.759" x2="620.138" y1="369.902" y2="370.931" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polygon orgstroke="#000000" orgfill="none" points="634.634,365.158 624.698,371.717    624.3,371.941 623.906,372.027 623.648,372.027 623.255,371.915 620.231,369.665 620.342,369.415 630.384,363.381 630.634,363.264    630.98,363.208 631.203,363.264 634.459,364.907  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="623.929" x2="623.99" y1="373.68" y2="375.301" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="629.281" x2="631.459" y1="367.028" y2="365.559" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+	<polyline orgstroke="#000000" orgfill="none" points="627.258,369.845 627.284,369.135    627.402,368.653 627.675,368.141 628.049,367.857 628.569,367.51  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="631.459,367.094 631.744,366.436    631.884,365.897 631.823,365.271 631.573,364.989 630.271,364.337 630.072,364.252 629.72,364.391 626.74,366.352 626.293,366.692    626.005,367.033 625.744,367.517 625.578,368.172 625.467,368.624 625.527,368.822 625.692,369.106 627.031,369.902  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="621.236" x2="625.578" y1="370.243" y2="367.632" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

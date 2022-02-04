@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" style="enable-background:new 0 0 841.891 595.279;" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="46">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '46(PS)')" transform="translate(32.51611243057249, -6.830272338867189) translate(33.7702661590576, 18.912113525390623)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '46(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '46(PS)')" tooltip="#UNDEFINED" id="46-Graphic" objecttype="GRAPHIC">
+<g>
+	<g id="43::Mando_trampilla_de_recirculacion_de_aire">
+		<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M193.066,78.911    c-0.285,1.262-0.896,1.063-1.163,2.157c-0.263,1.099-0.396,1.452-0.513,2.56c-0.241,2.438-1.043,2.151-0.318,3.537    c0.416,0.795-0.046-0.929,1.146-1.646c0.718-0.439,0.521-0.396,0.854-0.245c0.587,0.247,1.865,0.896,2.701,1.813    c0.332,0.365,0.229,0.771-0.379,0.984c-0.604,0.228-0.604,1.099-0.456,1.326c0.148,0.227,0.798,0.114,1.593-0.455    c0.798-0.568,1.146-1.896,1.396-3.634c0.253-1.741,0.202-1.063,0-2.115s-1.116-1.784-1.116-2.771    c-0.012-0.313-0.409-0.732-1.078-1.136c-0.933-0.539-2.042-0.771-2.478-0.521c-0.071,0.041-0.12,0.092-0.147,0.146" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M196.796,80.425    c0.004,0.124-0.052,0.229-0.175,0.313c-0.438,0.251-1.544,0.019-2.479-0.521c-0.783-0.44-1.188-0.974-1.049-1.271" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M197.913,83.191    c0.146,0.346,0.101,0.638-0.204,0.813c-0.717,0.413-2.54,0.03-4.075-0.854c-1.267-0.731-1.94-1.577-1.734-2.082" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M195.943,87.437c0,0,0.229-1.192,0.021-1.966    c-0.194-0.771-0.712-1-1.532-1.313c-0.82-0.3-1.426-1.007-1.805-0.666c-0.378,0.354-0.758,1.275-1.022,2.657" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<ellipse orgstroke="#000000" orgfill="none" transform="matrix(-0.8755 0.4832 -0.4832 -0.8755 403.2723 59.3454)" fill="none" rx="0.554" cx="193.992" ry="0.891" cy="81.618" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M196.226,87.581    c0.424-0.379,0.57-0.757,0.374-2.953c-0.061-0.68-0.834-1.771-0.834-3.561" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	</g>
+</g>
+</g>
+</g></svg>

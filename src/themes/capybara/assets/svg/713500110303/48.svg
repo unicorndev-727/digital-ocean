@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="48">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '48(PS)')" transform="translate(-18.01092089843752, -7.293701173693989E-6) translate(39.0, -8.0) translate(-1.0, 1.0) translate(8.328388793945294, -42.254741333007814)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '48(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '48(PS)')" tooltip="#UNDEFINED" id="48-Graphic" objecttype="GRAPHIC">
+<g>
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="208.991,430.01 209.04,428.969    209.195,428.431 216.834,416.263 216.955,415.829 217.004,413.013 217.031,411.427 213.614,408.743 212.312,410.071    212.312,411.26 210.186,409.611 210.186,406.054 206.484,403.152 205.794,402.614 205.664,402.552 205.548,402.552    205.406,402.595 205.074,402.97 204.705,403.39 204.705,403.39 204.615,403.635 204.576,403.851 204.563,405.01 204.563,409.437    204.149,411.51 200.839,423.635 200.632,427.469 200.685,427.685 206.86,432.528 207.007,432.646 207.123,432.677 207.252,432.635    207.396,432.517 208.842,431.224 208.919,431.052 208.95,430.823  " fill="#ffffff" g2gfill="#BCBEC0" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="212.312" x2="215.73" y1="410.01" y2="412.687" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="208.882" x2="212.312" y1="410.885" y2="413.562" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="204.575" x2="208.882" y1="403.849" y2="407.318" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="211.459,422.802 207.405,429.032    207.249,429.552 207.095,432.719  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="215.73,412.687 215.678,415.681    215.573,416.452 213.123,420.228  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="208.882" x2="208.882" y1="407.318" y2="410.885" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="212.312" x2="212.312" y1="410.01" y2="413.562" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="215.73" x2="217.031" y1="412.687" y2="411.427" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="208.882" x2="210.186" y1="410.885" y2="409.611" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="208.882" x2="210.149" y1="407.318" y2="406.027" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="200.839" x2="207.405" y1="423.635" y2="429.032" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="204.563" x2="215.032" y1="409.437" y2="417.286" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="206.455,410.859 203.502,422.552    203.502,423.032 203.71,423.527 205.916,425.398 206.329,425.595 206.743,425.398 207.156,424.719 212.326,415.644  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="207.667,411.765 205.104,421.927    205.104,422.407 205.311,422.902 207.25,424.552  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M205.271,408.385   c-0.271-0.604-0.271-1.209,0.063-1.523c0.438-0.42,1.271-0.158,1.854,0.59c0.604,0.742,0.733,1.688,0.313,2.105   c-0.438,0.42-1.271,0.156-1.866-0.588" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M213.028,414.469   c-0.401-0.688-0.467-1.441-0.091-1.813c0.438-0.418,1.271-0.146,1.867,0.604c0.599,0.729,0.729,1.686,0.302,2.104   c-0.38,0.371-1.063,0.211-1.646-0.342" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M213.239,414.769   c-0.066-0.098-0.146-0.197-0.211-0.301" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="17">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '17(PS)')" transform="translate(15.529125793457013, 11.764660217285154)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '17(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '17(PS)')" tooltip="#UNDEFINED" id="17-Graphic" objecttype="GRAPHIC">
+<g>
+	<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#82AA8E" d="M518.905,214.267l0.116-0.419l-0.153-1.063   l-0.146-0.271l-0.42-0.388l-0.916-0.604l-1.298-0.771l-1.869-0.986l-1.755-0.916l-2.979-1.267l-2.604-1.145l-0.915-0.313   l-0.848-0.039l-1.335-0.268l-1.145-0.342l-21.026-9.813l-0.954-0.267l-1.563-0.191l-0.688-0.063l-13.637-6.313l-0.764-0.146   l-0.572-0.038l-0.706,0.038l-0.604,0.146l-56.041,31.646l-0.238,0.157l-0.113,0.146l-0.088,0.163l-0.021,0.199l0.063,0.188   l0.096,0.123l0.171,0.172l13.688,7.377l1.333,1.021l0.254,0.398l0.509,0.402l20.048,10.733l0.563,0.714l0.354,0.254l12.47,6.868   h0.461c17.9-7.836,50.771-24.422,62.582-34.316L518.905,214.267z" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M477.817,238.094   c-8.188,4.104-16.063,7.813-22.188,10.484h-0.457l-12.474-6.868l-0.354-0.255l-0.563-0.713l-20.046-10.729l-0.51-0.399   l-0.253-0.407l-1.063-0.888l-13.688-7.387" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M490.065,231.746   c-1.896,1.021-3.813,2.026-5.734,3.024" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M518.214,214.267   c-5.354,4.495-15.064,10.373-25.754,16.188" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="476.003" x2="485.548" y1="223.756" y2="229.354" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="475.049" x2="484.61" y1="224.437" y2="230.033" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="476.003,223.756 475.709,223.693    475.381,223.655 475.091,223.731 474.923,223.826 474.823,223.921 474.776,224.094 474.813,224.246 475.049,224.437  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="485.548,229.354 485.74,229.512    485.798,229.722 485.699,229.931 485.479,230.065 485.115,230.123 484.881,230.123 484.61,230.033  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="455.319" x2="455.319" y1="248.585" y2="249.35" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="420.784" x2="420.784" y1="228.793" y2="229.634" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="441.797" x2="441.797" y1="240.749" y2="241.59" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

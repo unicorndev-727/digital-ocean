@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" style="enable-background:new 0 0 841.891 595.279;" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="71">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '71(PS)')" transform="translate(32.51611243057249, -6.830272338867189) translate(33.7702661590576, 18.912113525390623) translate(-143.78378378378378, -36.75675675675677) translate(2.702702702702702, 2.702763737858952)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '71(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '71(PS)')" tooltip="#UNDEFINED" id="71-Graphic" objecttype="GRAPHIC">
+<g zvalue="40">
+<g>
+<g>
+<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECF5E4" d="M207.716,195.507l17.615-11.888    c0.115-0.049,0.347-0.025,0.347-0.025l1.968,0.6c0,0,0.212,0.052,0.229,0.257l1.504,17.15c0,0,0.011,0.277-0.197,0.367    l-20.617,13.171l-0.116,0.067c-0.058,0.095-0.136,0.154-0.271,0.213l-2.285,1.531c-0.231,0.1-0.447,0.031-0.447,0.031l-2.453-0.35    c-0.127-0.037-0.152-0.434-0.152-0.434l-0.598-8.596l-0.054-0.641l-0.446-8.18c-0.021-0.266,0.082-0.318,0.082-0.318l4.842-2.983    c0,0,0.118-0.077,0.293-0.028c0.078,0.023-0.273-0.119,0.517,0.104L207.716,195.507z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M210.0330047607422 196.23300170898438L227.73899841308594 184.30599975585938" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M226.58900451660156 187.5679931640625L228.0399932861328 186.62399291992188" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M226.7429962158203 189.32200622558594L228.15499877929688 188.3939971923828" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M227.14999389648438 193.968994140625L228.56199645996094 193.04200744628906" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M227.3000030517578 195.7519989013672L228.72799682617188 194.81700134277344" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M227.6199951171875 199.156005859375L229.04600524902344 198.22500610351562" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M227.78399658203125 201.00900268554688L229.19000244140625 200.08399963378906" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M226.3350067138672 185.22500610351562L227.88600158691406 202.78199768066406" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M207.88299560546875 197.69500732421875L209.677001953125 204.7899932861328L208.56199645996094 215.13999938964844" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M226.3350067138672 185.22500610351562L224.19900512695312 184.48699951171875" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M205.09100341796875 199.46299743652344L210.04400634765625 196.34300231933594" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M205.83799743652344 215.44200134277344L209.20399475097656 213.11399841308594" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M204.947998046875 199.46099853515625L201.7570037841797 198.61000061035156" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M204.975,199.469l0.132,0.592    c0,0,0.092,0.424,0.109,0.487l1.338,5.612l-0.947,10.822" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M202.2469940185547 207.01699829101562L205.0279998779297 207.2010040283203" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path orgstroke="#000000" orgfill="none" fill="none" d="M204.64100646972656 196.6909942626953L207.88299560546875 197.69500732421875" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M206.68600463867188 206.43899536132812L209.5050048828125 204.6219940185547" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+<path orgstroke="#000000" orgfill="none" stroke-linecap="round" fill="none" d="M206.40699768066406 209.09300231933594L209.22900390625 207.27699279785156" stroke="#000000" stroke-width="0.25" g2gstroke="#312783"/>
+</g>
+</g>
+</g>
+</g></svg>

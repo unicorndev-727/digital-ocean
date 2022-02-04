@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="123">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '123(PS)')" transform="translate(-1.0864257831144641E-5, 66.80804286193847) translate(-478.1112626953125, -9.244252822875978) translate(59.0, -37.0) translate(572.0, -62.0) translate(10.0, 10.00006103515625)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '123(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '123(PS)')" tooltip="#UNDEFINED" id="123-Graphic" objecttype="GRAPHIC">
+<g zvalue="21">
+<g>
+<g>
+<path stroke-linecap="round" orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M309.276,174.261    c-1.068,0-1.929-0.533-2.374-1.299c-0.923-1.607-0.17-4.211,3.61-6.393l34.257-19.783c1.281-0.736,2.33-0.887,3.104-0.439    c0.628,0.369,0.974,1.066,0.974,1.982c0,1.68-1.221,4.123-3.266,5.309c-0.387,0.221-0.885,0.09-1.108-0.299    c-0.229-0.387-0.096-0.887,0.297-1.113c1.468-0.846,2.454-2.699,2.454-3.893c0-0.332-0.083-0.525-0.162-0.574    c-0.133-0.076-0.596-0.072-1.48,0.439l-34.257,19.783c-2.981,1.723-3.435,3.439-3.012,4.172c0.298,0.506,1.15,0.709,2.2,0.102    c0.381-0.227,0.884-0.094,1.11,0.301c0.225,0.383,0.092,0.885-0.299,1.109C310.59,174.082,309.896,174.261,309.276,174.261z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783"/>
+</g>
+<g>
+<path stroke-linecap="round" orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" d="M274.166,195.06    c-7.533,0-13.607-5.328-13.91-5.602c-0.335-0.299-0.37-0.811-0.065-1.145c0.298-0.336,0.81-0.365,1.146-0.068    c0.085,0.076,8.556,7.482,17.32,4.439c0.42-0.148,0.885,0.076,1.032,0.5c0.149,0.424-0.076,0.885-0.499,1.033    C277.472,194.812,275.786,195.06,274.166,195.06z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783"/>
+</g>
+</g>
+</g>
+</g>
+</g></svg>

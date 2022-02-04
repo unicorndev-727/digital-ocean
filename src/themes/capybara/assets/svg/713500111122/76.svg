@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" width="1841.891px" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="76">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '76(PS)')" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '76(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '76(PS)')" tooltip="#UNDEFINED" id="76-Graphic" objecttype="GRAPHIC">
+<g>
+	<g id="64::Radiador_de_aceite">
+		<path orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECF5E4" d="M574.948,272.911l14.781-8.813v-24.646    c0-0.479-0.229-0.808-0.635-0.993l0.104,0.063l-10.979-6.354l0.002-0.002c-2.634-1.498-14.261,4.127-14.261,9.752    c0,0-2.748,1.619-2.748,4.563c0,2.768,2.749,3.323,2.749,3.323v7.791c0,0-1.396-0.104-1.49,2.831    c-0.123,3.458,1.49,3.354,1.49,3.354v2.787L574.948,272.911z" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M574.948,272.911l-0.006-24.643    c0-5.563,11.322-11.104,14.152-9.813" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M571.406,270.936l0.401-24.241    c0-5.498,11.29-11.151,14.251-9.998" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M569.339,269.667V245.31    c0.062-5.688,12.188-11.479,14.646-9.813" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M566.987,268.31V244.05    c0-5.551,11.605-11.313,14.438-10.021" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M583.615,249.581    c-1.521,0.883-2.771,0.176-2.771-1.58s1.229-3.895,2.771-4.771c1.528-0.896,2.771-0.188,2.771,1.578    C586.388,246.558,585.148,248.698,583.615,249.581z" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="583.615" x2="589.74" y1="243.223" y2="239.855" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="582.811" x2="589.74" y1="249.961" y2="245.939" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="580.847" x2="574.948" y1="248.001" y2="251.605" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="580.311" x2="576.061" y1="245.105" y2="247.605" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		<path orgstroke="#000000" orgfill="none" fill="none" d="M566.987,243.689c0,0-2.593,0.224-2.593,3.057    c0,1.776,0.999,3.356,2.593,3.943" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="563.969" x2="566.987" y1="241.924" y2="243.689" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="563.97" x2="566.386" y1="249.802" y2="250.401" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="563.97" x2="565.69" y1="257.594" y2="258.355" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="563.97" x2="565.69" y1="263.781" y2="263.689" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+		
+			<line orgstroke="#000000" orgfill="none" fill="none" x1="563.969" x2="565.178" y1="262.022" y2="262.022" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	</g>
+</g>
+</g>
+</g></svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Layer_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="2">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '2(PS)')" transform="translate(6.0, -1.0) translate(6.0, -4.0)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '2(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '2(PS)')" tooltip="#UNDEFINED" id="2-Graphic" objecttype="GRAPHIC">
+<g>
+	<polygon orgstroke="#000000" orgfill="#ffffff" points="435.092,321.969 438.776,320.371    439.635,320.371 449.092,320.741 449.698,320.987 452.406,322.344 453.142,322.583 454.25,322.094 456.948,320.616 458.18,320.259    460.76,320.259 461.365,320.495 473.406,329.705 474.146,330.442 474.639,331.302 474.639,341.135 474.514,341.741    466.777,346.164 466.156,346.531 465.182,346.286 459.224,342.785 458.24,342.417 457.381,342.325 456.691,342.394 455.523,342.64    454.803,342.885 453.85,342.885 453.198,342.785 452.101,342.233 451.24,341.618 449.338,340.083 448.17,338.552 447.365,337.444    446.697,336.644 446.021,336.094 435.031,329.582 434.72,329.031 434.72,322.583  " fill="#ffffff" g2gfill="#ECF5E4" outline-element="true" stroke="#000000" stroke-width="0.5" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="435.52,322.399 435.642,322.89    436.135,323.51 444.363,328.232 444.671,328.415 445.224,328.478 445.715,328.355 446.572,327.259 447.126,326.451    448.109,325.653 449.092,325.347 450.135,325.347 451.669,325.594 452.838,326.206 453.76,326.82 454.925,327.927 456.459,329.582    457.812,330.566 459.224,331.552 465.428,335.052 465.672,335.355 465.733,335.906 465.919,345.979  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polyline orgstroke="#000000" orgfill="none" points="465.794,334.864 466.531,334.802    467.269,334.616 473.593,331.117 473.718,330.872 473.656,330.442  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="459.031" x2="465.548" y1="329.399" y2="325.969" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="449.031" x2="452.838" y1="325.1" y2="322.952" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<polygon orgstroke="#000000" orgfill="none" points="460.268,333.943 463.698,336.399    464.073,336.89 464.26,337.51 464.138,343.344 464.013,343.707 463.645,343.768 463.156,343.593 460.198,341.865 459.961,341.618    459.839,341.135 459.839,334.495 459.9,334.135  " fill="none" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<line orgstroke="#000000" orgfill="none" fill="none" x1="460.389" x2="463.892" y1="341.259" y2="339.039" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	<path orgstroke="#000000" orgfill="none" fill="none" d="M449.302,337.828   c-1.827-2.564-2.854-5.921-2.403-8.459c0.59-3.354,3.513-4.022,6.53-1.506c3.019,2.526,4.979,7.293,4.396,10.652   c-0.584,3.354-3.508,4.031-6.521,1.505c-0.146-0.123-0.29-0.25-0.438-0.383" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.688" cx="441.198" ry="0.937" cy="323.09" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="1.688" cx="449.974" ry="0.937" cy="323.09" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+	
+		<ellipse orgstroke="#000000" orgfill="none" fill="none" rx="2.15" cx="466.777" ry="1.229" cy="331.67" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+</g>
+</g>
+</g></svg>

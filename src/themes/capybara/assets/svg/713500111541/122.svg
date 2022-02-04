@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Capa_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="122">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '122(PS)')" transform="translate(30.298809631347638, 36.772926666259764) translate(-637.0022509266453, -53.86035292387896) translate(-16.675947408454704, -15.676927517625586) translate(20,20) " onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '122(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '122(PS)')" tooltip="#UNDEFINED" id="122-Graphic" objecttype="GRAPHIC">
+<g zvalue="55">
+<g zvalue="23">
+<g>
+<path orgstroke="#000000" stroke="#000000" d="   M588.905,248.462c-0.278,0.131-0.371,0.354-0.371,0.605s0,1.688,0,2.027c0,0.342,0.061,0.482,0.371,0.701   c0.31,0.217,3.951,2.66,4.233,2.824c0.281,0.162,0.5,0.223,0.673,0c1.153-1.496,1.691-3.307,1.488-6.189   c-0.031-0.445-0.118-0.859-0.311-1.613c-0.192-0.756-0.905-0.443-1.36-0.275C591.457,247.349,588.905,248.462,588.905,248.462z" stroke-linecap="round" outline-element="true" transform="matrix(1 0 0 1 615.3241187642793 11.004057485965689)" stroke-miterlimit="10" orgfill="#ffffff" fill="#ffffff" stroke-width="0.5" g2gfill="#ECC35D" stroke-linejoin="round" g2gstroke="#312783"/>
+<path stroke-linecap="round" orgstroke="#000000" orgfill="none" transform="matrix(1 0 0 1 615.3241187642793 11.004057485965689)" fill="none" stroke-linejoin="round" d="   M593.606,252.337c0.085-0.166,0.161-0.332,0.228-0.502c0.813-2.031,1.113-3.99,0.874-5.436" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<path stroke-linecap="round" orgstroke="#000000" orgfill="none" transform="matrix(1 0 0 1 615.3241187642793 11.004057485965689)" fill="none" stroke-linejoin="round" d="   M588.792,248.728c0.725,0.477,3.891,2.584,4.332,3.049c0.499,0.525,0.668,0.852,0.784,1.258c0.094,0.328,0,0.904,0,1.111   c0,0.148,0,0.328-0.134,0.541" stroke="#000000" stroke-width="0.25" g2gstroke="#312783" stroke-miterlimit="10"/>
+<ellipse orgstroke="#000000" stroke="#000000" stroke-linecap="round" transform="matrix(-0.14 0.9902 -0.9902 -0.14 926.7164 -302.486)" stroke-miterlimit="10" orgfill="none" fill="none" stroke-width="0.25" stroke-linejoin="round" cx="519.480051477287" rx="0.881" g2gstroke="#312783" ry="0.188" cy="-359.56489519084715"/>
+</g>
+</g>
+</g>
+</g>
+</g></svg>

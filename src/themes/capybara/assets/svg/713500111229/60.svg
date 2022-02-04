@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:etg="http://www.eurotaxglass.com/etg/evd/" etg:dataTimestamp="1539068912893" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="Capa_1" enable-background="new 0 0 1841.891 1595.279" version="1.1" xml:space="preserve" width="1841.891px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1841.891 1595.279" height="1595.279px" x="0px" y="0px"><g xmlns="http://www.w3.org/2000/svg" objecttype="PS" tooltip="#UNDEFINED" id="60">
+<g onmouseover="notifyOwner(AGV_OBJECT_MOUSEOVER, '60(PS)')" transform="translate(33.34486065673826, 21.74257693481445) translate(0.0, 0.10615803400497725) translate(-9.129590924428271, -8.06801058437847) translate(-444.7702593608417, -91.23492499709573) translate(425.0, 51.0) translate(10.0, 10.00006103515625)" onclick="clickZoom(evt); notifyOwner(AGV_OBJECT_MOUSECLICK, '60(PS)')" onmouseout="notifyOwner(AGV_OBJECT_MOUSEOUT, '60(PS)')" tooltip="#UNDEFINED" id="60-Graphic" objecttype="GRAPHIC">
+<g zvalue="24">
+<g>
+<path stroke-linecap="round" orgstroke="#000000" orgfill="#ffffff" fill="#ffffff" g2gfill="#ECC35D" stroke-linejoin="round" d="M555.455,253.879   c-0.027-0.639-0.816-1.182-1.445-0.818c-0.631,0.365-3.527,2.15-3.834,2.326c-0.309,0.182-0.506,0.627-0.506,1.025   c0,0.32,0,1.393,0,1.936c0,0.586,0.223,0.721,0.883,0.34c0.924-0.586,3.59-2.303,4.098-2.734   C555.258,255.436,555.5,254.879,555.455,253.879z M554.072,255.379c-0.293,0.232-2.813,1.889-3.143,2.1   c-0.275,0.18-0.244-0.096-0.244-0.096c0-0.348,0-0.768,0-0.91c0-0.238,0.123-0.414,0.299-0.52c0.176-0.104,2.951-1.826,3.15-1.951   c0.201-0.123,0.361-0.129,0.379,0.105C554.529,254.33,554.686,254.887,554.072,255.379z" stroke="#000000" outline-element="true" stroke-width="0.5" g2gstroke="#312783"/>
+</g>
+</g>
+</g>
+</g></svg>
