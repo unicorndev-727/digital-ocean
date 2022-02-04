@@ -31,7 +31,7 @@
         @clickPartSvg="saveClickedSvgID"
       />
     </OmPanZoom>
-  <div @click="toggleFullImage" v-if="!isJpgRender" class="fitting-position">
+  <div @click="toggleFullImage" v-if="!isJpgRender && isFit" class="fitting-position">
     <span>See Fitting Position</span>
     <SfIcon
       v-if="!isJpgRender && isFit"
