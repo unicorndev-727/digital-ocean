@@ -41,6 +41,7 @@
         v-model.trim="shipping.apartmentNumber"
         class="form__element"
         name="apartment-number"
+        required
         :label="$t('House/Apartment number')"
         :valid="!$v.shipping.apartmentNumber.$error"
         :error-message="$t('Field is required')"
