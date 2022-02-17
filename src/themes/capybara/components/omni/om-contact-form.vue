@@ -28,7 +28,6 @@
         type="number"
         class="form__element form__element--half"
         :valid="validPhoneNumber(phoneNumber)"
-        placeholder="Please enter 9 digital numbers."
         error-message="Please enter 9 digital numbers."
       />
       <SfInput
@@ -64,7 +63,6 @@
         maxlength="400"
         minlength="10"
         wrap="soft"
-        placeholder="type a message"
       />
       <div class="form__action">
         <SfButton class="form__action-submit" @click.prevent="submit">
