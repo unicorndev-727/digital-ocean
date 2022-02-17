@@ -152,6 +152,9 @@
                     :dom-id="product.id"
                   />
                 </template>
+                     <template v-if="!product.price.regular && !product.price.special" #price>
+                  <b :style="{color: 'black'}">Not Available Online</b>
+                </template>
               </SfProductCard>
             </transition-group>
           </lazy-hydrate>

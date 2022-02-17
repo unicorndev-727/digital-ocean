@@ -315,24 +315,17 @@ export default {
   },
   methods: {
     async goToReviewOrder () {
-      // const stripeInstance = this.$refs.paymentStripe;
-      // const result = await stripeInstance.stripe.instance.createPaymentMethod('card', stripeInstance.stripe.card)
-      // if (result) {
-      //   if (result.error) {
-      //     // Inform the user if there was an error.
-      //     let errorElement = document.getElementById('vsf-stripe-card-errors')
-
-      //     errorElement.textContent = result.error.message
-
-      //     // Stop display loader
-      //     this.$bus.$emit('notification-progress-stop')
-      //   } else {
-      //     const token = stripeInstance.formatTokenPayload(result.paymentMethod);
-      //     this.$bus.$emit('checkout-do-placeOrder', token)
-      //   }
-      // }
       this.sendDataToCheckout();
-      this.placeOrder();
+     let additionalMethod = {
+       paymmentID: 8838383883,
+       paymentID2: 838484884,
+        paypal_express_checkout_token: 9,
+      button: 1,
+      paypal_express_checkout_payer_id: 9,
+      paypal_express_checkout_redirect_required: "test"
+     }
+    this.$bus.$emit('checkout-do-placeOrder', additionalMethod)
+   
     }
   }
 };

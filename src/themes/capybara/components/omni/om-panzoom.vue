@@ -41,8 +41,7 @@ export default {
     showOpenModalButton: { type: Boolean, default: false },
     visualGroup: { type: [String, Number], default: '' },
     domKey: { type: String, default: 'modal' }, // modal or product
-    imageCode: { type: [String, Number], default: '' },
-    sku: String
+    imageCode: { type: [String, Number], default: '' }
   },
   data () {
     return {
@@ -58,12 +57,13 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      activeVehicle: 'vehicles/activeVehicle',
+      tooltips: 'vehicles/tooltips'
+    }),
     shouldShowOpenModalButton () {
       return this.showOpenModalButton && this.activeVehicle.National_Code && this.visualGroup;
     },
-    ...mapGetters({
-      activeVehicle: 'vehicles/activeVehicle'
-    }),
     rangeMax () {
       return this.options.maxScale || this.defaultOption.maxScale;
     },
@@ -99,15 +99,18 @@ export default {
       this.instance.setOptions({ ...this.defaultOption, ...this.options, disablePan: !this.panStatus })
     },
     openSvgViewer () {
-      this.openModal({
-        name: ModalList.OmVehicleViewerModal,
-        payload: {
-          nationalCode: this.activeVehicle.National_Code,
-          visualGroup: this.visualGroup,
-          imageCode: this.imageCode,
-          sku: this.sku
-        }
-      });
+      const tooltip = this.tooltips.find(tooltip => +tooltip.calloutNumber === +this.imageCode)
+      if (tooltip) {
+        this.openModal({
+          name: ModalList.OmVehicleViewerModal,
+          payload: { tooltip }
+        });
+      } else {
+        this.openModal({
+          name: ModalList.OmVehicleViewerModal,
+          payload: { tooltip: null }
+        });
+      }
     }
   }
 };

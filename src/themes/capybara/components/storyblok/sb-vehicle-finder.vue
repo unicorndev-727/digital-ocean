@@ -16,7 +16,14 @@
            </div>
             <p v-else class="model-details__name">{{ getModelName }} {{ getModelYear }}</p>
           </div>
-        <NewVehicle v-else />
+               <NewVehicle
+                v-else
+                ref="newVehicle"
+                :enableManuelSelector="false"
+                :successAction="true"
+                @close="closeModal"
+                @toggleErrorFlag="toggleErrorFlag"
+              />
         <SfButton class="om-btn--secondary finder-button" @click="onClick">
         {{ isModelSet ? 'Add New Vehicle' :  'Or find your vehicle manually' }}
         </SfButton>

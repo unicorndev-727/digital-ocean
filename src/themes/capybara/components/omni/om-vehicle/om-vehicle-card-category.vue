@@ -171,7 +171,8 @@ export default {
   margin: 10px 0;
   width: 100%;
   overflow: hidden;
-    input {
+}
+  input {
     text-align: center;
     width: 100%;
     font-size: 16px;
@@ -187,7 +188,6 @@ export default {
   input::-webkit-input-placeholder {
     font-size: 18px;
   }
-}
   .reg-label {
     position: absolute;
     left: 0;

@@ -249,7 +249,7 @@ export default {
     position: absolute;
     bottom: 42px;
     left: 80px;
-    z-index: 10;
+    z-index: 1;
 
     @include for-mobile {
       bottom: 242px;

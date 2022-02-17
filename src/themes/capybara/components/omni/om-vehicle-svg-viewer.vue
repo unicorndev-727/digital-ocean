@@ -35,12 +35,11 @@
           :options="{ minScale: 1, maxScale: 3 }"
           ref="panzoomInModal"
           dom-key="modal"
-          :sku="sku"
         >
           <SvgViewer
             :is-full-image="true"
             :image-id="imageId"
-            :image-code="currentClickedTooltip.calloutNumber"
+            :image-code="currentClickedTooltip && currentClickedTooltip.calloutNumber"
             :loaded-svg-data="fullSvgData"
             @loadSvg="loadSvg"
             dom-id="modal"
@@ -57,7 +56,7 @@
             :loading="productLoading"
             class="vehicle-page__add-to-cart-loading"
           >
-            <div v-if="!!currentClickedTooltip.calloutNumber">
+            <div v-if="currentClickedTooltip && selectedProduct">
               <p class="vehicle-page__info-description">
                 {{ productTitle }}
               </p>
@@ -73,12 +72,16 @@
                 :is-full-image="false"
               />
               <MProductAddToCart
-                v-if="selectedProduct"
                 class="vehicle-page__add-to-cart-content"
                 :product="selectedProduct"
               />
             </div>
-            <div v-else>This item is not currently available online</div>
+            <div v-if="!selectedProduct && currentClickedTooltip">
+              <OmAlertBox type="info" message="This item is not currently available online." />
+            </div>
+            <div v-if="!currentClickedTooltip && !selectedProduct">
+              <OmAlertBox type="info" message="No selected product." />
+            </div>
           </SfLoader>
         </div>
       </transition>
@@ -97,6 +100,7 @@
 <script>
 import NewVehicle from 'theme/components/omni/om-hero/new-vehicle.vue';
 import OmVehicleTooltips from 'theme/components/omni/om-vehicle/om-vehicle-tooltips.vue';
+import OmAlertBox from 'theme/components/omni/om-alert-box.vue';
 import SvgViewer from 'theme/components/svg-viewer.vue';
 import { SfImage, SfLoader, SfSticky, SfCheckbox, SfPrice } from '@storefront-ui/vue';
 import { mapGetters, mapState } from 'vuex';
@@ -119,19 +123,16 @@ export default {
     SfPrice,
     OmVehicleTooltips,
     MProductAddToCart,
-    SfCheckbox
+    SfCheckbox,
+    OmAlertBox
   },
   props: {
-    nationalCode: {
-      type: [String, Number]
-    },
-    visualGroup: [String, Number],
-    imageCode: [String, Number],
-    sku: String
+    tooltip: {
+      validator: prop => prop === null || typeof prop === 'object'
+    }
   },
   data () {
     return {
-      vehicle: {},
       imageId: null,
       loading: true,
       fullSvgData: null,
@@ -142,67 +143,51 @@ export default {
       },
       productLoading: false,
       showAddToCart: false,
-      currentClickedTooltip: {
-        tooltip: '',
-        sku: this.sku,
-        calloutNumber: this.imageCode
-      },
-
+      currentClickedTooltip: this.tooltip,
       selectedPartItem: PartItems[0]['child'][0],
       selectedParentPartItem: PartItems[0],
       partItems: PartItems,
-      nCode: this.nationalCode,
-      visualCategory: this.visualGroup,
+      visualCategory: null,
       selectedProduct: null
     };
   },
   computed: {
     ...mapGetters({
       activeVehicle: 'vehicles/activeVehicle',
-      getVehicleByNationalCode: 'vehicles/getVehicleByNationalCode'
-    }),
-    ...mapState({
-      criterias: (state) => state.vehicles.criterias
+      getVehicleByNationalCode: 'vehicles/getVehicleByNationalCode',
+      currentProduct: 'product/getCurrentProduct',
+      tooltips: 'vehicles/tooltips'
     }),
     description () {
-      return `${this.vehicle?.level1 || ''} ${this.vehicle?.level2 || ''} ${this
-        .vehicle?.level5 || ''} ${this.vehicle?.level6 || ''} ${this.vehicle
-        ?.level7 || ''} ${this.vehicle?.level3 || ''}`;
+      return `${this.activeVehicle?.level1 || ''} ${this.activeVehicle?.level2 || ''} ${this
+        .vehicle?.level5 || ''} ${this.activeVehicle?.level6 || ''} ${this.activeVehicle
+        ?.level7 || ''} ${this.activeVehicle?.level3 || ''}`;
     },
     brand () {
-      return this.vehicle?.level1 || '';
+      return this.activeVehicle?.level1 || '';
     },
     regCode () {
-      if (this.vehicle?.reg) {
-        return this.vehicle?.reg;
+      if (this.activeVehicle?.reg) {
+        return this.activeVehicle?.reg;
       } else {
         return null;
       }
-    },
-    getTooltips () {
-      return this.tooltips.length ? this.tooltips.slice(0, 1) : [];
     },
     productTitle () {
       return this.selectedProduct ? this.selectedProduct.name : '';
     },
     ProductPrice () {
       return this.selectedProduct ? this.selectedProduct.price : '';
-    },
-    compoundWatcher () {
-      return this.nCode + '_' + this.visualCategory;
     }
   },
   methods: {
-    changeVehicle () {
-      console.log(this.nCode);
-    },
     // async clickTooltip (tooltip) {
     //   this.currentClickedTooltip = tooltip;
 
     //   await this.getProductBySku({ tooltip });
     // },
-    async getProductBySku ({ tooltip }) {
-      if (tooltip.sku) {
+    async getProductBySku (tooltip) {
+      if (tooltip) {
         this.currentClickedTooltip = tooltip;
         this.productLoading = true;
         const query = buildQuery([tooltip.sku]);
@@ -227,37 +212,31 @@ export default {
         this.clickPartItem(partItem.child[0]);
       } else {
         this.visualCategory = partItem.value;
-        this.currentClickedTooltip = {
-          sku: '',
-          calloutNumber: ''
-        };
-        if (+partItem.value === +this.visualGroup) {
-          this.currentClickedTooltip.calloutNumber = this.imageCode;
+        this.currentClickedTooltip = null;
+        this.selectedProduct = null;
+        if (+partItem.value === +this.currentProduct.visual_group) {
+          this.currentClickedTooltip = this.tooltip;
         }
       }
     },
     clickPartItem (partItem) {
-      this.currentClickedTooltip = {
-        tooltip: '',
-        sku: '',
-        calloutNumber: ''
-      };
-      if (+partItem.value === +this.visualGroup) {
-        this.currentClickedTooltip.calloutNumber = this.imageCode;
+      this.currentClickedTooltip = null;
+      this.selectedProduct = null;
+      if (+partItem.value === +this.currentProduct.visual_group) {
+        this.currentClickedTooltip = this.tooltip;
       }
       this.selectedPartItem = partItem;
       this.visualCategory = this.selectedPartItem.value;
     },
     async fetchTooltips () {
       this.showAddToCart = false;
-      this.vehicle = this.getVehicleByNationalCode(this.nCode);
 
       const {
         data: {
           result: { imageId, tooltips }
         }
       } = await axios.post(`${config.api.url}/api/vehicle/tooltip`, {
-        NATIONAL_CODE: this.nCode,
+        NATIONAL_CODE: this.activeVehicle.National_Code,
         VISUAL_CATEGORY: this.visualCategory
       });
 
@@ -289,32 +268,29 @@ export default {
     }
   },
   watch: {
-    async compoundWatcher () {
+    async visualCategory () {
       await this.fetchTooltips();
       this.$refs.panzoomInModal.reset();
-    },
-    activeVehicle () {
-      this.vehicle = this.getVehicleByNationalCode(this.nCode);
     }
   },
   async mounted () {
-    if (this.visualGroup) {
+    if (this.currentProduct.visual_group) {
+      this.visualCategory = this.currentProduct.visual_group;
       this.partItems.map(partItem => {
         if (partItem.child.length) {
-          const childItem = partItem.child.find(item => +item.value === +this.visualGroup);
+          const childItem = partItem.child.find(item => +item.value === +this.currentProduct.visual_group);
           if (childItem) {
             this.selectedParentPartItem = partItem;
             this.selectedPartItem = childItem;
           }
         } else {
-          if (+partItem.value === +this.visualGroup) {
+          if (+partItem.value === +this.currentProduct.visual_group) {
             this.selectedParentPartItem = partItem;
           }
         }
       })
     }
-    await this.fetchTooltips();
-    await this.getProductBySku({ tooltip: this.currentClickedTooltip });
+    await this.getProductBySku(this.currentClickedTooltip);
   }
 };
 </script>

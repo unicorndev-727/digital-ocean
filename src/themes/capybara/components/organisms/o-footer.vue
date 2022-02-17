@@ -4,25 +4,25 @@
      <div class="mb-footer__information-bar">
        <ul class="information-card">
         <li class="information-card__item">
-          <a @click="openInfoModal(1)">
-            Click & Collect
+          <a @click="openContactModal">
+            Contact Us
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
           </a>
          </li>
          <li class="information-card__item">
-            <a @click="openInfoModal(1)">
+            <a @click="openInfoModal('modal-faq')">
               FAQ's
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
             </a>
          </li>
           <li class="information-card__item">
-            <a @click="openInfoModal(1)">
+          <a @click="openInfoModal('modal-delivery')">
               Delivery Information
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
             </a>
          </li>
           <li class="information-card__item">
-            <a @click="openInfoModal(1)">
+            <a @click="openInfoModal('modal-returns')">
               Returns Information
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
             </a>
@@ -41,8 +41,8 @@
       <div class="mb-container mb-footer__terms">
        <div class="mb-footer__terms--left">
          <ul class="terms-links">
-           <li class="terms-links__item"><a>Cookie Policy</a></li>
-           <li class="terms-links__item"><a>Terms of Sale</a></li>
+           <li class="terms-links__item"><a @click="openInfoModal('modal-privacy')">Privacy Policy</a></li>
+           <li class="terms-links__item"><a @click="openInfoModal('modal-terms')">Terms of Sale</a></li>
          </ul>
        </div>
        <div class="mb-footer__terms--right">
@@ -136,8 +136,15 @@ export default {
     showLanguageSwitcher () {
       this.openModal({ name: ModalList.LanguageSwitcher })
     },
-    openInfoModal (order) {
-      this.openModal({ name: ModalList['OmInfoModal' + order] });
+       openInfoModal (contentKey) {
+      this.openModal({ name: ModalList['OmInfoModal'],
+        payload: {
+          contentKey
+        }
+      });
+    },
+      openContactModal () {
+      this.openModal({ name: ModalList['OmContactModal'] });
     }
   }
 };

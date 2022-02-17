@@ -23,8 +23,8 @@ export default {
   data () {
     return {
       icons: {
-        info: 'https://www.shopbmwusa.com/Images/InfoBlue.svg',
-        warning: 'https://www.shopbmwusa.com/Images/warning-yellow.svg'
+        info: '/assets/icons/InfoBlue.svg',
+        warning: '/assets/icons/warning-yellow.svg'
       }
     }
   }

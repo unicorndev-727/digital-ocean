@@ -122,7 +122,7 @@ export default {
     };
   },
   methods: {
-        ...mapActions({
+    ...mapActions({
       toggleSidebar: 'ui/toggleSidebar'
     }),
     async onSelectVehicle (label) {
@@ -134,7 +134,7 @@ export default {
         this.loading = true;
         const {
           data: { result, success }
-       } = await axios.post(`${config.api.url}/api/vehicle/models-` + storeview.storeId, {
+        } = await axios.post(`${config.api.url}/api/vehicle/models-` + storeview.storeId, {
           Model: this.searchPattern[0],
           Year: this.searchPattern[1]
         });
@@ -174,7 +174,7 @@ export default {
 
         await this.$store.dispatch('vehicles/saveVehicles', finalProduct);
         await this.$store.dispatch('vehicles/saveActiveVehicle', finalProduct);
-            if (this.modalData?.payload.successAction) {
+        if (this.modalData?.payload.successAction) {
           this.toggleSidebar({ type: 'vehiclecart' });
         }
         this.closeModal();

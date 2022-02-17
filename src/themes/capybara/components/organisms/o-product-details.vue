@@ -76,22 +76,18 @@
                 :product="product"
               />
               <MProductAddToCart
+                v-if="product.price || product.final_price"
                 class="product__add-to-cart"
-                style="margin-bottom: 20px;"
                 :product="product"
                 :stock="productStock"
               />
-                          <OmAlertBox
-      type="info"
-    >
-      <template #message>
-        <div class="om-alert-box-message">
-          <div>
-            <b>If you are unsure as to whether an item is suitable for your vehicle, it’s important that you contact us before purchasing.</b>
-          </div>
-        </div>
-      </template>
-    </OmAlertBox>
+              <SfButton
+                v-else
+                class="a-add-to-cart sf-button--full-width enquire-button"
+                @click="showEnquiryModal"
+              >
+                Enquire About This Part
+              </SfButton>
               <!-- <button
                 v-if="!isJpgRender && isFit"
                 class="open-modal-button"
@@ -108,28 +104,29 @@
                 v-if="isCollectionOnly"
               />
             </div>
+            <OmAlertBox
+           type="info" style="margin-top: 20px">
+      <template #message>
+        <div class="om-alert-box-message">
+          <div>
+            <p>If you are unsure as to whether an item is suitable for your vehicle, it’s important that you contact us before purchasing.</p>
+          </div>
+        </div>
+      </template>
+    </OmAlertBox>
           </div>
         </SfSticky>
       </div>
-      <SfAccordion
-              open="Accessories"
-              :first-open="true"
-              :multiple="true"
-              transition=""
-              show-chevron
-            >
-                <SfAccordionItem :key="product.descriptio" header="Product Description">
+    <h3>Product Description</h3>
               <p>This {{product.name}} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust. </p>
                  <div v-html=product.description class="product-copy"></div>
-                </SfAccordionItem>
-            </SfAccordion>
                 <OmAlertBox
       type="info"
     >
       <template #message>
         <div class="om-alert-box-message">
           <div>
-            <b>This product is for installation by trained technicians and not by an end user. Installation must be performed exclusively by a specialist workshop.</b>
+            <p>This product is for installation by trained technicians and not by an end user. Installation must be performed exclusively by a specialist workshop.</p>
           </div>
         </div>
       </template>
@@ -152,7 +149,7 @@ import MProductAdditionalInfo from 'theme/components/molecules/m-product-additio
 import MProductOptionsBundle from 'theme/components/molecules/m-product-options-bundle';
 import MProductOptionsConfigurable from 'theme/components/molecules/m-product-options-configurable';
 import { ModalList } from 'theme/store/ui/modals';
-import { SfSticky, SfCheckbox, SfNotification, SfAccordion } from '@storefront-ui/vue';
+import { SfSticky, SfCheckbox, SfNotification, SfAccordion, SfButton } from '@storefront-ui/vue';
 import rates from 'theme/resource/rates.json'
 import { currentStoreView } from '@vue-storefront/core/lib/multistore'
 import * as VehicleStorage from 'theme/store/vehicles-storage.ts';
@@ -177,6 +174,7 @@ export default {
     MProductOptionsBundle,
     OmRadioCheckbox,
     OmNoSetVehicle,
+    SfButton,
     OmAlertBox
   },
   props: {
@@ -208,7 +206,8 @@ export default {
   computed: {
     ...mapGetters({
       getAttributeIdByLabel: 'vehicles/getAttributeIdByLabel',
-      activeVehicle: 'vehicles/activeVehicle'
+      activeVehicle: 'vehicles/activeVehicle',
+      tooltips: 'vehicles/tooltips'
     }),
     gallery () {
       return this.productGallery.map(imageObject => ({
@@ -334,6 +333,37 @@ export default {
         })
       }
     },
+    async fetchTooltips () {
+      const {
+        data: {
+          result: { tooltips }
+        }
+      } = await axios.post(`${config.api.url}/api/vehicle/tooltip`, {
+        NATIONAL_CODE: this.activeVehicle.National_Code,
+        VISUAL_CATEGORY: this.product.visual_group
+      });
+      this.$store.commit('vehicles/setTooltips', tooltips);
+
+      const criterias = tooltips?.reduce((result, tooltip) => {
+        if (tooltip.criteria) {
+          const labels = result.map(r => r.label)
+
+          if (!labels.includes(tooltip.criteria)) {
+            result = [
+              ...result,
+              {
+                code: tooltip.criteriaCode,
+                label: tooltip.criteria,
+                selected: false
+              }
+            ];
+          }
+        }
+
+        return result;
+      }, [])
+      this.$store.commit('vehicles/setCriterias', criterias);
+    },
     async openSvgViewerModal () {
       const {
         data: {
@@ -343,21 +373,23 @@ export default {
         NATIONAL_CODE: this.activeVehicle.National_Code,
         SKU: this.product.sku
       });
-      this.openModal({
-        name: ModalList.OmVehicleViewerModal,
-        payload: {
-          nationalCode: this.activeVehicle.National_Code,
-          visualGroup: this.product.visual_group,
-          imageCode: calloutNumber,
-          sku: this.product.sku
-        }
-      });
+      const tooltip = this.tooltips.find(tooltip => +tooltip.calloutNumber === +calloutNumber)
+      if (tooltip) {
+        this.openModal({
+          name: ModalList.OmVehicleViewerModal,
+          payload: { tooltip }
+        });
+      } else {
+        this.openModal({
+          name: ModalList.OmVehicleViewerModal,
+          payload: { tooltip: null }
+        });
+      }
     },
-    showSelectorModal () {
+    showEnquiryModal () {
       this.openModal({
-        name: ModalList.OmSelectorModal,
-        payload: { dropdownKeys: [], enableAction: true }
-      });
+        name: ModalList.OmEnquiryModal
+      })
     }
   },
   data () {
@@ -376,6 +408,9 @@ export default {
         }
       ]
     }
+  },
+  async mounted () {
+    await this.fetchTooltips();
   }
 };
 </script>
@@ -390,6 +425,10 @@ export default {
         right: 0;
         width: 35%;
         height: 100%;
+      }
+      @include for-mobile{
+        padding: 0;
+        margin-top: 20px;
       }
   }
   .product {
@@ -457,7 +496,7 @@ export default {
     line-height: 9px;
     padding: 7px 83px 7px 83px;
     border-radius: 44px;
-    background-image: url(https://www.shopbmwusa.com/images/VisualizerImage/visualize-off.svg);
+    background-image: url(/assets/icons/visualize-off.svg);
     background-repeat: no-repeat;
     background-position: left 10px center;
     box-shadow: 0 3px 6px #a3a3a3;
@@ -466,6 +505,10 @@ export default {
     margin: var(--spacer-sm) auto;
     display: inherit;
     font-weight: bold;
+  }
+
+  .enquire-button {
+    margin: var(--spacer-base) 0;
   }
 }
 </style>

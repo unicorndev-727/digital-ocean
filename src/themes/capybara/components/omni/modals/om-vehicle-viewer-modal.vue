@@ -3,10 +3,7 @@
     <SfModal :visible="isVisible" @close="closeModal">
       <div v-if="isVisible" class="om-vehicle-viewer-modal__content">
         <OmVehicleSvgViewer
-          :national-code="modalData.payload.nationalCode"
-          :visual-group="modalData.payload.visualGroup"
-          :image-code="modalData.payload.imageCode"
-          :sku="modalData.payload.sku"
+          :tooltip="modalData.payload.tooltip"
         />
       </div>
     </SfModal>
@@ -16,6 +13,9 @@
 <script>
 import { SfModal } from '@storefront-ui/vue';
 import OmVehicleSvgViewer from 'theme/components/omni/om-vehicle-svg-viewer.vue';
+import { mapGetters } from 'vuex';
+import config from 'config';
+import axios from 'axios';
 
 export default {
   name: 'OmVehicleViewerModal',
@@ -30,21 +30,52 @@ export default {
       default: () => ({
         name: '',
         payload: {
-          nationalCode: '',
-          visualGroup: '',
-          imageCode: '',
-          sku: ''
+          tooltip: null
         }
       }),
       required: true
     }
   },
+  computed: {
+    ...mapGetters({
+      activeVehicle: 'vehicles/activeVehicle',
+      currentProduct: 'product/getCurrentProduct'
+    })
+  },
   data () {
     return {};
   },
-  computed: {},
   methods: {
-    closeModal () {
+    async closeModal () {
+      const {
+        data: {
+          result: { tooltips }
+        }
+      } = await axios.post(`${config.api.url}/api/vehicle/tooltip`, {
+        NATIONAL_CODE: this.activeVehicle.National_Code,
+        VISUAL_CATEGORY: this.currentProduct.visual_group
+      });
+      this.$store.commit('vehicles/setTooltips', tooltips);
+
+      const criterias = tooltips?.reduce((result, tooltip) => {
+        if (tooltip.criteria) {
+          const labels = result.map(r => r.label)
+
+          if (!labels.includes(tooltip.criteria)) {
+            result = [
+              ...result,
+              {
+                code: tooltip.criteriaCode,
+                label: tooltip.criteria,
+                selected: false
+              }
+            ];
+          }
+        }
+
+        return result;
+      }, [])
+      this.$store.commit('vehicles/setCriterias', criterias);
       this.$emit('close', this.modalData.name);
     }
   }

@@ -13,7 +13,9 @@ import { CmsModule } from '@vue-storefront/core/modules/cms';
 // import { GoogleTagManagerModule } from './google-tag-manager';
 // import { AmpRendererModule } from './amp-renderer';
 import { PaymentBackendMethodsModule } from './payment-backend-methods';
+import { PaymentCashOnDeliveryModule } from './payment-cash-on-delivery';
 import { Stripe } from './stripe';
+import { PaymentPaypalModule } from './payment-paypal';
 import { NewsletterModule } from '@vue-storefront/core/modules/newsletter';
 import { InitialResourcesModule } from '@vue-storefront/core/modules/initial-resources';
 import { LexascmsModule } from './vsf-lexascms/src';
@@ -30,6 +32,8 @@ export function registerClientModules () {
   registerModule(CheckoutModule); // To Checkout
   registerModule(CartModule);
   registerModule(PaymentBackendMethodsModule);
+  registerModule(PaymentCashOnDeliveryModule);
+  registerModule(PaymentPaypalModule);
   registerModule(WishlistModule); // Trigger on wishlist icon click
   registerModule(NotificationModule);
   registerModule(UserModule); // Trigger on user icon click

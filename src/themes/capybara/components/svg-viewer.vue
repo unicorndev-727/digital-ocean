@@ -103,10 +103,12 @@ export default {
   },
   watch: {
     loadingFailed (value) {
-      const elementID = `svgTemplate_${this.domId}`;
-      const eleSVG = document.getElementById(elementID);
       if (value) {
-        eleSVG.style.display = 'none';
+        let SvgDom = Vue.extend({
+          // template: `<div v-show="!loading && !loadingFailed" id='svgTemplate_${this.domId}>${sXML}</div>`
+          template: `<div id='svgTemplate_${this.domId}'></div>`
+        });
+        new SvgDom().$mount('#svgTemplate_' + this.domId);
       }
     },
     compoundWatchProperty: {
@@ -139,15 +141,9 @@ export default {
         const tooltip = this.tooltips.find(tooltip => +tooltip.calloutNumber === +id)
         if (this.isFullImage) {
           if (tooltip) {
-            this.$emit('clickPartSvg', {
-              tooltip,
-              eventName: 'click'
-            }) // calloutnumber of toolitp is part svg ID
+            this.$emit('clickPartSvg', tooltip) // calloutnumber of toolitp is part svg ID
           } else {
-            this.$emit('clickPartSvg', {
-              tooltip: {},
-              eventName: 'click'
-            })
+            this.$emit('clickPartSvg', {})
           }
         }
       }
@@ -213,6 +209,7 @@ export default {
       /* Create XHR object */
       let url;
       this.loading = true;
+      this.loadingFailed = false;
       if (this.isFullImage) {
         if (!this.imageId) {
           this.loading = false;
@@ -403,10 +400,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: auto;
   position: relative;
-  min-width: 200px;
   min-height: 300px;
 
   .loading-container {
