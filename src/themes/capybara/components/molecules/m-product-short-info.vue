@@ -9,8 +9,8 @@
     </div>
     <div class="product__price-and-rating">
       <div class="product-partno">
-      <span>Part No: {{ title }}</span>
-    </div>
+        <span>Part No: {{ title }}</span>
+      </div>
       <AProductPrice
         :product="product"
         :custom-options="customOptions"

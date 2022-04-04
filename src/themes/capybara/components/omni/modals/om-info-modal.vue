@@ -2,7 +2,7 @@
   <div class="om-info-modal">
     <SfModal :visible="isVisible" @close="closeModal">
       <SfLoader :loading="loading">
-        <div v-html="content"></div>
+        <div v-html="content" />
       </SfLoader>
     </SfModal>
   </div>

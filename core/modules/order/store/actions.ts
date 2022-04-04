@@ -56,7 +56,7 @@ const actions: ActionTree<OrderState, RootState> = {
 
     if (task.resultCode === 200) {
       if (task.result.token) {
-        commit("stripe/setClientSecret", task.result.token, { root: true });
+        commit('stripe/setClientSecret', task.result.token, { root: true });
         const sessionOrderHashes = getters.getSessionOrderHashes;
         sessionOrderHashes.map(hash => {
           commit(types.ORDER_REMOVE_SESSION_ORDER_HASH, hash);

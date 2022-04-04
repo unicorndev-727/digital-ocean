@@ -22,7 +22,7 @@
 
     <!-- <div class="om-vehicle-cart-card__body" @click="onClick"> -->
     <div class="om-vehicle-cart-card__body">
-        <i class="icon-configurator" />
+      <i class="icon-configurator" />
       <!-- <SfImage :src="vehicle.imgUrl" /> -->
       <div class="vehicle-details">
         <h3 class="title">

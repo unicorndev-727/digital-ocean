@@ -51,7 +51,7 @@ export const PaypalButton = {
       // This function captures the funds from the transaction.
       return actions.order
         .capture()
-        .then(function (details) {
+        .then((details) => {
           // This function shows a transaction success message to your buyer.
           alert(
             'Transaction completed by ' +

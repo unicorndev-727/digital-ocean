@@ -15,13 +15,13 @@
         :checked="isChecked"
         :disabled="disabled"
         @input="inputHandler"
-      />
+      >
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
           class="sf-radio__checkmark"
           :class="{ 'sf-radio__checkmark--is-active': isChecked }"
-        ></div>
+        />
       </slot>
       <div class="sf-radio__content">
         <!-- @slot Custom label markup (bind 'label' string, 'isChecked' boolean, 'disabled' boolean -->
@@ -42,7 +42,7 @@
         </slot>
       </div>
     </label>
-    <slot name="extends"></slot>
+    <slot name="extends" />
   </div>
 </template>
 <script>

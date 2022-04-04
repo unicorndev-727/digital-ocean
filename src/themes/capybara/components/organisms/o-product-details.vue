@@ -49,8 +49,8 @@
               <OmAddCartStep1
                 v-if="activeVehicle && activeVehicle.National_Code"
                 :is-fit="isFit"
-                :vehicleInfo="vehicleInfo"
-                :vehicleReg="vehicleRegistation"
+                :vehicle-info="vehicleInfo"
+                :vehicle-reg="vehicleRegistation"
               />
             </div>
             <!-- <MProductOptionsCustom
@@ -105,34 +105,35 @@
               />
             </div>
             <OmAlertBox
-           type="info" style="margin-top: 20px">
-      <template #message>
-        <div class="om-alert-box-message">
-          <div>
-            <p>If you are unsure as to whether an item is suitable for your vehicle, it’s important that you contact us before purchasing.</p>
-          </div>
-        </div>
-      </template>
-    </OmAlertBox>
+              type="info" style="margin-top: 20px"
+            >
+              <template #message>
+                <div class="om-alert-box-message">
+                  <div>
+                    <p>If you are unsure as to whether an item is suitable for your vehicle, it’s important that you contact us before purchasing.</p>
+                  </div>
+                </div>
+              </template>
+            </OmAlertBox>
           </div>
         </SfSticky>
       </div>
-    <h3>Product Description</h3>
-              <p>This {{product.name}} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust. </p>
-                 <div v-html=product.description class="product-copy"></div>
-                <OmAlertBox
-      type="info"
-    >
-      <template #message>
-        <div class="om-alert-box-message">
-          <div>
-            <p>This product is for installation by trained technicians and not by an end user. Installation must be performed exclusively by a specialist workshop.</p>
+      <h3>Product Description</h3>
+      <p>This {{ product.name }} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust. </p>
+      <div v-html="product.description" class="product-copy" />
+      <OmAlertBox
+        type="info"
+      >
+        <template #message>
+          <div class="om-alert-box-message">
+            <div>
+              <p>This product is for installation by trained technicians and not by an end user. Installation must be performed exclusively by a specialist workshop.</p>
+            </div>
           </div>
-        </div>
-      </template>
-    </OmAlertBox>
-      </div>
+        </template>
+      </OmAlertBox>
     </div>
+  </div>
 </template>
 <script>
 import get from 'lodash-es/get';

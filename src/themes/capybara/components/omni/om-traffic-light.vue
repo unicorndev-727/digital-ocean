@@ -1,7 +1,9 @@
 <template>
   <div class="om-traffic-light">
-    <div class="om-traffic-light-dot" :style="{ backgroundColor: dotColor }"></div>
-    <div class="om-traffic-light-description">{{ description }}</div>
+    <div class="om-traffic-light-dot" :style="{ backgroundColor: dotColor }" />
+    <div class="om-traffic-light-description">
+      {{ description }}
+    </div>
   </div>
 </template>
 

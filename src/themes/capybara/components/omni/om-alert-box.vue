@@ -1,6 +1,6 @@
 <template>
   <div class="om-alert-box">
-    <img :src="icons[type]" />
+    <img :src="icons[type]">
     <slot name="message">
       <p>{{ message }}</p>
     </slot>

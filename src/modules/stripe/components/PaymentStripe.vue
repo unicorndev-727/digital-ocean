@@ -1,20 +1,15 @@
 <template>
-  <div class='mb15 mt20 vsf-stripe-container'>
-    <h4 class='mt0'>
-      <label for='vsf-stripe-card-element'>
-        Credit or debit card
-      </label>
-    </h4>
-    <div class='bg-cl-secondary px20 py20'>
-      <form action='' id='payment-form'>
-        <div class='form-row'>
-          <div id='vsf-stripe-card-element'>
+  <div class="mb15 mt20 vsf-stripe-container">
+    <div class="bg-cl-secondary px20 py20">
+      <form action="" id="payment-form">
+        <div class="form-row">
+          <div id="vsf-stripe-card-element">
             &nbsp;
-            <!-- A Stripe Element will be inserted here. -->
+          <!-- A Stripe Element will be inserted here. -->
           </div>
 
           <!-- Used to display Element errors. -->
-          <div id='vsf-stripe-card-errors' role='alert'>
+          <div id="vsf-stripe-card-errors" role="alert">
             &nbsp;
           </div>
         </div>
@@ -24,10 +19,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import i18n from '@vue-storefront/i18n';
 import config from 'config';
-import { adjustMultistoreApiUrl } from '@vue-storefront/core/lib/multistore';
+import axios from 'axios';
+import { currentStoreView } from '@vue-storefront/core/lib/multistore'
+
 export default {
   name: 'PaymentStripe',
   data () {
@@ -38,39 +35,30 @@ export default {
         card: null
       },
       processing: false,
-      formatedCardData: null
+      formatedCardData: null,
+      paymentIntent: {
+        id: null,
+        client_secret: null
+      }
     };
   },
   computed: {
+      ...mapGetters({
+      paymentDetails: 'checkout/getPaymentDetails',
+      cartToken: 'cart/getCartToken',
+      totals: 'cart/getTotals'
+    }),
     ...mapState({
       stripeConfig: state => state.config.stripe
     }),
+    prices () {
+      return this.totals.reduce((result, price) => {
+        result[price.code] = price.value;
+        return result;
+      }, {});
+    },
     checkout () {
       return this.$store.state.checkout;
-    },
-    clientSecret () {
-      return this.$store.state.stripe.clientSecret;
-    },
-    serverStripeError () {
-      return this.$store.state.stripe.stripeError;
-    }
-  },
-  watch: {
-    clientSecret (clientSecret) {
-      // It could be set to null
-      if (clientSecret) {
-        this.check3ds();
-      }
-    },
-    serverStripeError (serverStripeError) {
-      // It could be set to null
-      if (serverStripeError) {
-        this.onStripeCardChange({
-          error: {
-            message: serverStripeError
-          }
-        });
-      }
     }
   },
   beforeMount () {
@@ -122,20 +110,41 @@ export default {
       // Create a new Stripe client.
       this.stripe.instance = window.Stripe(this.stripeConfig.apiKey);
       // Create an instance of Elements.
-      this.stripe.elements = this.stripe.instance.elements();
+      // this.stripe.elements = this.stripe.instance.elements();
       // Create the stripe elements card
       this.createElements();
       // Add the event listeners for stripe.
       this.bindEventListeners();
     },
-    createElements () {
-      let style = this.stripeConfig.hasOwnProperty('style')
-        ? this.stripeConfig.style
-        : {};
-      // Create an instance of the card Element.
-      this.stripe.card = this.stripe.elements.create('card', { style: style });
-      // Add an instance of the card Element into the `card-element` <div>.
-      this.stripe.card.mount('#vsf-stripe-card-element');
+    async createElements () {
+      const { data: {
+        success,
+        result,
+        error
+      }
+     // } = await axios.get(`http://localhost:8081/api/ext/stripe/secret`);
+      } = await axios.get(`${config.api.url}/api/ext/stripe/secret`, {
+        params: {
+         amount: Math.round(this.prices.grand_total * 100)
+        }
+      });
+      if (success === true) {
+        this.paymentIntent = result;
+        const options = {
+          clientSecret: result.client_secret,
+          // Fully customizable with appearance API.
+          appearance: {}
+        };
+        this.stripe.elements = this.stripe.instance.elements(options);
+        const paymentElement = this.stripe.elements.create('payment');
+        paymentElement.mount('#vsf-stripe-card-element');
+      } else {
+        this.$store.dispatch('notification/spawnNotification', {
+          type: 'error',
+          message: error,
+          action1: { label: this.$t('OK') }
+        });
+      }
     },
     bindEventListeners () {
       // Handle real-time validation errors from the card Element.
@@ -161,103 +170,35 @@ export default {
       );
       // this.processing = true
       // Create payment method with Stripe
-      this.stripe.instance
-        .createPaymentMethod({
-          type: 'card',
-          card: this.stripe.card,
-          billing_details: {
-            address: {
-              city: this.checkout.paymentDetails.city,
-              country: this.checkout.paymentDetails.country,
-              line1: this.checkout.paymentDetails.streetAddress,
-              line2: this.checkout.paymentDetails.apartmentNumber,
-              postal_code: this.checkout.paymentDetails.zipCode
-            },
-            name: `${this.checkout.paymentDetails.firstName} ${this.checkout.paymentDetails.lastName}`,
-            phone: this.checkout.paymentDetails.phoneNumber,
-            email: this.checkout.personalDetails.emailAddress
-          }
+      const { storeCode } = currentStoreView()
+      const return_url = `${config.server.protocol}://${config.server.host}:${config.server.port}/${storeCode}/order-success`
+      try {
+        const { error } = await this.stripe.instance.confirmPayment({
+          elements: this.stripe.elements,
+          confirmParams: {
+            return_url
+          },
+          redirect: 'if_required'
         })
-        .then(async cardResult => {
-          if (cardResult.error) {
-            // Inform the user if there was an error.
-            let errorElement = document.getElementById(
-              'vsf-stripe-card-errors'
-            );
-            errorElement.textContent = cardResult.error.message;
-            // Stop display loader
-            this.$bus.$emit('notification-progress-stop');
-            // this.processing = false
-          } else {
-            // No needed 3ds
-            this.stripe.instance
-              .createPaymentMethod('card', this.stripe.card)
-              .then(result => {
-                if (result.error) {
-                  // Inform the user if there was an error.
-                  let errorElement = document.getElementById(
-                    'vsf-stripe-card-errors'
-                  );
-                  errorElement.textContent = result.error.message;
-                  // Stop display loader
-                  self.$bus.$emit('notification-progress-stop');
-                  this.$store.dispatch('notification/spawnNotification', {
-                    type: 'error',
-                    message: self.$t('Could not fetch client secret, sorry'),
-                    action1: { label: self.$t('OK') }
-                  });
-                  // self.processing = false
-                } else {
-                  self.formatedCardData = self.formatTokenPayload(
-                    result.paymentMethod
-                  );
-                  self.placeOrderWithPayload(self.formatedCardData);
-                }
-              });
-          }
-        });
-    },
-    placeOrderWithPayload (payload) {
-      this.$bus.$emit('checkout-do-placeOrder', payload);
-      // If it requires 3ds auth
-      // ClientSecret will appear in the vuex state
-      // Watcher will see this and run `check3ds` method
-    },
-    formatTokenPayload (token) {
-      let platform = this.stripeConfig.hasOwnProperty('backendPlatform')
-        ? this.stripeConfig.backendPlatform
-        : 'default';
-      if (platform === 'magento2') {
-        return {
-          cc_save: false,
-          cc_stripejs_token: `${token.id}:${token.card.brand}:${token.card.last4}`
-        };
-      } else {
-        return token;
+
+        if (error) {
+          // This point will only be reached if there is an immediate error when
+          // confirming the payment. Show error to your customer (for example, payment
+          // details incomplete)
+          const errorElement = document.getElementById(
+            'vsf-stripe-card-errors'
+          );
+          errorElement.textContent = error.message;
+          // Stop display loader
+          self.$bus.$emit('notification-progress-stop');
+        } else {
+          this.$bus.$emit('checkout-do-placeOrder', {
+            paymentID: this.paymentIntent.id
+          });
+        }
+      } catch (e) {
+        self.$bus.$emit('notification-progress-stop');
       }
-    },
-    check3ds () {
-      const self = this;
-      // Needed 3ds
-      return this.stripe.instance
-        .confirmCardPayment(this.clientSecret)
-        .then(threedResult => {
-          console.log('3D', threedResult);
-          // this.stripe.instance.handleCardAction
-          if (threedResult.error) {
-            // Inform the user if there was an error.
-            let errorElement = document.getElementById(
-              'vsf-stripe-card-errors'
-            );
-            errorElement.textContent = threedResult.error.message;
-            // Stop display loader
-            self.$bus.$emit('notification-progress-stop');
-            self.$store.commit('stripe/setClientSecret', null);
-            self.$store.commit('stripe/setThreeDsFailed', true);
-          } else {
-            self.placeOrderWithPayload(self.formatedCardData);
-          }
-        });
     }
   }
 };
@@ -265,8 +206,7 @@ export default {
 
 <style lang='scss' scoped>
 .vsf-stripe-container {
-  margin: 3rem 0 4rem 0;
-  width: 400px;
+  margin: 30px 0 10px 0;
   label {
     font-weight: 500;
     font-size: 14px;

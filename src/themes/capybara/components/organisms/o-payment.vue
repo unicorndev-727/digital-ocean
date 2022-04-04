@@ -7,7 +7,7 @@
     />
     <div class="form">
       <SfCheckbox
-        v-if="!isVirtualCart && locationKind === 'delivery_estimate_free'"
+        v-if="!isVirtualCart && false"
         v-model="sendToShippingAddress"
         class="form__element form__checkbox"
         name="sendToShippingAddress"
@@ -17,10 +17,10 @@
         v-model="sendToBillingAddress"
         class="form__element form__checkbox"
         name="sendToBillingAddress"
-        :label="$t('Use my billing data')"
+        :label="$t('Use different billing address')"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.firstName"
         class="form__element form__element--half"
         name="first-name"
@@ -35,7 +35,7 @@
         @blur="$v.payment.firstName.$touch()"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.lastName"
         class="form__element form__element--half form__element--half-even"
         name="last-name"
@@ -46,7 +46,7 @@
         @blur="$v.payment.lastName.$touch()"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.streetAddress"
         class="form__element"
         name="street-address"
@@ -57,7 +57,7 @@
         @blur="$v.payment.streetAddress.$touch()"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.apartmentNumber"
         class="form__element"
         name="apartment-number"
@@ -68,7 +68,7 @@
         @blur="$v.payment.apartmentNumber.$touch()"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.city"
         class="form__element form__element--half"
         name="city"
@@ -79,14 +79,14 @@
         @blur="$v.payment.city.$touch()"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.state"
         class="form__element form__element--half form__element--half-even"
         name="state"
         :label="$t('State / Province')"
       />
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.zipCode"
         class="form__element form__element--half"
         name="zipCode"
@@ -101,7 +101,7 @@
         @blur="$v.payment.zipCode.$touch()"
       />
       <SfSelect
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model="payment.country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         name="countries"
@@ -120,7 +120,7 @@
         </SfSelectOption>
       </SfSelect>
       <SfInput
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+        v-if="!sendToShippingAddress"
         v-model.trim="payment.phoneNumber"
         class="form__element"
         name="phone"
@@ -130,14 +130,13 @@
         @blur="$v.payment.phoneNumber.$touch()"
         :error-message="$t('Field is required')"
       />
-      <SfCheckbox
-        v-if="!sendToShippingAddress && !sendToBillingAddress"
+      <!-- <SfCheckbox
         v-model="generateInvoice"
         class="form__element form__checkbox"
         name="generateInvoice"
         :label="$t('I want to generate an invoice for the company')"
-      />
-      <template v-if="generateInvoice && !sendToShippingAddress && !sendToBillingAddress">
+      /> -->
+      <template v-if="generateInvoice && !sendToShippingAddress">
         <SfInput
           v-model.trim="payment.company"
           class="form__element form__element--half"
@@ -184,17 +183,16 @@
           class="form__radio payment-method"
           @input="changePaymentMethod"
         />
-      <payment-stripe v-if="payment.paymentMethod === 'stripe_payments'" />
-        <div id="checkout-order-review-additional-container">
-        </div>
+        <payment-stripe v-if="payment.paymentMethod === 'cnpayment'" />
+        <payment-checkout-com v-if="paymentDetails.paymentMethod === 'checkoutcom_card_payment'" />
       </div>
       <div class="form__action">
         <SfButton
-          class="sf-button--full-width form__action-button"
+          class="sf-button--full-width mb-btn--primary"
           :disabled="$v.payment.$invalid"
           @click="goToReviewOrder"
         >
-          {{ $t("Go review the order") }}
+          {{ $t("Place Order") }}
         </SfButton>
         <SfButton
           class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
@@ -210,12 +208,13 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { required, minLength } from 'vuelidate/lib/validators';
 import { unicodeAlpha, unicodeAlphaNum } from '@vue-storefront/core/helpers/validators';
-import { Payment } from '@vue-storefront/core/modules/checkout/components/Payment.ts';
+import { Payment } from '@vue-storefront/core/modules/checkout/components/Payment';
 import { OrderReview } from '@vue-storefront/core/modules/checkout/components/OrderReview';
 import { registerModule } from '@vue-storefront/core/lib/modules';
+import { ModalList } from 'theme/store/ui/modals';
 import { OrderModule } from '@vue-storefront/core/modules/order';
 import {
   SfInput,
@@ -227,7 +226,8 @@ import {
 } from '@storefront-ui/vue';
 import { createSmoothscroll } from 'theme/helpers';
 import PaymentStripe from 'src/modules/stripe/components/PaymentStripe';
-import MixinStripe from 'src/modules/stripe/components/MixinStripe'
+import MixinStripe from 'src/modules/stripe/components/MixinStripe';
+import PaymentCheckoutCom from 'src/modules/payment-checkout_com/components/payment-frame';
 
 export default {
   name: 'OPayment',
@@ -238,7 +238,8 @@ export default {
     SfSelect,
     SfHeading,
     SfCheckbox,
-    PaymentStripe
+    PaymentStripe,
+    PaymentCheckoutCom
   },
   mixins: [Payment, OrderReview, MixinStripe],
   validations () {
@@ -314,31 +315,67 @@ export default {
     registerModule(OrderModule);
   },
   methods: {
+        ...mapActions('ui', {
+      openModal: 'openModal'
+    }),
     async goToReviewOrder () {
+      // const stripeInstance = this.$refs.paymentStripe;
+      // const result = await stripeInstance.stripe.instance.createPaymentMethod('card', stripeInstance.stripe.card)
+      // if (result) {
+      //   if (result.error) {
+      //     // Inform the user if there was an error.
+      //     let errorElement = document.getElementById('vsf-stripe-card-errors')
+
+      //     errorElement.textContent = result.error.message
+
+      //     // Stop display loader
+      //     this.$bus.$emit('notification-progress-stop')
+      //   } else {
+      //     const token = stripeInstance.formatTokenPayload(result.paymentMethod);
+      //     this.$bus.$emit('checkout-do-placeOrder', token)
+      //   }
+      // }
       this.sendDataToCheckout();
-     let additionalMethod = {
-       paymmentID: 8838383883,
-       paymentID2: 838484884,
-        paypal_express_checkout_token: 9,
-      button: 1,
-      paypal_express_checkout_payer_id: 9,
-      paypal_express_checkout_redirect_required: "test"
-     }
-    this.$bus.$emit('checkout-do-placeOrder', additionalMethod)
-   
+      this.placeOrder();
+    },
+          openInfoModal (order) {
+      this.openModal({ name: ModalList['OmInfoModal' + order] });
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/helpers/breakpoints";
+.o-payment{
+  background: #fff;
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+  padding: 20px;
+  @include for-mobile{
+    border-radius: 0;
+  }
+}
+::v-deep .sf-select__label{
+    font-family: var(--font-family-primary);
+    font-size: 12px;
+    left: 10px;
+    padding: 5px;
+  }
+::v-deep .sf-select__selected{
+    border: 1px solid #ccc;
+    padding: 0 15px;
+    height: 54px;
+    font-size: 16px;
+    padding-top: 15px;
+    border-radius: 8px;
+  }
 .title {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
+    --heading-padding: var(--space-base) 0 var(--spacer-base) 0;
     &:last-of-type {
-      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
+      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) 0;
     }
   }
 }
@@ -362,11 +399,15 @@ export default {
       }
     }
   }
+  &__radio-group{
+    margin: 0;
+    width: 100%;
+  }
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0 var(--spacer-2xl) 0 var(--spacer-xs);
+    margin: 0 0 0 0;
     &__element {
       padding: 0 0 var(--spacer-xs) 0;
       flex: 0 0 100%;
@@ -391,6 +432,20 @@ export default {
   white-space: nowrap;
   @include for-desktop {
     --radio-container-padding: var(--spacer-sm);
+  }
+}
+::v-deep .summary__terms{
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+  .summary__terms--link{
+   padding-left: 2px;
+  }
+}
+::v-deep .form__element--half-even{
+  padding: 0 0 var(--spacer-xs) var(--spacer-xl);
+  @include for-mobile {
+    padding: 0 0 var(--spacer-xs) 0;
   }
 }
 </style>

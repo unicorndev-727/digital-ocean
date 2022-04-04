@@ -1,6 +1,6 @@
 <template>
   <div class="static-page">
-          <h1>Your {{ brand }}</h1>
+    <h1>Your {{ brand }}</h1>
     <transition-group name="fade">
       <component
         v-for="content in storyblokData.body"
@@ -38,7 +38,7 @@ export default {
       storyblokData: {}
     };
   },
-   computed: {
+  computed: {
     ...mapGetters({
       activeVehicle: 'vehicles/activeVehicle'
     }),
@@ -64,7 +64,7 @@ export default {
       return `sb-${name.replaceAll('_', '-')}`;
     }
   },
-    watch: {
+  watch: {
     $route: {
       immediate: true,
       async handler () {

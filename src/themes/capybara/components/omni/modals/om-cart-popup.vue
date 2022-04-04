@@ -2,7 +2,9 @@
   <div class="om-cart-popup">
     <SfModal :visible="isVisible" @close="closeModal" title="Added to Basket">
       <div class="om-cart-popup__content">
-        <div class="title desktop-only">Added to Basket</div>
+        <div class="title desktop-only">
+          Added to Basket
+        </div>
         <div class="product-count">
           <SfIcon
             class="icon fits-icon"
@@ -13,7 +15,9 @@
           />
           <span>{{ modalData.payload.qty }}x Added</span>
         </div>
-        <div class="product-name">{{ modalData.payload.name }}</div>
+        <div class="product-name">
+          {{ modalData.payload.name }}
+        </div>
         <div class="actions">
           <SfButton
             class="sf-button--full-width"

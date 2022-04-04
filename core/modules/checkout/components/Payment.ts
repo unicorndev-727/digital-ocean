@@ -16,11 +16,11 @@ export const Payment = {
     return {
       isFilled: false,
       countries: Countries,
-      payment: this.$store.getters["checkout/getPaymentDetails"],
+      payment: this.$store.getters['checkout/getPaymentDetails'],
       generateInvoice: false,
       sendToShippingAddress:
-        this.$store.getters["omLocator/locationKind"] ===
-        "delivery_estimate_free",
+        this.$store.getters['omLocator/locationKind'] ===
+        'delivery_estimate_free',
       sendToBillingAddress: true
     };
   },

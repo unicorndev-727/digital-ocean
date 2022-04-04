@@ -1,7 +1,7 @@
 <template>
   <div class="om-enquiry-modal">
     <SfModal :visible="isVisible" @close="$emit('close', modalData.name)">
-            <h3>Contact Us</h3>
+      <h3>Contact Us</h3>
       <OmContactForm />
     </SfModal>
   </div>

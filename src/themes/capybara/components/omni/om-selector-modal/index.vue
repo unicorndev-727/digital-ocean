@@ -10,8 +10,8 @@
               </p>
               <NewVehicle
                 ref="newVehicle"
-                :enableManuelSelector="false"
-                :successAction="true"
+                :enable-manuel-selector="false"
+                :success-action="true"
                 @close="closeModal"
                 @toggleErrorFlag="toggleErrorFlag"
               />

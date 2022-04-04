@@ -31,16 +31,16 @@
         @clickPartSvg="saveClickedSvgID"
       />
     </OmPanZoom>
-  <div @click="toggleFullImage" v-if="!isJpgRender && isFit" class="fitting-position">
-    <span>See Fitting Position</span>
-    <SfIcon
-      v-if="!isJpgRender && isFit"
-      :icon="buttonIcon"
-      size="lg"
-      color="black"
-      role="button"
-      class="button"
-       />
+    <div @click="toggleFullImage" v-if="!isJpgRender && isFit" class="fitting-position">
+      <span>See Fitting Position</span>
+      <SfIcon
+        v-if="!isJpgRender && isFit"
+        :icon="buttonIcon"
+        size="lg"
+        color="black"
+        role="button"
+        class="button"
+      />
     </div>
   </div>
 </template>

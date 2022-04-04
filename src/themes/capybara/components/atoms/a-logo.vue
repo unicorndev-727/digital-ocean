@@ -21,7 +21,7 @@
       />
     </div>
   </router-link>
-    <router-link
+  <router-link
     :to="localizedRoute('/')"
     :title="$t('Home Page')"
     class="a-logo--left"
@@ -40,7 +40,7 @@
         :alt="$t(defaultTitle)"
         class="sf-header__logo--left"
       />
-    <span :class="['a-logo--left__copy', menuStyle]">Ocean Group<br>MINI</span>
+      <span :class="['a-logo--left__copy', menuStyle]">Ocean Group<br>MINI</span>
     </div>
   </router-link>
 </template>
@@ -62,7 +62,7 @@ export default {
     defaultTitle () {
       return get(storeView, 'seo.defaultTitle', config.seo.defaultTitle);
     },
-        storeId () {
+    storeId () {
       return currentStoreView().storeId;
     },
     logoLight () {

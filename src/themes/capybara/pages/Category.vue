@@ -152,7 +152,7 @@
                     :dom-id="product.id"
                   />
                 </template>
-                     <template v-if="!product.price.regular && !product.price.special" #price>
+                <template v-if="!product.price.regular && !product.price.special" #price>
                   <b :style="{color: 'black'}">Not Available Online</b>
                 </template>
               </SfProductCard>
@@ -604,14 +604,12 @@ export default {
       openVehicleCart: 'ui/toggleSidebar',
       openModal: 'ui/openModal'
     }),
-        title (filterType) {
+    title (filterType) {
       if (filterType === 'right_left_filter') {
         return 'Fitting Position (R / L)';
-      }
-      else if (filterType === 'price_filter') {
+      } else if (filterType === 'price_filter') {
         return 'Price';
-      }
-        else if (filterType === 'size_filter') {
+      } else if (filterType === 'size_filter') {
         return 'Size';
       } else return filterType;
     },

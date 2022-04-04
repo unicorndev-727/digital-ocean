@@ -2,10 +2,10 @@ import { isServer } from '@vue-storefront/core/helpers'
 import { currentStoreView } from '@vue-storefront/core/lib/multistore'
 
 declare global {
-  interface Window { paypalScriptLoaded: Boolean; }
+  interface Window { paypalScriptLoaded: boolean }
 }
 
-export function beforeRegistration(config, store) {
+export function beforeRegistration (config, store) {
   if (!isServer && config.hasOwnProperty('paypal') && config.paypal.addJsToGlobalHead && !window.paypalScriptLoaded) {
     const storeView = currentStoreView()
     // const { currencyCode } = storeView.i18n

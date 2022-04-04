@@ -3,9 +3,9 @@
     <div class="detailed-cart">
       <div v-if="totalItems" class="detailed-cart__aside">
         <OOrderSummary />
-          <SfButton class="om-btn--primary checkout--btn" @click="goToCheckout">
-      Go to checkout
-    </SfButton>
+        <SfButton class="om-btn--primary checkout--btn" @click="goToCheckout">
+          Go to checkout
+        </SfButton>
       </div>
       <div class="detailed-cart__main">
         <transition name="sf-fade" mode="out-in">
@@ -195,7 +195,7 @@ export default {
         0
       );
     },
-        missingVin () {
+    missingVin () {
       let flag = false;
       this.productsInCart.map(product => {
         if (product.fitVehicles) {
@@ -209,7 +209,7 @@ export default {
     }
   },
   methods: {
-        ...mapActions('ui', {
+    ...mapActions('ui', {
       openModal: 'openModal'
     }),
     getThumbnailForProductExtend (product) {

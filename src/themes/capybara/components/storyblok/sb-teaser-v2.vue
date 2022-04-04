@@ -33,35 +33,34 @@ export default {
   components: {
     SfImage
   },
-data () {
-
-return {
-title: 'The Ocean BMW Shop',
-description: 'Buy the Parts and Accessories you need from the comfort of your own home.',
-steps: [
-{
-icon: 'recycle',
-title: 'Choose Your Model',
-description: 'Simply enter your registration or choose your model from our model selector.'
-},
-{
-icon: 'speedometer',
-title: 'Browse',
-description: 'Use our intuitive visual parts finder to simply select the Part you need from your vehicle diagram or browse our categories to find the Accessory for you.'
-},
-{
-icon: 'recycle',
-title: 'Trust',
-description: 'By supplying your vehicle details, our expert Parts team will check that the item you have ordered fits your vehicle before dispatch.'
-},
-{
-icon: 'speedometer',
-title: 'Delivery',
-description: 'Receive your item, whether it’s a floor mat or a brake disc, in the post so it can be installed on your car.'
-}
-]
-}
-},
+  data () {
+    return {
+      title: 'The Ocean BMW Shop',
+      description: 'Buy the Parts and Accessories you need from the comfort of your own home.',
+      steps: [
+        {
+          icon: 'recycle',
+          title: 'Choose Your Model',
+          description: 'Simply enter your registration or choose your model from our model selector.'
+        },
+        {
+          icon: 'speedometer',
+          title: 'Browse',
+          description: 'Use our intuitive visual parts finder to simply select the Part you need from your vehicle diagram or browse our categories to find the Accessory for you.'
+        },
+        {
+          icon: 'recycle',
+          title: 'Trust',
+          description: 'By supplying your vehicle details, our expert Parts team will check that the item you have ordered fits your vehicle before dispatch.'
+        },
+        {
+          icon: 'speedometer',
+          title: 'Delivery',
+          description: 'Receive your item, whether it’s a floor mat or a brake disc, in the post so it can be installed on your car.'
+        }
+      ]
+    }
+  },
   methods: {
     getIcon (name) {
       const images = require.context('../../assets/icons/', false, /\.png$/)

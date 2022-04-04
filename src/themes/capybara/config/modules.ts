@@ -34,7 +34,6 @@ export function registerClientModules () {
   registerModule(NewsletterModule)
   // registerModule(Braintree)
   registerModule(LexascmsModule);
-
 }
 
 // Deprecated API, will be removed in 2.0

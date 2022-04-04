@@ -24,10 +24,10 @@
                 {{ slide.Sub_title }}
               </div>
               <router-link :to="slide.link.url">
-              <SfButton class="sf-button--full-width om-btn--primary">
-                Shop Now
-              </SfButton>
-                </router-link>
+                <SfButton class="sf-button--full-width om-btn--primary">
+                  Shop Now
+                </SfButton>
+              </router-link>
             </div>
           </div>
           <div class="car-explorer__mobile mobile-only">
@@ -38,9 +38,9 @@
               {{ slide.Sub_title }}
             </div>
             <router-link :to="slide.link.url">
-            <SfButton class="sf-button--full-width om-btn--primary">
-              Shop Now
-            </SfButton>
+              <SfButton class="sf-button--full-width om-btn--primary">
+                Shop Now
+              </SfButton>
             </router-link>
           </div>
         </div>

@@ -7,25 +7,27 @@
       </div>
       <div class="right-content">
         <div v-if="isModelSet" class="model-details">
-      <div class="vehicle-details__with-reg" v-if="getModelReg">
-      <input disabled :value="getModelReg">
-      <div class="reg-label">
-        <svg data-v-6f0354be="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="inline-icon inline-icon--medium"><g data-v-6f0354be=""><circle data-v-6f0354be="" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2.0027,2.0027" cx="24" cy="13.8" r="12.8" /></g> <g data-v-6f0354be=""><path data-v-6f0354be="" fill="#fff" d="M11,41.1c0-4.2,3.2-6.9,7.1-6.9c2.7,0,4.5,1.4,5.5,3l-2.3,1.3c-0.6-0.9-1.8-1.7-3.1-1.7   c-2.4,0-4.2,1.8-4.2,4.4s1.7,4.4,4.2,4.4c1.2,0,2.3-0.5,2.8-1v-1.6h-3.5v-2.5h6.3v5.1C22.4,47,20.5,48,18.1,48   C14.2,48,11,45.3,11,41.1z" /> <path data-v-6f0354be="" fill="#fff" d="M25.9,47.8V34.5h7c2.5,0,3.8,1.6,3.8,3.4c0,1.7-1,2.8-2.3,3c1.4,0.2,2.5,1.6,2.5,3.2c0,2-1.3,3.6-3.9,3.6   H25.9z M33.9,38.4c0-0.8-0.6-1.4-1.6-1.4h-3.5v2.8h3.5C33.3,39.8,33.9,39.2,33.9,38.4z M34.1,43.8c0-0.8-0.6-1.5-1.7-1.5h-3.7v3   h3.7C33.5,45.3,34.1,44.7,34.1,43.8z" /></g>
-        </svg>
-      </div>
-           </div>
-            <p v-else class="model-details__name">{{ getModelName }} {{ getModelYear }}</p>
+          <div class="vehicle-details__with-reg" v-if="getModelReg">
+            <input disabled :value="getModelReg">
+            <div class="reg-label">
+              <svg data-v-6f0354be="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="inline-icon inline-icon--medium"><g data-v-6f0354be=""><circle data-v-6f0354be="" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2.0027,2.0027" cx="24" cy="13.8" r="12.8" /></g> <g data-v-6f0354be=""><path data-v-6f0354be="" fill="#fff" d="M11,41.1c0-4.2,3.2-6.9,7.1-6.9c2.7,0,4.5,1.4,5.5,3l-2.3,1.3c-0.6-0.9-1.8-1.7-3.1-1.7   c-2.4,0-4.2,1.8-4.2,4.4s1.7,4.4,4.2,4.4c1.2,0,2.3-0.5,2.8-1v-1.6h-3.5v-2.5h6.3v5.1C22.4,47,20.5,48,18.1,48   C14.2,48,11,45.3,11,41.1z" /> <path data-v-6f0354be="" fill="#fff" d="M25.9,47.8V34.5h7c2.5,0,3.8,1.6,3.8,3.4c0,1.7-1,2.8-2.3,3c1.4,0.2,2.5,1.6,2.5,3.2c0,2-1.3,3.6-3.9,3.6   H25.9z M33.9,38.4c0-0.8-0.6-1.4-1.6-1.4h-3.5v2.8h3.5C33.3,39.8,33.9,39.2,33.9,38.4z M34.1,43.8c0-0.8-0.6-1.5-1.7-1.5h-3.7v3   h3.7C33.5,45.3,34.1,44.7,34.1,43.8z" /></g>
+              </svg>
+            </div>
           </div>
-               <NewVehicle
-                v-else
-                ref="newVehicle"
-                :enableManuelSelector="false"
-                :successAction="true"
-                @close="closeModal"
-                @toggleErrorFlag="toggleErrorFlag"
-              />
+          <p v-else class="model-details__name">
+            {{ getModelName }} {{ getModelYear }}
+          </p>
+        </div>
+        <NewVehicle
+          v-else
+          ref="newVehicle"
+          :enable-manuel-selector="false"
+          :success-action="true"
+          @close="closeModal"
+          @toggleErrorFlag="toggleErrorFlag"
+        />
         <SfButton class="om-btn--secondary finder-button" @click="onClick">
-        {{ isModelSet ? 'Add New Vehicle' :  'Or find your vehicle manually' }}
+          {{ isModelSet ? 'Add New Vehicle' : 'Or find your vehicle manually' }}
         </SfButton>
       </div>
     </div>
@@ -57,12 +59,12 @@ export default {
       return `${this.activeVehicle?.Model || 'Select your Vehicle to find accessories'}`
     },
     getModelName () {
-      return `${this.activeVehicle.Model }`;
+      return `${this.activeVehicle.Model}`;
     },
     getModelReg () {
       return `${this.activeVehicle.VRN || ''}`;
     },
-     getModelYear () {
+    getModelYear () {
       return `${this.activeVehicle.Year || ''}`;
     },
     isModelSet () {

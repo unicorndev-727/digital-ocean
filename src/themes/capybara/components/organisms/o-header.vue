@@ -36,7 +36,7 @@
       <template #header-icons>
         <div class="sf-header__icons">
           <OmMobileTools class="sf-header__action" :menu-style="navigationItemColors" />
-           <OmSearchIcon class="sf-header__action" :menu-style="navigationItemColors" />
+          <OmSearchIcon class="sf-header__action" :menu-style="navigationItemColors" />
           <OmVehicleIcon class="sf-header__action desktop-only" :menu-style="navigationItemColors" />
           <AAccountIcon class="sf-header__action desktop-only" :menu-style="navigationItemColors" />
           <AMicrocartIcon class="sf-header__action" :menu-style="navigationItemColors" />
@@ -152,7 +152,7 @@ export default {
         ? this.getCurrentCategory.path.startsWith(category.path)
         : false;
     },
-     goToSearch () {
+    goToSearch () {
       this.$store.commit('ui/closeMenu')
 
       this.$store.commit('ui/setSearchpanel', !this.isSearchPanelVisible)
@@ -219,7 +219,6 @@ export default {
     }
   }
   .search-container {
-
 
     .o-search {
       flex-grow: 1;

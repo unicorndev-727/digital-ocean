@@ -2,10 +2,10 @@
   <div class="om-card">
     <SfImage :src="info.imgUrl" loading="lazy" class="image" :alt="info.text" />
     <div class="om-card--body">
-    <h4>{{ info.title }}</h4>
-    <p class="copy">
-      {{ info.text }}
-    </p>
+      <h4>{{ info.title }}</h4>
+      <p class="copy">
+        {{ info.text }}
+      </p>
     </div>
   </div>
 </template>

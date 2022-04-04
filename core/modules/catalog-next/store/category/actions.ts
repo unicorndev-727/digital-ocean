@@ -25,8 +25,8 @@ import { transformCategoryUrl } from '@vue-storefront/core/modules/url/helpers/t
 import { ProductService } from '@vue-storefront/core/data-resolver/ProductService';
 import { filter } from 'vue/types/umd';
 import {
-  currentStoreView,
-} from "@vue-storefront/core/lib/multistore";
+  currentStoreView
+} from '@vue-storefront/core/lib/multistore';
 
 const actions: ActionTree<CategoryState, RootState> = {
   async loadCategoryProducts (

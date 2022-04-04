@@ -1,55 +1,59 @@
 <template>
   <footer class="o-footer">
-   <div class="mb-container">
-     <div class="mb-footer__information-bar">
-       <ul class="information-card">
-        <li class="information-card__item">
-          <a @click="openContactModal">
-            Contact Us
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
-          </a>
-         </li>
-         <li class="information-card__item">
+    <div class="mb-container">
+      <div class="mb-footer__information-bar">
+        <ul class="information-card">
+          <li class="information-card__item">
+            <a @click="openContactModal">
+              Contact Us
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z" /></svg>
+            </a>
+          </li>
+          <li class="information-card__item">
             <a @click="openInfoModal('modal-faq')">
               FAQ's
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z" /></svg>
             </a>
-         </li>
+          </li>
           <li class="information-card__item">
-          <a @click="openInfoModal('modal-delivery')">
+            <a @click="openInfoModal('modal-delivery')">
               Delivery Information
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z" /></svg>
             </a>
-         </li>
+          </li>
           <li class="information-card__item">
             <a @click="openInfoModal('modal-returns')">
               Returns Information
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-tile__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z" /></svg>
             </a>
-         </li>
-       </ul>
-     </div>
-   </div>
-   <div class="mb-footer__to-top">
-      <div class="mb-container to-top__container">
-       <div @click="backToTop" class="back-to-top">
-         <p>To Top</p>
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-breadcrumb-link-up__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z"></path></svg>
-         </div>
+          </li>
+        </ul>
       </div>
-   </div>
-      <div class="mb-container mb-footer__terms">
-       <div class="mb-footer__terms--left">
-         <ul class="terms-links">
-           <li class="terms-links__item"><a @click="openInfoModal('modal-privacy')">Privacy Policy</a></li>
-           <li class="terms-links__item"><a @click="openInfoModal('modal-terms')">Terms of Sale</a></li>
-         </ul>
-       </div>
-       <div class="mb-footer__terms--right">
-         <p>©️ Ocean Group 2022. All rights reserved.</p>
+    </div>
+    <div class="mb-footer__to-top">
+      <div class="mb-container to-top__container">
+        <div @click="backToTop" class="back-to-top">
+          <p>To Top</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 33.5" aria-hidden="true" class="dcp-frame-footer-breadcrumb-link-up__icon"><path d="M0 0h5.163l14.829 16.81L5.343 33.5H.12l12.848-16.69z" /></svg>
+        </div>
+      </div>
+    </div>
+    <div class="mb-container mb-footer__terms">
+      <div class="mb-footer__terms--left">
+        <ul class="terms-links">
+          <li class="terms-links__item">
+            <a @click="openInfoModal('modal-privacy')">Privacy Policy</a>
+          </li>
+          <li class="terms-links__item">
+            <a @click="openInfoModal('modal-terms')">Terms of Sale</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mb-footer__terms--right">
+        <p>©️ Ocean Group 2022. All rights reserved.</p>
         <p>Ocean GROUP St Modwen House Longbridge Road Plymouth PL6 8LD</p>
       </div>
-   </div>
+    </div>
   </footer>
 </template>
 
@@ -136,14 +140,14 @@ export default {
     showLanguageSwitcher () {
       this.openModal({ name: ModalList.LanguageSwitcher })
     },
-       openInfoModal (contentKey) {
+    openInfoModal (contentKey) {
       this.openModal({ name: ModalList['OmInfoModal'],
         payload: {
           contentKey
         }
       });
     },
-      openContactModal () {
+    openContactModal () {
       this.openModal({ name: ModalList['OmContactModal'] });
     }
   }

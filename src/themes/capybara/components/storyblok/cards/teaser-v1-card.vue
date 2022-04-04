@@ -1,9 +1,9 @@
 <template>
   <div class="om-card">
-     <router-link :to="info.link">
-    <SfImage :src="info.imgUrl" loading="lazy" class="image" :alt="info.text" />
-    <h1>{{ info.title }}</h1>
-     </router-link>
+    <router-link :to="info.link">
+      <SfImage :src="info.imgUrl" loading="lazy" class="image" :alt="info.text" />
+      <h1>{{ info.title }}</h1>
+    </router-link>
   </div>
 </template>
 

@@ -147,12 +147,11 @@ export default {
       this.$forceUpdate()
     },
     async onAfterPlaceOrder (payload) {
-      const storeView = currentStoreView();
       this.confirmation = payload.confirmation
       this.$store.dispatch('checkout/setThankYouPage', true)
       this.$store.dispatch('user/getOrdersHistory', { refresh: true, useCache: true })
       Logger.debug(payload.order)()
-      localStorage.removeItem(storeView.code + '/fitting-products')
+      localStorage.removeItem('fitting-products')
     },
     onBeforeEdit (section) {
       this.activateSection(section)
