@@ -23,9 +23,9 @@
               <div class="description">
                 {{ slide.Sub_title }}
               </div>
-              <router-link :to="slide.link.url">
+              <router-link v-if="slide.link.url" :to="slide.link.url">
                 <SfButton class="sf-button--full-width om-btn--primary">
-                  Shop Now
+                  {{ slide.cta_title }}
                 </SfButton>
               </router-link>
             </div>
@@ -37,9 +37,9 @@
             <div class="description">
               {{ slide.Sub_title }}
             </div>
-            <router-link :to="slide.link.url">
+            <router-link v-if="slide.link.url" :to="slide.link.url">
               <SfButton class="sf-button--full-width om-btn--primary">
-                Shop Now
+                {{ slide.cta_title }}
               </SfButton>
             </router-link>
           </div>
@@ -58,7 +58,7 @@
       </div>
       <div v-if="slideItems.length > 1" class="swiper-pagination" slot="pagination" />
     </swiper>
-    <div class="autoplay">
+    <div v-if="slideItems.length > 1" class="autoplay">
       <transition name="fade">
         <span v-if="!autoplayStatus" class="autoplay-play">
           <svg @click="resumeAutoPlay" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50" style=" fill:#ffffff;">
@@ -141,7 +141,7 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         speed: 500,
-        loop: true
+        loop: false
       },
       autoplayStatus: true
     };

@@ -49,7 +49,7 @@ export function getProductPrice (product, customOptions = {}, fittingPrice = 0) 
   );
 
   const special =
-           (priceInclTax + priceDelta) * product.qty || priceInclTax;
+           (priceInclTax + product.finalPriceTax || product.final_price_tax + priceDelta) * product.qty || priceInclTax;
   const original =
            (originalPriceInclTax + priceDelta) * product.qty ||
            originalPriceInclTax;

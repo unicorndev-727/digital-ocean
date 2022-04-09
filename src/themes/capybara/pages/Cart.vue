@@ -216,9 +216,7 @@ export default {
       return getThumbnailForProduct(product);
     },
     getProductPrice (product) {
-      return onlineHelper.isOnline && product.totals && product.totals.options
-        ? getProductPriceFromTotals(product)
-        : getProductPrice(product);
+      return onlineHelper.isOnline && product.totals && getProductPrice(product);
     },
     getProductOptions (product) {
       return onlineHelper.isOnline && product.totals && product.totals.options
