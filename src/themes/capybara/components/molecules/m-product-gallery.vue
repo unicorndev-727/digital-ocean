@@ -150,13 +150,9 @@ export default {
     buttonIcon () {
       return this.isFullImage ? 'arrow_left' : 'arrow_right'
     },
-    isJpgRender () {
-      const productLabel = this.currentProduct.product_group
-      if (productLabel === 'Accessories') {
-        return true;
-      } else {
-        return false;
-      }
+    isJpgRender (imageCode) {
+      if (imageCode) return false
+      else return true;
     }
   },
   data () {

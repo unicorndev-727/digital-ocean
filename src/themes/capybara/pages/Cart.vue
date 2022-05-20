@@ -256,7 +256,8 @@ export default {
       this.$bus.$emit('cart-fitment-item-changed');
     },
     isJpgRender (product) {
-      if (product.product_group === 'Accessories') return true;
+      if (product.main_image) return false
+      else return true;
     },
     getImage (product) {
       if (product.groupedParents && product.groupedParents.length) {

@@ -765,7 +765,8 @@ export default {
         : this.getCurrentCategory.path.startsWith(category.path);
     },
     isJpgRender (product) {
-      if (product.product_group === 'Accessories') return true;
+      if (product.main_image) return false
+      else return true;
     },
     getImageId (imageCode) {
       if (imageCode) {

@@ -251,13 +251,9 @@ export default {
 
       return false;
     },
-    isJpgRender () {
-      const productLabel = this.product.product_group
-      if (productLabel === 'Accessories') {
-        return true;
-      } else {
-        return false;
-      }
+    isJpgRender (product) {
+      if (product.main_image) return false
+      else return true;
     },
     vehicleInfo () {
       return this?.activeVehicle
