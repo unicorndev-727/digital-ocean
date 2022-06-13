@@ -1,10 +1,10 @@
 <template>
   <div class="om-selector-modal">
-    <SfModal :visible="isVisible" @close="closeModal">
+    <SfModal v-if="selfVisible" :visible="isVisible" @close="closeModal">
       <transition name="fade" mode="out-in">
         <div class="om-selector-modal__wrapper">
           <div class="om-selector-modal__header">
-            <div v-show="!newVinError" class="new-vin-wrapper">
+            <div v-show="!newVinError && !modalData.payload.hideRegistrationInput" class="new-vin-wrapper">
               <p class="subtitle-bold">
                 Enter Your Registration
               </p>
@@ -16,7 +16,7 @@
                 @toggleErrorFlag="toggleErrorFlag"
               />
             </div>
-            <div v-show="newVinError" class="new-vin-wrapper__error">
+            <div v-show="newVinError && !modalData.payload.hideRegistrationInput" class="new-vin-wrapper__error">
               <p>We could not find your vehicle</p>
               <p>{{ getVrm() }}</p>
               <p>Please select it below</p>
@@ -32,7 +32,7 @@
                   :steps="steps"
                   @change="changeStep"
                 >
-                  <SfStep v-for="step in steps" :key="step" :name="step" />
+                  <SfStep v-for="(step, index) in steps" :key="`step-${index}`" :name="step" />
                 </SfSteps>
               </template>
             </SfBar>
@@ -40,12 +40,12 @@
           <div class="om-selector-modal__content">
             <SfLoader v-if="loading" :loading="loading" />
             <div v-if="!loading && loadingError">
-              Not connecting ES
+              {{ errorMessage }}
             </div>
             <div v-if="!loading && !loadingError">
               <div
-                v-for="item in currentItems"
-                :key="item.label"
+                v-for="(item, index) in currentItems"
+                :key="index"
                 class="om-selector-modal__content-item"
                 @click="onSelectVehicle(item.label)"
               >
@@ -69,6 +69,7 @@ import config from 'config';
 import axios from 'axios';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 import { mapActions } from 'vuex';
+import { ModalList } from "theme/store/ui/modals";
 
 export default {
   name: 'OmSelectorModal',
@@ -92,11 +93,18 @@ export default {
         payload: {
           hasError: false,
           regCode: '',
-          successAction: false
+          successAction: false,
+          preData: {},
+          hideRegistrationInput: false
         },
         name: 'modal'
       }),
       required: true
+    }
+  },
+  computed: {
+    showBrand () {
+      return this.steps.includes('Brand');
     }
   },
   data () {
@@ -117,116 +125,126 @@ export default {
       loading: false,
       loadingError: false,
       newVinError: false,
-      models: [],
-      years: []
+      errorMessage: 'Not connecting ES',
+      brands: [],
+      selfVisible: true
     };
   },
   methods: {
     ...mapActions({
-      toggleSidebar: 'ui/toggleSidebar'
+      toggleSidebar: 'ui/toggleSidebar',
+      close: "ui/closeModal",
     }),
     async onSelectVehicle (label) {
-      const storeview = currentStoreView();
       this.searchPattern = [...this.searchPattern, label];
-      if (this.currentStep === 0) {
-        this.currentItems = this.normalizationData(this.years, 1);
-      } else if (this.currentStep === 1) {
-        this.loading = true;
-        const {
-          data: { result, success }
-        } = await axios.post(`${config.api.url}/api/vehicle/models-` + storeview.storeId, {
-          Model: this.searchPattern[0],
-          Year: this.searchPattern[1]
-        });
-        this.loading = false;
-
-        if (success) {
-          this.esItems = result.map(item => item._source);
-          const currentStepItems = this.esItems.reduce((result, item) => {
-            const existItem = result.find(i => i[this.steps[2]] === item[this.steps[2]])
-            if (!existItem) {
-              result = [...result, item];
-            }
-            return result;
-          }, []);
-
-          this.currentItems = this.normalizationData(currentStepItems, 2);
-        } else {
-          this.loadingError = true;
-        }
-      } else {
-        this.currentItemsBySearchPattern(this.currentStep + 1);
-      }
-
-      if (this.searchPattern.length === this.steps.length) {
-        let finalProduct = this.esItems.find(item => {
-          return this.searchPattern.every((pattern, index) => {
-            if (index === 1) {
-              return true;
-            }
-            return Object.values(item).indexOf(pattern) >= 0;
-          });
-        });
-        finalProduct = Object.assign({}, { ...finalProduct, Year: this.searchPattern[1], National_Code: finalProduct['National_code'] });
-        ['YearStart', 'YearEnd', 'ProdStart', 'ProEnd', 'National_code'].map(key => {
-          delete finalProduct[key];
-        });
-
-        await this.$store.dispatch('vehicles/saveVehicles', finalProduct);
-        await this.$store.dispatch('vehicles/saveActiveVehicle', finalProduct);
+      if (this.searchPattern.length >= this.steps.length) { // TODO: get all hits instead of aggs
+        const result = await this.fetchDataFromES(false, true);
+        await this.$store.dispatch('vehicles/saveVehicles', result);
+        await this.$store.dispatch('vehicles/saveActiveVehicle', result);
         if (this.modalData?.payload.successAction) {
           this.toggleSidebar({ type: 'vehiclecart' });
         }
         this.closeModal();
-        this.currentItems = this.normalizationData(this.models, 0);
-        this.searchPattern = [];
-        this.currentStep = 0;
+        await this.setup();
       } else {
+        await this.fetchDataFromES();
         this.currentStep++;
       }
     },
-    changeStep (nextStep) {
+    async changeStep (nextStep) {
       if (nextStep < this.currentStep) {
         this.searchPattern = this.searchPattern.slice(0, nextStep);
-        if (nextStep === 0) {
-          this.currentItems = this.normalizationData(this.models, 0);
-        } else if (nextStep === 1) {
-          this.currentItems = this.normalizationData(this.years, 1);
-        } else {
-          this.currentItemsBySearchPattern(nextStep);
-        }
         this.currentStep = nextStep;
+        if (nextStep === 0) {
+          await this.setup(true);
+        } else {
+          await this.fetchDataFromES(true);
+        }
       }
     },
     normalizationData (items, level) {
-      return items.map(item => ({
-        label: item[this.steps[level]],
-        image: ''
-      }))
-    },
-    currentItemsBySearchPattern (step) {
-      const currentStepItems = this.esItems.reduce((result, item) => {
-        const isMatched = this.searchPattern.every((pattern, index) => {
-          if (index === 1) {
-            return true;
-          }
-          return Object.values(item).indexOf(pattern) >= 0;
-        });
-
-        if (isMatched) {
-          const existItem = result.find(i => i[this.steps[step]] === item[this.steps[step]]);
-          if (!existItem) {
-            result = [...result, item];
-          }
+      return items.filter(item => item !== '-').map(item => {
+        return this.showBrand && level === 0 ? {
+          label: item.label,
+          image: ''
+        } : {
+          label: item,
+          image: ''
         }
+      })
+    },
+    async fetchDataFromES (isBackStep = false, isLastStep = false) {
+      this.loading = true;
+      let selectedBrand = null; let payload = {}; let esQueryField = null;
+      if (!isLastStep) {
+        if (isBackStep) {
+          esQueryField = this.steps[this.currentStep].toLowerCase();
+        } else {
+          esQueryField = this.steps[this.currentStep + 1].toLowerCase();
+        }
+      }
+      if (this.showBrand) {
+        selectedBrand = this.brands.find(brand => brand.label === this.searchPattern[0])
+        if (!selectedBrand) {
+          this.currentStep = 0;
+          this.errorMessage = 'No matched brand';
+          this.loadingError = true;
+          this.loading = false;
+          this.currentItems = [];
+          this.searchPattern = [];
+          return;
+        }
+        this.searchPattern.map((value, index) => {
+          if (this.steps[index] === 'Brand') {
+            payload['Brand'] = selectedBrand;
+          } else {
+            payload[this.steps[index]] = value;
+          }
+        })
+      } else {
+        selectedBrand = this.brands[0];
+        if (this.searchPattern.length && this.brands.length > 1 && selectedBrand.label !== this.searchPattern[0]) {
+          this.currentStep = 0;
+          this.errorMessage = 'No matched brand';
+          this.loadingError = true;
+          this.loading = false;
+          this.currentItems = [];
+          this.searchPattern = [];
+          return;
+        }
+        payload['Brand'] = selectedBrand;
+        this.searchPattern.map((value, index) => {
+          payload[this.steps[index]] = value;
+        })
+      }
 
-        return result;
-      }, []);
+      if (!isLastStep) {
+        const { data: { success, result } } = await axios.post(`${config.api.url}/api/vehicle/models/${esQueryField}`, payload);
+        if (success) {
+          this.esItems = result;
+          this.currentItems = this.normalizationData(this.esItems, this.currentStep + 1);
+        } else {
+          this.loadingError = true;
+        }
+      } else {
+        const { data: { success, result } } = await axios.post(`${config.api.url}/api/vehicle/vehicle-selector/national-code`, payload);
+        if (success) {
+          this.loading = false;
+          return result;
+        } else {
+          this.loadingError = true;
+          return null;
+        }
+      }
 
-      this.currentItems = this.normalizationData(currentStepItems, step)
+      this.loading = false;
     },
     closeModal () {
-      this.$emit('close', this.modalData.name);
+      // this.selfVisible = false;
+      // this.$emit('close', this.modalData.name);
+      this.close({
+        name: ModalList.OmSelectorModal
+      })
     },
     toggleErrorFlag (flag) {
       this.newVinError = flag;
@@ -237,26 +255,71 @@ export default {
       } else {
         return this.$refs['newVehicle'] ? this.$refs['newVehicle'].vrm : '';
       }
+    },
+    async setup (fromStepper = false) {
+      const { preData } = this.modalData.payload;
+      this.searchPattern = [];
+      this.currentStep = 0;
+      this.loading = false;
+      const storeview = currentStoreView();
+      this.brands = config['brands'][`store-${storeview.storeId}`];
+      if (!this.steps.includes('Brand') && this.brands.length !== 1) {
+        this.steps = ['Brand', ...this.steps];
+      }
+
+      const { query } = this.$route;
+      if (fromStepper || (!query?.vehiclebrand && !preData?.brand)) {
+        if (this.brands.length === 1) {
+          this.currentStep = -1;
+          await this.fetchDataFromES();
+          this.currentStep = 0;
+        } else {
+          this.currentItems = this.normalizationData(this.brands, 0);
+        }
+      } else {
+        const brand = query?.vehiclebrand || preData?.brand;
+        const model = query?.vehiclemodel || preData?.model;
+        if (brand) {
+          if (model) {
+            if (this.brands.length > 1) {
+              this.searchPattern = [brand, model, ...this.searchPattern];
+              this.currentStep = 1;
+              await this.fetchDataFromES();
+              if (!this.loadingError) {
+                this.currentStep = 2;
+              }
+            } else {
+              this.searchPattern = [model, ...this.searchPattern];
+              this.currentStep = 0;
+              await this.fetchDataFromES();
+              if (!this.loadingError) {
+                this.currentStep = 1;
+              }
+            }
+            
+          } else {
+            this.searchPattern = [brand, ...this.searchPattern];
+            this.currentStep = 0;
+            await this.fetchDataFromES();
+            if (!this.loadingError) {
+              this.currentStep = 1;
+            }
+          }
+        }
+      }
+
+      this.newVinError = this.modalData.payload.hasError;
     }
   },
   watch: {
-    isVisible (val) {
+    async isVisible (val) {
       if (val) {
-        this.newVinError = this.modalData.payload.hasError;
+        await this.setup();
       }
     }
   },
-  async mounted () {
-    const storeview = currentStoreView();
-    let fileName = 'year_' + storeview.storeId + '.json';
-    const allYears = await import(`theme/resource/vehicle-models/${fileName}`).then(module => module.default);
-    this.years = allYears.sort((a, b) => Number(b['Year']) - Number(a['Year']));
-
-    fileName = 'model_' + storeview.storeId + '.json';
-    this.models = await import(`theme/resource/vehicle-models/${fileName}`).then(module => module.default);
-
-    this.currentItems = this.normalizationData(this.models, 0);
-    this.newVinError = this.modalData.payload.hasError;
+  async created () {
+    await this.setup();
   }
 };
 </script>
@@ -342,7 +405,7 @@ export default {
       align-items: center;
       border-bottom: 1px solid #ccc;
       padding: 15px;
-      i{
+      i {
         font-size: 30px;
       }
 

@@ -1074,6 +1074,24 @@
       "hidePostalCode": true
     }
   },
+  "brands": {
+    "store-2": [
+      {
+        "label": "BMW",
+        "type": "10",
+        "code": "6552",
+        "brand_vrn": "BMW"
+      }
+    ],
+    "store-3": [
+      {
+        "label": "MINI",
+        "type": "10",
+        "code": "8989",
+        "brand_vrn": "MINI"
+      }
+    ]
+  },
   "paypal": {
     "clientId": "AaJ3Cn5PT2UMpkniXbSjkK-bheiWRZjysThZocrbbabkRFqzR51MN83n6zyFtVEIoLgTMhEu4pNpuGOh",
     "disabledMethods": ["giropay", "sofort", "card", "credit", "mybank", "sepa"], 
