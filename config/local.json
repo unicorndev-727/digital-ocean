@@ -223,7 +223,7 @@
         "fullCountryName": "UK",
         "fullLanguageName": "UK",
         "defaultLanguage": "EN",
-        "defaultCountry": "US",
+        "defaultCountry": "GB",
         "defaultLocale": "en-US",
         "currencyCode": "£",
         "currencySign": "£",
@@ -253,7 +253,7 @@
         "fullCountryName": "UK",
         "fullLanguageName": "UK",
         "defaultLanguage": "EN",
-        "defaultCountry": "US",
+        "defaultCountry": "GB",
         "defaultLocale": "en-US",
         "currencyCode": "£",
         "currencySign": "£",
@@ -919,7 +919,7 @@
     "disablePersistentTaskQueue": true
   },
   "i18n": {
-    "defaultCountry": "US",
+    "defaultCountry": "GB",
     "defaultLanguage": "EN",
     "availableLocale": [
       "en-US"
@@ -932,7 +932,7 @@
     "fractionDigits": 2,
     "priceFormat": "{sign}{amount}",
     "dateFormat": "HH:mm D/M/YYYY",
-    "fullCountryName": "United States",
+    "fullCountryName": "United Kingdom",
     "fullLanguageName": "English",
     "bundleAllStoreviewLanguages": false
   },
