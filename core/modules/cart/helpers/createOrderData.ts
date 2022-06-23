@@ -33,23 +33,26 @@ const createOrderData = ({
     country,
     shippingAddress: {
       email: personalDetails.emailAddress,
-      firstname: shippingDetails.firstName,
-      lastname: shippingDetails.lastName,
+      firstname: personalDetails.firstName,
+      lastname: personalDetails.lastName,
       city: shippingDetails.city,
       postcode: shippingDetails.zipCode,
-      street: [shippingDetails.streetAddress]
+      street: [shippingDetails.streetAddress],
+      telephone: personalDetails.telephone,
     },
     billingAddress: {
+      email: personalDetails.emailAddress,
       firstname: paymentDetails.firstName,
       lastname: paymentDetails.lastName,
       city: paymentDetails.city,
       postcode: paymentDetails.zipCode,
       street: [paymentDetails.streetAddress],
-      countryId: paymentDetails.country
+      countryId: paymentDetails.country,
+      telephone: personalDetails.telephone,
     },
-    method_code: shipping && shipping.method_code ? shipping.method_code : null,
+    method_code: shippingDetails && shippingDetails.shippingMethod ? shippingDetails.shippingMethod : shipping.method_code,
     carrier_code:
-      shipping && shipping.carrier_code ? shipping.carrier_code : null,
+    shippingDetails && shippingDetails.shippingMethod ? shippingDetails.shippingMethod : shipping.carrier_code,
     payment_method: payment && payment.code ? payment.code : null
   };
 }

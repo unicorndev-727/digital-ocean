@@ -1,24 +1,6 @@
 <template>
   <div class="o-personal-details">
-    <SfHeading
-      :title="`1. ${$t('How Would You Like to Recieve Your Order?')}`"
-      :level="2"
-      class="sf-heading--left sf-heading--no-underline"
-    />
-    <OmLocator />
-    <div v-if="!currentUser" class="log-in desktop-only">
-      <SfButton class="log-in__button color-secondary" @click="login">
-        {{ $t('Log in to your account') }}
-      </SfButton>
-      <p class="log-in__info">
-        {{ $t('or fill the details below') }}:
-      </p>
-    </div>
-    <SfHeading
-      :title="`2. ${$t('Details')}`"
-      :level="2"
-      class="sf-heading--left sf-heading--no-underline"
-    />
+    <!-- <OmLocator /> -->
     <div class="form">
       <SfInput
         v-model.trim="personalDetails.firstName"
@@ -58,88 +40,32 @@
         "
         @blur="$v.personalDetails.emailAddress.$touch()"
       />
-      <template v-if="!currentUser">
-        <div class="form__element">
-          <SfCheckbox
-            v-model="createAccount"
-            :label="$t('I want to create an account')"
-            class="form__checkbox"
-            name="createAccount"
-          />
-        </div>
-        <template v-if="createAccount">
-          <SfInput
-            v-model="password"
-            type="password"
-            class="form__element"
-            name="password"
-            :has-show-password="true"
-            :label="$t('Password')"
-            :required="true"
-            :valid="!$v.password.$error"
-            :error-message="
-              !$v.password.required
-                ? $t('Field is required')
-                : !$v.password.minLength
-                  ? $t('Password must have at least 8 letters.')
-                  : $t(
-                    'Password must contain at least 3 different character classes: lower case, upper case, digits, special characters.'
-                  )
-            "
-            @blur="$v.password.$touch()"
-          />
-          <SfInput
-            v-model="rPassword"
-            type="password"
-            class="form__element"
-            name="password-confirm"
-            :has-show-password="true"
-            :label="$t('Repeat password')"
-            :required="true"
-            :valid="!$v.rPassword.$error"
-            :error-message="
-              !$v.rPassword.required
-                ? $t('Field is required')
-                : $t('Passwords must be identical.')
-            "
-            @blur="$v.rPassword.$touch()"
-          />
-          <div class="form__element form__group">
-            <SfCheckbox
-              v-model="acceptConditions"
-              class="form__element form__checkbox"
-              name="acceptConditions"
-              :required="true"
-              @blur="$v.acceptConditions.$touch()"
-            >
-              <template #label>
-                <span class="sf-checkbox__label no-flex">
-                  {{ $t("I accept ") }}
-                </span>
-                <SfButton class="sf-button sf-button--text terms" @click.prevent="openTermsAndConditionsModal">
-                  {{ $t("Terms and conditions") }}
-                </SfButton>
-              </template>
-            </SfCheckbox>
-          </div>
-        </template>
-      </template>
+      <SfInput
+        v-model.trim="personalDetails.telephone"
+        class="form__element"
+        valid-color="#D3D3D3"
+        error-color="red"
+        name="tele-phone"
+        :label="$t('Telephone')"
+        :required="true"
+        :valid="!$v.personalDetails.telephone.$error"
+        :error-message="
+          !$v.personalDetails.telephone.required
+            ? $t('Field is required')
+            : $t('Please provide valid telephone address.')
+        "
+        @update="updatePhoneNumber"
+        @blur="$v.personalDetails.telephone.$touch()"
+      />
       <div class="form__action">
         <SfButton
-          class="sf-button--full-width form__action-button"
-          :disabled="createAccount ? $v.$invalid : $v.personalDetails.$invalid"
+          class="sf-button--full-width om-btn--primary"
+          :disabled=" (locationKind === '' || (locationKind === 'click_collect_free' && !activeLocation.id) ? true : createAccount ? $v.$invalid : $v.personalDetails.$invalid)"
           @click="goToShipping"
         >
           {{
-            $t(isVirtualCart ? "Continue to payment" : "Continue to shipping")
+            $t(isVirtualCart || locationKind === 'click_collect_free' ? "Continue to payment" : "Continue to shipping")
           }}
-        </SfButton>
-        <SfButton
-          v-if="!currentUser"
-          class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary mobile-only"
-          @click="login"
-        >
-          {{ $t("or login to your account") }}
         </SfButton>
       </div>
     </div>
@@ -152,6 +78,7 @@ import { SfInput, SfButton, SfHeading, SfCheckbox, SfCharacteristic } from '@sto
 import { ModalList } from 'theme/store/ui/modals'
 import { mapActions, mapGetters } from 'vuex';
 import OmLocator from 'theme/components/omni/om-locator';
+import config from 'config';
 
 export default {
   name: 'OPersonalDetails',
@@ -166,8 +93,17 @@ export default {
   mixins: [PersonalDetails],
   computed: {
     ...mapGetters({
-      location: 'omLocator/location'
+      location: 'omLocator/location',
+      activeLocation: 'omLocator/activeLocation',
+      locationKind: 'omLocator/locationKind',
+      isVirtualCart: 'cart/isVirtualCart',
     })
+  },
+  props: {
+    nextAccordion: {
+      type: Function,
+      default: (Number) => {}
+    }
   },
   data () {
     return {
@@ -188,7 +124,9 @@ export default {
           description: this.$t('Manage your wishlist'),
           icon: 'heart'
         }
-      ]
+      ],
+      defaultCountry: config.tax.defaultCountry,
+      isValid: false
     };
   },
   validations: {
@@ -203,6 +141,12 @@ export default {
       emailAddress: {
         required,
         email
+      },
+      telephone: {
+        required,
+        complex: value => {
+          return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value)
+        }
       }
     },
     password: {
@@ -239,9 +183,17 @@ export default {
     openTermsAndConditionsModal () {
       this.openModal({ name: ModalList.TermsAndConditions })
     },
-    async goToShipping () {
+    async goToShipping () { 
+      this.nextAccordion(0);
       this.sendDataToCheckout();
+      await this.$store.dispatch('cart/pullMethods', { forceServerSync: true })
+    },
+    updatePhoneNumber (data) {
+      this.isValid = data.isValid;
     }
+  },
+  mounted () {
+    console.log(config, 'config')
   }
 };
 </script>
@@ -292,6 +244,7 @@ export default {
   }
 }
 .form {
+  margin: 0 !important;
   &__checkbox {
     margin: var(--spacer-base) 0;
   }

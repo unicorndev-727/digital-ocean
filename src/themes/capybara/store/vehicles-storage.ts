@@ -1,5 +1,6 @@
 // import { vehiclesStore } from './vehicles';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
+
 export const VEHICLE_DATA_KEY = 'vehicles';
 
 export const asyncLocalStorage = {
@@ -27,6 +28,149 @@ export const availableLocalStorage = async () => {
     return false;
   }
 };
+
+export const saveLocationKind = async data => {
+  try {
+    const storeView = currentStoreView();
+    await asyncLocalStorage?.setItem(
+      storeView.storeCode + '/locationKind',
+      JSON.stringify(data)
+    );
+  } catch (e) {
+    console.log('localStorage error----', e)
+  }
+};
+
+export const getLocationKind = async () => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+    if (existLocalStorage) {
+      const location = await asyncLocalStorage?.getItem(
+        storeView.storeCode + '/locationKind'
+      );
+      return location ? JSON.parse(location) : null;
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
+
+export const saveStepData = async data => {
+  try {
+    const storeView = currentStoreView();
+    await asyncLocalStorage?.setItem(
+      storeView.storeCode + '/step',
+      JSON.stringify(data)
+    );
+  } catch (e) {
+    console.log('localStorage error----', e)
+  }
+};
+
+export const loadStepData = async () => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+    if (existLocalStorage) {
+      const location = await asyncLocalStorage?.getItem(
+        storeView.storeCode + '/step'
+      );
+      return location ? JSON.parse(location) : -1;
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
+
+export const saveCompleteData = async data => {
+  try {
+    const storeView = currentStoreView();
+    await asyncLocalStorage?.setItem(
+      storeView.storeCode + '/isComplete',
+      JSON.stringify(data)
+    );
+  } catch (e) {
+    console.log('localStorage error----', e)
+  }
+};
+
+export const loadCompleteData = async () => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+    if (existLocalStorage) {
+      const location = await asyncLocalStorage?.getItem(
+        storeView.storeCode + '/isComplete'
+      );
+      return location ? JSON.parse(location) : {
+        order: false,
+        address: false,
+        payment: false
+      };
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
+
+export const saveOpensData = async data => {
+  try {
+    const storeView = currentStoreView();
+    await asyncLocalStorage?.setItem(
+      storeView.storeCode + '/opens',
+      JSON.stringify(data)
+    );
+  } catch (e) {
+    console.log('localStorage error----', e)
+  }
+};
+
+export const loadOpensData = async () => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+    if (existLocalStorage) {
+      const location = await asyncLocalStorage?.getItem(
+        storeView.storeCode + '/opens'
+      );
+      return location ? JSON.parse(location) : ['order'];
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
+
+export const saveActiveLocation = async data => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+    if (existLocalStorage) {
+      asyncLocalStorage?.removeItem(storeView.storeCode + '/active-location');
+      asyncLocalStorage?.setItem(
+        storeView.storeCode + '/active-location',
+        JSON.stringify(data)
+      );
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
+
+export const getActiveLocation = async () => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+    if (existLocalStorage) {
+      const location = await asyncLocalStorage?.getItem(
+        storeView.storeCode + '/active-location'
+      );
+      return location ? JSON.parse(location) : {};
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
 
 export const saveVehicles = async data => {
   try {
@@ -79,37 +223,6 @@ export const saveActiveVehicle = async data => {
     console.log('localStorage error----', e);
   }
 };
-
-export const saveLocation = async data => {
-  try {
-    const existLocalStorage = await availableLocalStorage();
-    const storeView = currentStoreView();
-    if (existLocalStorage) {
-      asyncLocalStorage?.removeItem(storeView.storeCode + '/location');
-      asyncLocalStorage?.setItem(
-        storeView.storeCode + '/location',
-        JSON.stringify(data)
-      );
-    }
-  } catch (e) {
-    console.log('localStorage error----', e);
-  }
-}
-
-export const getLocation = async () => {
-  try {
-    const existLocalStorage = await availableLocalStorage();
-    const storeView = currentStoreView();
-    if (existLocalStorage) {
-      const location = await asyncLocalStorage?.getItem(
-        storeView.storeCode + '/active-vehicle'
-      );
-      return location ? JSON.parse(location) : {};
-    }
-  } catch (e) {
-    console.log('localStorage error----', e);
-  }
-}
 
 export const clearVehicles = async () => {
   try {
@@ -189,7 +302,7 @@ export const setRecentViewed = async sku => {
     if (existLocalStorage) {
       const recentViewed = await getRecentViewed();
       if (recentViewed.length > 16) recentViewed.pop();
-      await asyncLocalStorage?.setItem(
+      asyncLocalStorage?.setItem(
         storeView.storeCode + '/recent-viewed',
         JSON.stringify([...new Set([sku, ...recentViewed])])
       );
@@ -222,13 +335,46 @@ export const setFittingProducts = async payload => {
 
     if (existLocalStorage) {
       const fittingProducts = await getFittingProducts();
-      await asyncLocalStorage?.setItem(
+      asyncLocalStorage?.setItem(
         storeView.storeCode + '/fitting-products',
         JSON.stringify([payload, ...fittingProducts])
       );
     }
   } catch (e) {
     console.log('localStorage error----', e);
+  }
+}
+
+export const setSkippedVinCheckProducts = async productSku => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+
+    if (existLocalStorage) {
+      const productsSkus = await getSkippedVinCheckProducts();
+      asyncLocalStorage?.setItem(
+        storeView.storeCode + '/skipped-vin-check-products',
+        JSON.stringify([...new Set([...productsSkus, productSku])])
+      );
+    }
+  } catch (e) {
+    console.log('localStorage error----', e);
+  }
+}
+
+export const getSkippedVinCheckProducts = async () => {
+  try {
+    const existLocalStorage = await availableLocalStorage();
+    const storeView = currentStoreView();
+
+    if (existLocalStorage) {
+      const result = await asyncLocalStorage?.getItem(
+        storeView.storeCode + '/skipped-vin-check-products'
+      );
+      return result ? JSON.parse(result) : [];
+    }
+  } catch (e) {
+    console.log('localStorage error ---', e);
   }
 }
 
@@ -279,7 +425,6 @@ export const getFittingProducts = async () => {
       const result = await asyncLocalStorage?.getItem(
         storeView.storeCode + '/fitting-products'
       );
-
       return result ? JSON.parse(result) : [];
     }
   } catch (e) {

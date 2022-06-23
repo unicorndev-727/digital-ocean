@@ -16,9 +16,52 @@ export const vehiclesStore = {
     svgEventName: '',
     criterias: [],
     stripeToken: null,
-    showSetPrompt: false
+    showSetPrompt: false,
+    currentProductVinCapability: null,
+    isComplete: {
+      order: false,
+      address: false,
+      payment: false
+    },
+    opens: ['order'],
+    step: -1,
+    qty: 1,
+    backFlag: false,
   },
   actions: {
+    async resetCheckoutStep({commit, dispatch}) {
+      dispatch('saveStep', -1);
+      dispatch('saveOpens', ['order']);
+      dispatch('saveCompete', {
+        order: false,
+        address: false,
+        payment: false
+      });
+    },
+    async saveStep ({ commit }, step) {
+      await VehicleStorage.saveStepData(step);
+      commit('setStep', step);
+    },
+    async fetchStep ({ commit }) {
+      let complete = await VehicleStorage.loadStepData(); console.log(complete, 'step')
+      commit('setStep', complete);
+    },
+    async saveCompete ({ commit }, complete) {
+      await VehicleStorage.saveCompleteData(complete);
+      commit('setComplete', complete);
+    },
+    async fetchComplete ({ commit }) {
+      let complete = await VehicleStorage.loadCompleteData();
+      commit('setComplete', complete);
+    },
+    async saveOpens ({ commit }, opens) {
+      await VehicleStorage.saveOpensData(opens);
+      commit('setOpens', opens);
+    },
+    async fetchOpens ({ commit }) {
+      let opens = await VehicleStorage.loadOpensData();
+      commit('setOpens', opens);
+    },
     async fetchVehicles ({ commit }) {
       const result = await VehicleStorage.getSavedVehiclesData();
 
@@ -64,6 +107,23 @@ export const vehiclesStore = {
     }
   },
   mutations: {
+    setBackFlag (state, value) {
+      state.backFlag = value;
+    },
+    setQTY (state, qty) {
+      state.qty = qty;
+    },
+    setStep (state, step) {
+      state.step = step;
+    },
+    setOpens (state, opens) {
+      state.opens = opens;
+      // Vue.set(state, 'opens', opens);
+    },
+    setComplete (state, completes) {
+      state.isComplete = { ...completes };
+      // Vue.set(state, 'isComplete', completes);
+    },
     addNewSvg (state, svg) {
       const { key, value } = svg;
       const stateSvgInstance = Object.assign({}, state.svgs);
@@ -112,11 +172,29 @@ export const vehiclesStore = {
     setStripeToken (state, payload) {
       Vue.set(state, 'stripeToken', payload);
     },
+    setVinCapability (state, status) {
+      Vue.set(state, 'currentProductVinCapability', status);
+    },
     toggleSetPrompt (state, payload) {
       Vue.set(state, 'showSetPrompt', payload);
     }
   },
   getters: {
+    getBackFlag: (state)  => {
+      return state.backFlag;
+    },
+    getQTY: (state) => {
+      return state.qty;
+    },
+    isCompleteData: (state) => {
+      return state.isComplete;
+    },
+    opensData: (state) => {
+      return state.opens;
+    },
+    stepData: (state) => {
+      return state.step;
+    },
     getAttributeIdByLabel: (state, getters, rootState, rootGetters) => (
       attributeCode,
       attributeLabel
@@ -220,6 +298,12 @@ export const vehiclesStore = {
     },
     getStripeToken: state => {
       return state.stripeToken;
+    },
+    currentProductVinCapability: state => {
+      return state.currentProductVinCapability;
+    },
+    location: state => {
+      return state.location;
     }
   }
 };

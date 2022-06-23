@@ -1,11 +1,7 @@
 <template>
   <div class="o-shipping">
-    <SfHeading
-      :title="`3. ${$t('Shipping')}`"
-      :level="2"
-      class="sf-heading--left sf-heading--no-underline"
-    />
-    <div class="form">
+    <OmLocator />
+    <div class="form" v-show="locationKind !== 'click_collect_free'">
       <SfCheckbox
         v-if="currentUser && hasShippingDetails()"
         v-model="shipToMyAddress"
@@ -13,7 +9,7 @@
         name="shipToMyAddress"
         :label="$t('Ship to my default address')"
       />
-      <SfInput
+      <!-- <SfInput
         v-model.trim="shipping.firstName"
         class="form__element form__element--half"
         name="first-name"
@@ -36,17 +32,7 @@
         :valid="!$v.shipping.lastName.$error"
         :error-message="$t('Field is required')"
         @blur="$v.shipping.lastName.$touch()"
-      />
-      <SfInput
-        v-model.trim="shipping.apartmentNumber"
-        class="form__element"
-        name="apartment-number"
-        required
-        :label="$t('House/Apartment number')"
-        :valid="!$v.shipping.apartmentNumber.$error"
-        :error-message="$t('Field is required')"
-        @blur="$v.shipping.apartmentNumber.$touch()"
-      />
+      /> -->
       <SfInput
         v-model.trim="shipping.streetAddress"
         class="form__element"
@@ -56,6 +42,12 @@
         :valid="!$v.shipping.streetAddress.$error"
         :error-message="$t('Field is required')"
         @blur="$v.shipping.streetAddress.$touch()"
+      />
+      <SfInput
+        v-model.trim="shipping.apartmentNumber"
+        class="form__element"
+        name="apartment-number"
+        :label="$t('Address line 2')"
       />
       <SfInput
         v-model.trim="shipping.city"
@@ -96,6 +88,7 @@
         :valid="!$v.shipping.country.$error"
         :error-message="$t('Field is required')"
         @change="changeCountry"
+        @blur="$v.shipping.country.$touch()"
       >
         <SfSelectOption
           v-for="country in countries"
@@ -105,7 +98,7 @@
           {{ country.name }}
         </SfSelectOption>
       </SfSelect>
-      <SfInput
+      <!-- <SfInput
         v-model.trim="shipping.phoneNumber"
         class="form__element"
         name="phone"
@@ -114,47 +107,16 @@
         :valid="!$v.shipping.phoneNumber.$error"
         @blur="$v.shipping.phoneNumber.$touch()"
         :error-message="$t('Field is required')"
-      />
+      /> -->
     </div>
-    <SfHeading
-      :title="$t('Shipping method')"
-      :level="4"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
     <div class="form">
-      <div class="form__radio-group">
-        <SfRadio
-          v-for="method in shippingMethods"
-          :key="method.method_code"
-          v-model="shipping.shippingMethod"
-          :value="method.method_code"
-          name="shipping-method"
-          class="form__radio shipping"
-          @input="changeShippingMethod()"
-        >
-          <template #label>
-            <div class="sf-radio__label shipping__label">
-              <div>{{ method.method_title }}</div>
-              <div class="shipping__label-price">
-                {{ method.amount | price }}
-              </div>
-            </div>
-          </template>
-        </SfRadio>
-      </div>
       <div class="form__action">
         <SfButton
-          class="sf-button--full-width form__action-button"
-          :disabled="$v.shipping.$invalid || !shippingMethods.length"
-          @click="sendDataToCheckout"
+          class="om-button wide btn"
+          :disabled="(($v.shipping.$invalid || !shippingMethods.length) && locationKind !== 'click_collect_free') || (locationKind === 'click_collect_free' && !activeLocation.id)"
+          @click="clickContinuePayment"
         >
           {{ $t("Continue to payment") }}
-        </SfButton>
-        <SfButton
-          class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
-          @click="$bus.$emit('checkout-before-edit', 'personalDetails')"
-        >
-          {{ $t("Edit Details") }}
         </SfButton>
       </div>
     </div>
@@ -173,6 +135,8 @@ import {
   SfCheckbox
 } from '@storefront-ui/vue';
 import { createSmoothscroll } from 'theme/helpers';
+import OmLocator from 'theme/components/omni/om-locator';
+
 export default {
   name: 'OShipping',
   components: {
@@ -181,28 +145,26 @@ export default {
     SfButton,
     SfSelect,
     SfHeading,
-    SfCheckbox
+    SfCheckbox,
+    OmLocator
   },
   mixins: [Shipping],
   validations: {
     shipping: {
-      firstName: {
+      // firstName: {
+      //   required,
+      //   minLength: minLength(2),
+      //   unicodeAlpha
+      // },
+      // lastName: {
+      //   required,
+      //   unicodeAlpha
+      // },
+      country: {
         required,
         minLength: minLength(2),
-        unicodeAlpha
-      },
-      lastName: {
-        required,
-        unicodeAlpha
-      },
-      country: {
-        required
       },
       streetAddress: {
-        required,
-        unicodeAlphaNum
-      },
-      apartmentNumber: {
         required,
         unicodeAlphaNum
       },
@@ -215,13 +177,46 @@ export default {
         required,
         unicodeAlpha
       },
-      phoneNumber: {
-        required
-      }
+      // phoneNumber: {
+      //   required
+      // }
+    }
+  },
+  props: {
+    nextAccordion: {
+      type: Function,
+      default: (Number) => {}
     }
   },
   mounted () {
-    createSmoothscroll(document.documentElement.scrollTop || document.body.scrollTop, 0);
+    // createSmoothscroll(document.documentElement.scrollTop || document.body.scrollTop, 0);
+  },
+  methods: {
+    async clickContinuePayment () {
+      this.nextAccordion(1);
+      // if (!this.getPaymentDetails?.firstName || !this.getPaymentDetails?.lastName) {
+      if (this.locationKind === 'delivery_estimate_free')
+        this.$store.dispatch('checkout/savePaymentDetails', {
+          apartmentNumber: this.shipping.apartmentNumber,
+          city: this.shipping.city,
+          company: this.shipping.company,
+          country: this.shipping.country,
+          firstName: this.personalDetails.firstName,
+          lastName: this.personalDetails.lastName,
+          paymentMethod: 'cnpayment',
+          phoneNumber: this.personalDetails.telephone,
+          state: this.shipping.state,
+          streetAddress: this.shipping.streetAddress,
+          taxId: '',
+          zipCode: this.shipping.zipCode
+        });
+      // } else {
+
+      // }
+      this.sendShippingDataToCheckout();
+      // if (this.locationKind === 'click_collect_free')
+      await this.$store.dispatch('cart/pullMethods', { forceServerSync: true })
+    }
   }
 };
 </script>
@@ -258,6 +253,7 @@ export default {
   }
   &__radio-group {
     flex: 0 0 100%;
+    margin: auto !important;
   }
   @include for-desktop {
     display: flex;
@@ -265,7 +261,7 @@ export default {
     align-items: center;
     margin: 0;
     &:last-of-type {
-      margin: 0 calc(var(--spacer-2xl) - var(--spacer-sm)) 0 0;
+      margin: 0;
     }
     &__element {
       margin: 0 0 var(--spacer-sm) 0;
@@ -291,11 +287,8 @@ export default {
   @include for-mobile {
     &__radio-group {
       position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      width: 100vw;
+      left: 0;
+      right: 0;
     }
   }
 }
@@ -350,4 +343,52 @@ export default {
    z-index: 2;
   }
 }
+::v-deep .sf-select__options {
+  overflow-y: auto;
+}
+::v-deep #sfSelect {
+  padding-top: var(--spacer-lg);
+}
+.manual-selector{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  .dropdown-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 20px 0;
+    width: 100%;
+    .sf-select {
+      width: 50%;
+    }
+  }
+}
+.vehicle-select {
+    /* Reset */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+
+    display: block;
+    width: 100%;
+    height: 54px;
+    float: right;
+    padding: 0px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    -ms-word-break: normal;
+    word-break: normal;
+    margin-bottom: 15px;
+    /* Remove IE arrow */
+    &::-ms-expand {
+      display: none;
+    }
+  }
 </style>

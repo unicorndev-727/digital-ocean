@@ -22,12 +22,25 @@ export default {
       return `${get(this.$route, 'meta.layout', 'default')}-layout`
     }
   },
-  async mounted () {
+  async beforeMount () {
+    const storeId = currentStoreView().storeId
+    document.documentElement.classList.add('theme-' + storeId);
     await this.$store.dispatch('vehicles/fetchVehicles')
     await this.$store.dispatch('vehicles/fetchActiveVehicle')
     await this.$store.dispatch('vehicles/fetchStoryblok')
+    await this.$store.dispatch('vehicles/fetchComplete')
+    await this.$store.dispatch('vehicles/fetchOpens')
+    await this.$store.dispatch('vehicles/fetchStep')
+  },
+  async mounted () {
     const storeId = currentStoreView().storeId
     document.documentElement.classList.add('theme-' + storeId);
+    await this.$store.dispatch('vehicles/fetchVehicles')
+    await this.$store.dispatch('vehicles/fetchActiveVehicle')
+    await this.$store.dispatch('vehicles/fetchStoryblok')
+    await this.$store.dispatch('vehicles/fetchComplete')
+    await this.$store.dispatch('vehicles/fetchOpens')
+    await this.$store.dispatch('vehicles/fetchStep')
   }
 };
 </script>

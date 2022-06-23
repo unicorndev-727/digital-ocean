@@ -18,11 +18,9 @@ export const Payment = {
       countries: Countries,
       payment: this.$store.getters['checkout/getPaymentDetails'],
       generateInvoice: false,
-      sendToShippingAddress:
-        this.$store.getters['omLocator/locationKind'] ===
-        'delivery_estimate_free',
-      sendToBillingAddress: true
-    };
+      sendToShippingAddress: false,
+      sendToBillingAddress: false
+    }
   },
   computed: {
     ...mapState({
@@ -32,8 +30,8 @@ export const Payment = {
     ...mapGetters({
       paymentMethods: 'checkout/getPaymentMethods',
       paymentDetails: 'checkout/getPaymentDetails',
-      isVirtualCart: 'cart/isVirtualCart',
-      locationKind: 'omLocator/locationKind'
+      isVirtualCart: 'cart/isVirtualCart',      
+      locationKind: 'omLocator/locationKind',
     })
   },
   created () {
@@ -45,20 +43,29 @@ export const Payment = {
     this.$bus.$on('checkout-after-load', this.onCheckoutLoad)
   },
   mounted () {
-    this.copyShippingToBillingAddress();
-    if (this.payment.company) {
-      this.generateInvoice = true
+    if (this.payment.firstName) {
+      this.initializeBillingAddress()
+    } else {
+      if (this.payment.company) {
+        this.generateInvoice = true
+      }
     }
     this.changePaymentMethod()
+    // this.copyShippingToBillingAddress()
   },
   beforeDestroy () {
     this.$bus.$off('checkout-after-load', this.onCheckoutLoad)
   },
   watch: {
+    locationKind(value) {
+      if (value === 'click_collect_free') {
+        this.sendToBillingAddress = true;
+      }
+    },
     shippingDetails: {
       handler () {
-        if (this.sendToShippingAddress) {
-          this.copyShippingToBillingAddress()
+        if (this.sendToShippingAddress ) {
+          // this.copyShippingToBillingAddress()
         }
       },
       deep: true
@@ -69,28 +76,8 @@ export const Payment = {
       }
     },
     sendToBillingAddress: {
-      handler (value) {
-        if (value) {
-          this.copyShippingToBillingAddress();
-        } else {
-          this.initializeBillingAddress();
-          // this.payment = {
-          //   firstName: "",
-          //   lastName: "",
-          //   company: "",
-          //   country: "",
-          //   state: "",
-          //   city: "",
-          //   streetAddress: "",
-          //   apartmentNumber: "",
-          //   postcode: "",
-          //   zipCode: "",
-          //   phoneNumber: "",
-          //   taxId: "",
-          //   paymentMethod:
-          //     this.paymentMethods.length > 0 ? this.paymentMethods[0].code : ""
-          // };
-        }
+      handler () {
+        this.useBillingAddress()
       }
     },
     generateInvoice: {
@@ -102,6 +89,9 @@ export const Payment = {
       handler: debounce(function () {
         this.changePaymentMethod()
       }, 500)
+    },
+    paymentDetails (value) {
+      this.payment = value;
     }
   },
   methods: {
@@ -144,6 +134,7 @@ export const Payment = {
                 phoneNumber: addresses[i].telephone,
                 paymentMethod: this.paymentMethods[0].code
               }
+              console.log(this.payment, 'billing payment');
               this.generateInvoice = true
               this.sendToBillingAddress = true
               initialized = true
@@ -194,7 +185,7 @@ export const Payment = {
       }
     },
     useBillingAddress () {
-      if (this.sendToBillingAddress && this.currentUser && this.currentUser.default_billing) {
+      if (this.sendToBillingAddress && this.currentUser?.default_billing) {
         let id = this.currentUser.default_billing
         let addresses = this.currentUser.addresses
         for (let i = 0; i < addresses.length; i++) {
@@ -269,7 +260,7 @@ export const Payment = {
       }
     },
     changeCountry () {
-      this.$store.dispatch('checkout/updatePaymentDetails', { country: this.payment.country })
+      this.$store.dispatch('checkout/updatePaymentDetails', this.payment)
       this.$store.dispatch('cart/syncPaymentMethods', { forceServerSync: true })
     },
     onCheckoutLoad () {

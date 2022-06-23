@@ -3,7 +3,7 @@ import { currentStoreView } from '@vue-storefront/core/lib/multistore'
 import { Logger } from '@vue-storefront/core/lib/logger'
 import EventBus from '@vue-storefront/core/compatibility/plugins/event-bus'
 import { CartService } from '@vue-storefront/core/data-resolver'
-import { preparePaymentMethodsToSync, createOrderData, createShippingInfoData } from '@vue-storefront/core/modules/cart/helpers'
+import { preparePaymentMethodsToSync, createOrderData, createShippingInfoData, prepareShippingInfoForUpdateTotals } from '@vue-storefront/core/modules/cart/helpers'
 import PaymentMethod from '../../types/PaymentMethod'
 
 const methodsActions = {
@@ -24,7 +24,7 @@ const methodsActions = {
       commit(types.CART_UPD_PAYMENT, rootGetters['checkout/getDefaultPaymentMethod'])
     }
   },
-  async syncPaymentMethods ({ getters, rootGetters, dispatch }, { forceServerSync = false }) {
+  async syncPaymentMethods ({ getters, rootGetters, dispatch, commit }, { forceServerSync = false }) {
     if (getters.canUpdateMethods && (getters.isTotalsSyncRequired || forceServerSync)) {
       Logger.debug('Refreshing payment methods', 'cart')()
       let backendPaymentMethods: PaymentMethod[]
@@ -42,6 +42,20 @@ const methodsActions = {
 
         if (shippingMethodsData.country) {
           const { result } = await CartService.setShippingInfo(createShippingInfoData(shippingMethodsData))
+          
+          const totals = result.totals || result
+          Logger.info('Overriding server totals. ', 'cart', totals)()
+          const itemsAfterTotal = prepareShippingInfoForUpdateTotals(totals.items)
+
+          for (let key of Object.keys(itemsAfterTotal)) {
+            const item = itemsAfterTotal[key]
+            const product = { server_item_id: item.item_id, totals: item, qty: item.qty }
+            await dispatch('updateItem', { product })
+          }
+
+          commit(types.CART_UPD_TOTALS, { itemsAfterTotal, totals, platformTotalSegments: totals.total_segments })
+          commit(types.CART_SET_TOTALS_SYNC)
+
           backendPaymentMethods = result.payment_methods || []
         }
       }
