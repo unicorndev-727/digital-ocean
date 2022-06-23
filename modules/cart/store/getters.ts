@@ -6,7 +6,6 @@ import AppliedCoupon from '../types/AppliedCoupon'
 import { onlineHelper, isServer, calcItemsHmac } from '@vue-storefront/core/helpers'
 import { calculateTotals } from '@vue-storefront/core/modules/cart/helpers'
 import config from 'config'
-import { TAX_UPDATE_RULES } from 'core/modules/catalog/store/tax/mutation-types'
 
 const getters: GetterTree<CartState, RootState> = {
   getCartToken: state => state.cartServerToken,
@@ -40,7 +39,8 @@ const getters: GetterTree<CartState, RootState> = {
   getShippingMethodCode: state => state.shipping && state.shipping.method_code,
   getPaymentMethodCode: state => state.payment && state.payment.code,
   getIsAdding: state => state.isAddingToCart,
-  getIsMicroCartOpen: state => state.isMicrocartOpen
+  getIsMicroCartOpen: state => state.isMicrocartOpen,
+  getUpdatedCartItem: state => state.updatedCartItem
 
 }
 

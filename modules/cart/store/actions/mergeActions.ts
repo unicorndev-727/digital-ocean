@@ -56,6 +56,10 @@ const mergeActions = {
     Logger.debug('Cart item server sync' + event, 'cart')()
     diffLog.pushServerResponse({ status: event.resultCode, sku: clientItem.sku, result: event })
 
+    if (wasUpdatedSuccessfully) {
+      commit(types.CART_UPDATED_ITEM, event.result);
+    }
+
     if (!wasUpdatedSuccessfully && !serverItem) {
       commit(types.CART_DEL_ITEM, { product: clientItem, removeByParentSku: false })
       return diffLog
