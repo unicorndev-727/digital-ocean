@@ -98,6 +98,7 @@ export default {
       qty: 'vehicles/getQTY',
       cartToken: 'cart/getCartToken',
       updatedCartItem: 'cart/getUpdatedCartItem',
+      token: 'user/getToken',
     }),
   },
   methods: {
@@ -137,7 +138,7 @@ export default {
               message: this.vin
             }
           };
-          const result = await axios({method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}`, headers: {}, data: body});
+          const result = await axios({method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}&token=${this.token}`, headers: {}, data: body});
         }
 
       this.openModal({

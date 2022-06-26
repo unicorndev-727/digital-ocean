@@ -45,7 +45,8 @@ export default {
       productVinCapability: 'vehicles/currentProductVinCapability',
       cartToken: 'cart/getCartToken',
       updatedCartItem: 'cart/getUpdatedCartItem',
-      product: 'product/getCurrentProduct'
+      product: 'product/getCurrentProduct',
+      token: 'user/getToken'
     }),
     isProductDisabled () {
       return (
@@ -149,7 +150,7 @@ export default {
                 VRN: this.activeVehicle.VRN || this.activeVehicle.vrn,
               }
             };
-            const result = await axios({method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}`, headers: {}, data: body});
+            const result = await axios({method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}&token=${this.token}`, headers: {}, data: body});
 
           }
 
