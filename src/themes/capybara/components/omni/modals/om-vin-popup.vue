@@ -135,7 +135,7 @@ export default {
       if (flag) {
         //post vin
           let cartId = this.cartToken;
-          let itemId = this.itemId;
+          let itemId = this.itemId || this.updatedCartItem;
           let body = {
             giftMessage: {
               sender: "customer",
