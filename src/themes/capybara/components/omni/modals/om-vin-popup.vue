@@ -125,6 +125,12 @@ export default {
       const result = await this.$store.dispatch('cart/addItem', {
         productToAdd: Object.assign({}, this.product, { qty: this.qty })
       });
+      console.log(result, 'item result');
+      let itemId = result?.serverResponses[0];
+      if (itemId) {
+        itemId = itemId?.result.result.item_id;
+        console.log(itemId, 'itemId')
+      }
       this.loading = false;
       this.$emit('close', this.modalData.name)
       this.$store.commit(
@@ -135,7 +141,6 @@ export default {
       if (flag) {
         //post vin
           let cartId = this.cartToken;
-          let itemId = this.itemId || this.updatedCartItem;
           let body = {
             giftMessage: {
               sender: "customer",
