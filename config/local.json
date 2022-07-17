@@ -1100,5 +1100,10 @@
       "createPayment": "/api/ext/paypal/create-payment",
       "executePayment": "/api/ext/paypal/execute-payment"
     }
+  },
+  "vinRequired": {
+    "2": true,
+    "3": false,
+    "6": false
   }
 }

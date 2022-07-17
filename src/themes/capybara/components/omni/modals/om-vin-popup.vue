@@ -6,7 +6,7 @@
           <SfLoader :loading="loading" />
         </div>
         <div class="title">
-          <h2>Recommended</h2>
+          <h2>{{ isRequired ? 'Vehicle Information Required' : 'Recommended' }}</h2>
           <p>please provide your vehicle VIN or registration number so our expert parts team can confirm compatibility</p>
         </div>
         <!-- <div class="product-count"> -->
@@ -34,6 +34,7 @@
             class="sf-button--full-width color-secondary"
             @click="() => setSkippedCheck(false)"
             :disabled="loading"
+            v-if="isRequired"
           >
             SKIP
           </SfButton>
@@ -100,6 +101,10 @@ export default {
       updatedCartItem: 'cart/getUpdatedCartItem',
       token: 'user/getToken',
     }),
+    isRequired() {
+      const { storeId } = currentStoreView();
+      return !!config?.vinRequired[storeId];
+    }
   },
   methods: {
     ...mapActions('ui', {
