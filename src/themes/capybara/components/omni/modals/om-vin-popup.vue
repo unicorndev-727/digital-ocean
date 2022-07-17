@@ -34,7 +34,7 @@
             class="sf-button--full-width color-secondary"
             @click="() => setSkippedCheck(false)"
             :disabled="loading"
-            v-if="isRequired"
+            v-if="!isRequired"
           >
             SKIP
           </SfButton>
