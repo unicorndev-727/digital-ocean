@@ -76,7 +76,7 @@ export default {
   methods: {
     onAfterPlaceOrder () {
       // Stop display loader
-      this.$bus.$emit('notification-progress-stop')
+      // this.$bus.$emit('notification-progress-stop')
     },
     onBeforePlaceOrder () {
       this.processStripeForm()

@@ -131,9 +131,13 @@ export default {
   },
   watch: {
     '$route': 'activateHashSection',
-    'OnlineOnly': 'onNetworkStatusCheck'
+    'OnlineOnly': 'onNetworkStatusCheck',
+    'isThankYouPage': 'resetStep'
   },
   methods: {
+    resetStep (value) {
+      if (value) this.$store.dispatch('vehicles/resetCheckoutStep');
+    },
     changeShippingMethod (method_code) {
       let currentShippingMethod = this.shippingMethods.find(method => method.method_code === method_code);
       console.log(currentShippingMethod, 'current shipping method');
