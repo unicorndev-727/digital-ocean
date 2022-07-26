@@ -1,4 +1,5 @@
 <template>
+<NoSSR>
   <div id="checkout">
     <div v-if="!isThankYouPage" class="checkout grid">
       <div class="checkout__main">
@@ -130,8 +131,9 @@
       </div>
     </div>
     <OOrderConfirmation v-if="isThankYouPage" />
-    <div />
+    <div/>
   </div>
+</NoSSR>
 </template>
 <script>
 import Checkout from '@vue-storefront/core/pages/Checkout';
@@ -149,6 +151,7 @@ import OmCheckoutAccordionHeader from 'theme/components/om-checkout/om-checkout-
 import OmLocator from 'theme/components/omni/om-locator.vue';
 import APromoCode from 'theme/components/atoms/a-promo-code';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
+import NoSSR from 'vue-no-ssr'
 
 export default {
   name: 'Checkout',

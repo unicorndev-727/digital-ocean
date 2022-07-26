@@ -1,4 +1,5 @@
 <template>
+  <NoSSR>
   <div id="detailed-cart">
     <div class="detailed-cart">
       <div v-if="totalItems" class="detailed-cart__aside">
@@ -125,6 +126,7 @@
       </div>
     </div>
   </div>
+  </NoSSR>
 </template>
 <script>
 import {
@@ -149,6 +151,7 @@ import rates from 'theme/resource/rates.json';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 import OmSvgViewer from 'theme/components/svg-viewer.vue';
 import { ModalList } from 'theme/store/ui/modals'
+import NoSSR from 'vue-no-ssr'
 
 export default {
   name: 'CartPage',
