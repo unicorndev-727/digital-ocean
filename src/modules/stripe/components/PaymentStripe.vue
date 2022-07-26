@@ -46,7 +46,10 @@ export default {
       ...mapGetters({
       paymentDetails: 'checkout/getPaymentDetails',
       cartToken: 'cart/getCartToken',
-      totals: 'cart/getTotals'
+      totals: 'cart/getTotals',
+      locationKind: 'omLocator/locationKind',
+      locationName: 'omLocator/activeLocation'
+
     }),
     ...mapState({
       stripeConfig: state => state.config.stripe
@@ -193,7 +196,9 @@ export default {
           self.$bus.$emit('notification-progress-stop');
         } else {
           this.$bus.$emit('checkout-do-placeOrder', {
-            paymentID: this.paymentIntent.id
+            paymentID: this.paymentIntent.id,
+            deliveryType: this.locationKind,
+            collectionName: this.locationName.location_name || 'N/A'
           });
         }
       } catch (e) {

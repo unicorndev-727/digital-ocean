@@ -115,6 +115,19 @@
                 </div>
               </template>
             </OmAlertBox>
+            <div v-if="product.includes_fitting" class="info-message">
+              <OmAlertBox
+                type="info" style="margin-top: 20px"
+              >
+                <template #message>
+                  <div class="om-alert-box-message">
+                    <div>
+                      <b>This item includes fitting. Please select the free Click & Collect option at the checkout and we will arrange an appointment to fit.</b>
+                    </div>
+                  </div>
+                </template>
+              </OmAlertBox>
+            </div>
           </div>
         </SfSticky>
       </div>

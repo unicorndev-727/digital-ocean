@@ -1,5 +1,8 @@
 <template>
-  <div class="sb-sign-post" :style="{ backgroundColor: theme.bgColor, color: theme.color }">
+  <div
+    class="sb-sign-post"
+    :style="{ backgroundColor: theme.bgColor, color: theme.color }"
+  >
     <div class="content">
       <h2 class="title">
         {{ title }}
@@ -7,63 +10,69 @@
       <p class="description">
         {{ copy }}
       </p>
+  
     </div>
     <div class="image-wrapper">
-      <img :src="image">
+      <img :src="image" />
     </div>
   </div>
 </template>
 
 <script>
-import { SfCallToAction, SfButton, SfImage } from '@storefront-ui/vue';
+import { SfCallToAction, SfButton, SfImage } from "@storefront-ui/vue";
 export default {
-  name: 'SbSignPost',
+  name: "SbSignPost",
   components: {
     SfCallToAction,
     SfButton,
-    SfImage
+    SfImage,
   },
   props: {
     content: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     varient: {
       type: String,
-      default: 'light' // light/grey/dark
-    }
+      default: "light", // light/grey/dark
+    },
   },
   computed: {
-    title () {
-      return this.content.title || ''
+    title() {
+      return this.content.title || "";
     },
-    copy () {
-      return this.content.copy || ''
+    copy() {
+      return this.content.copy || "";
     },
-    image () {
-      return this.content.image.filename
+    image() {
+      return this.content.image.filename;
     },
-    theme () {
-      if (this.varient === 'light') {
+    cta_link() {
+      return this.content.cta_link.url;
+    },
+    cta_title() {
+      return this.content.title;
+    },
+    theme() {
+      if (this.varient === "light") {
         return {
-          bgColor: '#f8f9f9',
-          color: '#0c121c'
-        }
-      } else if (this.varient === 'grey') {
+          bgColor: "#f8f9f9",
+          color: "#0c121c",
+        };
+      } else if (this.varient === "grey") {
         return {
-          bgColor: '#e9ecec',
-          color: '#0c121c'
-        }
-      } else if (this.varient === 'dark') {
+          bgColor: "#e9ecec",
+          color: "#0c121c",
+        };
+      } else if (this.varient === "dark") {
         return {
-          bgColor: '#262626',
-          color: 'white'
-        }
+          bgColor: "#262626",
+          color: "white",
+        };
       }
-    }
+    },
   },
-  methods: {
-  }
+  methods: {},
 };
 </script>
 <style lang="scss">

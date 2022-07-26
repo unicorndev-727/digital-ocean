@@ -127,7 +127,7 @@
     "port": 8082
   },
   "api": {
-    "url": "https://shop.theoceangroup.co.uk/",
+    "url": "http://localhost:8080",
     "saveBandwidthOverCache": true
   },
   "elasticsearch": {
@@ -904,14 +904,11 @@
   },
   "shipping": {
     "methods": [
+    ],
+    "blacklist": [
       {
-        "method_title": "DPD Courier",
-        "method_code": "flatrate",
-        "carrier_code": "flatrate",
-        "amount": 4,
-        "price_incl_tax": 5,
-        "default": true,
-        "offline": true
+        "method_code": "collection",
+        "carrier_code": "collection"
       }
     ]
   },
@@ -1067,7 +1064,7 @@
     }
   },
   "stripe": {
-    "apiKey": "pk_live_51HjRnSGjLcCas0iE0r0j7zTAcLI5mH3YqJJxzwKovgHYKBTnUABQmlyC3wfW7dUxD29znjnzbokQ5itccFScrBpP00YKYsdZp8",
+    "apiKey": "pk_test_51JuZvKGfAlK9sk9kJTzHEqsrDmQ2zy45danRYSre3itZyzbl7Y2kZkt83fULShaubPno9hDhtCgaeLBfOeCd8rfz005B3K7pGN",
     "backendPlatform": "magento2",
     "paymentMethodCode": "cnpayment",
     "options": {
@@ -1103,7 +1100,6 @@
   },
   "vinRequired": {
     "2": true,
-    "3": false,
-    "6": false
+    "3": true
   }
 }

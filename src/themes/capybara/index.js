@@ -30,7 +30,6 @@ Vue.use(VueAwesomeSwiper /* { default options with global component } */);
 // Vue.use(VueReCaptcha, { siteKey: '6LeMJLkZAAAAADcLY2qurohjqjDcZszw98_u1MSE' });
 
 Vue.component('OmPanZoom', OmPanZoom);
-
 once('__VUE_EXTEND_DROPPOINT_VPB__', () => {
   const options = {
     color: '#4d4d4d'

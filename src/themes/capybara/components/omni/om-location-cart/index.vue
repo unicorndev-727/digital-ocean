@@ -1,20 +1,30 @@
 <template>
   <SfSidebar
-    :visible="visibleSidebar"
+    :visible="isLocationCartOpen"
     class="sf-sidebar--right sf-sidebar--icon om-location-cart"
     @close="closeSidebar"
+    title="Set Location"
   >
-    <template #content-top>
-      <div class="sidebar-text">
-        Set Location
+    <SfLoader v-if="loading" :loading="loading" />
+    <div
+      v-for="(location, index) in locations"
+      :key="index"
+      class="location-item"
+      :class="{'active': location.id === activeLocation.id}"
+      @click="setActiveLocation(location)"
+    >
+      <div>
+        <span class="location-name">{{ location.location_name }}</span>
+        <div>{{ getAddress(location) }}</div>
       </div>
-      <OmLocationCartCard
-        v-for="location in locations"
-        :key="location.magento_code"
-        :data="location"
-        :brand="currentProductBrand"
-        @close="closeSidebar"
-      />
+    </div>
+    <template #content-bottom>
+      <SfButton
+        class="sf-button--full-width om-btn--primary"
+        @click.native="closeSidebar"
+      >
+        Continue with this option
+      </SfButton>
     </template>
   </SfSidebar>
 </template>
@@ -24,46 +34,38 @@ import { mapGetters, mapActions } from 'vuex';
 import VueOfflineMixin from 'vue-offline/mixin';
 import onEscapePress from '@vue-storefront/core/mixins/onEscapePress';
 import OmLocationCartCard from './om-location-cart-card';
-import Locations from 'theme/resource/locations.json';
+import { SfSidebar, SfImage, SfLoader, SfButton } from '@storefront-ui/vue';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
-
-import { SfSidebar } from '@storefront-ui/vue';
+import axios from 'axios';
 
 export default {
+  name: 'LocationSidebar',
   components: {
     SfSidebar,
-    OmLocationCartCard
+    OmLocationCartCard,
+    SfImage,
+    SfLoader,
+    SfButton
   },
   mixins: [VueOfflineMixin, onEscapePress],
   data () {
     return {
-      isSidebarVisible: false,
-      showAllLocations: true
+      // showAllLocations: true
+      locations: [],
+      loading: false
     };
   },
   computed: {
     ...mapGetters({
       isLocationCartOpen: 'ui/isLocationCartOpen',
       getCurrentProduct: 'product/getCurrentProduct',
-      getAttributeLabelById: 'vehicles/getAttributeLabelById'
-    }),
-    visibleSidebar () {
-      return this.isLocationCartOpen && this.isSidebarVisible;
-    },
-    currentProductBrand () {
-      return this.getCurrentProduct.brand ? this.getAttributeLabelById(
-        'brand',
-        this.getCurrentProduct.brand
-      ) : '';
-    },
-    locations () {
-      const { storeId } = currentStoreView();
-      if (this.showAllLocations && this.currentProductBrand) {
-        return Locations['locations'][storeId].filter(location => {
-          return location.brands.includes(this.currentProductBrand);
-        });
-      } else {
-        return Locations['locations'][storeId];
+      activeLocation: 'omLocator/activeLocation'
+    })
+  },
+  watch: {
+    async isLocationCartOpen (value) {
+      if (value) {
+        await this.fetchLocations();
       }
     }
   },
@@ -73,10 +75,31 @@ export default {
     }),
     onEscapePress () {
       this.closeMicrocartExtend();
+    },
+    async fetchLocations () {
+      this.loading = true;
+      this.locations = [];
+      const storeId = currentStoreView().storeId;
+      const { data: { status, data } } = await axios.get(`https://portal-api.omninext.app/api/locations/2?vsf_code=${storeId}`);
+      if (status === 'success') {
+        this.locations = data;
+      }
+      this.loading = false;
+    },
+    async setActiveLocation (location) {
+      await this.$store.dispatch('omLocator/saveActiveLocation', location);
+    },
+    getAddress (location) {
+      let result = '';
+      result += location.region ? location.region + ', ' : ' ';
+      result += location.street ? location.street + ', ' : ' ';
+      result += location.postcode ? location.postcode + ', ' : ' ';
+      result += location.city ? location.city + ', ' : ' ';
+      return result;
     }
   },
-  mounted () {
-    this.isSidebarVisible = true;
+  async mounted () {
+    await this.fetchLocations();
   }
 };
 </script>
@@ -86,7 +109,8 @@ export default {
 
 .om-location-cart {
   ::v-deep .sf-sidebar__aside {
-    --sidebar-background: var(--c-light-variant);
+    --sidebar-background: #fff;
+    padding: 0px;
   }
   @include for-mobile {
     ::v-deep .sf-sidebar__aside {
@@ -97,12 +121,6 @@ export default {
     --sidebar-width: 34.5rem;
     --sidebar-bottom-padding: var(--spacer-base);
     --sidebar-content-padding: var(--spacer-base);
-    ::v-deep .sf-sidebar__top {
-      overflow-y: auto;
-    }
-    ::v-deep .sf-sidebar__content {
-      height: 0;
-    }
   }
   ::v-deep .sf-icon.size-xxl {
     --icon-size: 12.5rem;
@@ -126,6 +144,31 @@ export default {
       margin-top: 0px;
     }
     margin-top: 20px;
+  }
+  .location-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-sm);
+    cursor: pointer;
+    padding: var(--spacer-sm);
+    margin: 0;
+    .location-name{
+      font-size: 17px;
+      color: var(--c-primary)
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:hover {
+      transition: border 0.2s;
+      background: #f4f4f4;
+    }
+
+    &.active {
+      border-left: 2px solid var(--c-primary);
+      background: #f4f4f4;
+    }
   }
 }
 .my-cart {

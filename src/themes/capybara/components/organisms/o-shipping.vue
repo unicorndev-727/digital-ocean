@@ -63,7 +63,7 @@
         v-model.trim="shipping.state"
         class="form__element form__element--half form__element--half-even"
         name="state"
-        :label="$t('State / Province')"
+        :label="$t('County')"
       />
       <SfInput
         v-model.trim="shipping.zipCode"

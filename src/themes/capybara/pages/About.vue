@@ -17,7 +17,7 @@ import { SfLoader } from '@storefront-ui/vue';
 
 export const getStoryblokData = async (pageId) => {
   const res = await axios.get(
-    `https://altayer-stage.omninext.co.uk/api/storyblok/storyblok-4/${pageId}`
+    `https://shop.theoceangroup.co.uk/api/storyblok/storyblok-2/${pageId}`
   );
 
   if (res.data.success) {

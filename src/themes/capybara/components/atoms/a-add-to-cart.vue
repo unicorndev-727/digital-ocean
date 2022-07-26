@@ -77,7 +77,7 @@ export default {
     }),
     async addToCart () {
       if (this.status !== 'have-vin'
-          && this.product.national_code) {
+          && (this.product.national_code || this.product.mlo_code)) {
         this.openModal({
             name: ModalList.OmVinPopupModal,
             payload: {

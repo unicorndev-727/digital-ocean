@@ -76,12 +76,6 @@ export const initalData = [
     description: 'An item is unavailable for click and collect at you selected store',
     value: 'click_collect_free',
     disabled: false
-  },
-  {
-    label: 'Fitted By Us',
-    description: 'An item is unavailable for click and collect at you selected store',
-    value: 'fitment',
-    disabled: true
   }
 ];
 
