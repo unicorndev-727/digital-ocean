@@ -63,7 +63,7 @@
         v-model.trim="shipping.state"
         class="form__element form__element--half form__element--half-even"
         name="state"
-        :label="$t('State / Province')"
+        :label="$t('County')"
       />
       <SfInput
         v-model.trim="shipping.zipCode"
@@ -162,7 +162,7 @@ export default {
       // },
       country: {
         required,
-        minLength: minLength(2),
+        minLength: minLength(2)
       },
       streetAddress: {
         required,
@@ -176,7 +176,7 @@ export default {
       city: {
         required,
         unicodeAlpha
-      },
+      }
       // phoneNumber: {
       //   required
       // }
@@ -195,7 +195,7 @@ export default {
     async clickContinuePayment () {
       this.nextAccordion(1);
       // if (!this.getPaymentDetails?.firstName || !this.getPaymentDetails?.lastName) {
-      if (this.locationKind === 'delivery_estimate_free')
+      if (this.locationKind === 'delivery_estimate_free') {
         this.$store.dispatch('checkout/savePaymentDetails', {
           apartmentNumber: this.shipping.apartmentNumber,
           city: this.shipping.city,
@@ -210,6 +210,7 @@ export default {
           taxId: '',
           zipCode: this.shipping.zipCode
         });
+      }
       // } else {
 
       // }

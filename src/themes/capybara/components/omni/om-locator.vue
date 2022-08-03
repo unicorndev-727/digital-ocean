@@ -76,12 +76,6 @@ export const initalData = [
     description: 'An item is unavailable for click and collect at you selected store',
     value: 'click_collect_free',
     disabled: false
-  },
-  {
-    label: 'Fitted By Us',
-    description: 'An item is unavailable for click and collect at you selected store',
-    value: 'fitment',
-    disabled: true
   }
 ];
 
@@ -114,7 +108,7 @@ export default {
       paymentMethod: 'checkout/getPaymentMethods',
       getPersonalDetails: 'checkout/getPersonalDetails',
       getShippingDetails: 'checkout/getShippingDetails',
-      getPaymentDetails: 'checkout/getPaymentDetails',
+      getPaymentDetails: 'checkout/getPaymentDetails'
     }),
     currentProductBrand () {
       return this.getCurrentProduct?.brand
@@ -140,11 +134,11 @@ export default {
   methods: {
     ...mapActions({
       openVehicleCart: 'ui/toggleSidebar',
-      openModal: 'ui/openModal',
+      openModal: 'ui/openModal'
     }),
     changeShippingMethod (value = '') {
       let method_code = '';
-      let locationKind = value ? value : this.locationKind;
+      let locationKind = value || this.locationKind;
       if (locationKind === 'click_collect_free' || locationKind === 'fitment') {
         method_code = 'collection';
       } else {
@@ -152,7 +146,7 @@ export default {
         if (!blacklist?.length) method_code = this.shippingMethods[0].method_code;
         else {
           let allowedShippingMethods = this.shippingMethods.filter(shippingMethod => {
-          let flag = true;
+            let flag = true;
             blacklist.map(list => {
               if (list.method_code === shippingMethod.method_code) flag = false;
             })
@@ -161,12 +155,12 @@ export default {
           if (allowedShippingMethods?.length) method_code = allowedShippingMethods[0].method_code;
         }
       }
-      
+
       let currentShippingMethod = this.shippingMethods.find(method => method.method_code === method_code);
 
-      this.shipping = {...this.shipping, firstName: this.getPersonalDetails.firstName, lastName: this.getPersonalDetails.lastName, emailAddress: this.getPersonalDetails.emailAddress, phoneNumber: this.getPersonalDetails.telephone }
+      this.shipping = { ...this.shipping, firstName: this.getPersonalDetails.firstName, lastName: this.getPersonalDetails.lastName, emailAddress: this.getPersonalDetails.emailAddress, phoneNumber: this.getPersonalDetails.telephone }
       if (method_code === 'collection') {
-        if (this.activeLocation?.id){
+        if (this.activeLocation?.id) {
           this.shipping = {
             ...this.shipping,
             city: this.activeLocation.city,
@@ -177,12 +171,12 @@ export default {
           }
         }
         // if (!this.getPaymentDetails.firstName && !this.getPaymentDetails.lastName && !this.getPaymentDetails.phoneNumber) {
-          // this.billing = {
-          //   ...this.billing,
-          //   firstName: this.getPersonalDetails.firstName,
-          //   lastName: this.getPersonalDetails.lastName,
-          //   phoneNumber: this.getPersonalDetails.telephone
-          // }
+        // this.billing = {
+        //   ...this.billing,
+        //   firstName: this.getPersonalDetails.firstName,
+        //   lastName: this.getPersonalDetails.lastName,
+        //   phoneNumber: this.getPersonalDetails.telephone
+        // }
         // }
       } else if (method_code !== 'collectoin') {
         // let shipping = {
@@ -199,14 +193,14 @@ export default {
         //   street: this.activeLocation.street
         // }
         // if (JSON.stringify(shipping) === JSON.stringify(location)) {
-          this.shipping = {
-            ...this.shipping,
-            city: '',
-            country: '',
-            zipCode: '',
-            region_id: 0,
-            streetAddress: ''
-          }
+        this.shipping = {
+          ...this.shipping,
+          city: '',
+          country: '',
+          zipCode: '',
+          region_id: 0,
+          streetAddress: ''
+        }
         // }
 
         // if (this.getPaymentDetails.firstName === this.getPersonalDetails.firstName && this.getPaymentDetails.lastName === this.getPersonalDetails.lastName && this.getPaymentDetails.phoneNumber === this.getPersonalDetails.telephone) {
@@ -219,7 +213,7 @@ export default {
         // }
       }
       if (currentShippingMethod) {
-        this.shipping = {...this.shipping, shippingCarrier: currentShippingMethod.carrier_code, shippingMethod: currentShippingMethod.method_code };
+        this.shipping = { ...this.shipping, shippingCarrier: currentShippingMethod.carrier_code, shippingMethod: currentShippingMethod.method_code };
       }
       this.$store.dispatch('checkout/saveShippingDetails', this.shipping)
       // this.$store.dispatch('checkout/savePaymentDetails', this.billing)
@@ -229,7 +223,7 @@ export default {
       //     method_code: this.shipping.shippingMethod,
       //     carrier_code: this.shipping.shippingCarrier,
       //     payment_method: this.paymentMethod[0].code
-      //   })      
+      //   })
     },
     clickHandler (value) {
       this.type = value;
@@ -293,7 +287,7 @@ export default {
   },
   beforeDestroy () {
     this.$bus.$off('changeShippingMethod', this.onChangeShippingMethod);
-  },
+  }
   // watch: {
   //   activeLocation (value) {
   //     this.changeShippingMethod();

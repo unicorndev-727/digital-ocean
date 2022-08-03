@@ -42,7 +42,7 @@ const methodsActions = {
 
         if (shippingMethodsData.country) {
           const { result } = await CartService.setShippingInfo(createShippingInfoData(shippingMethodsData))
-          
+
           const totals = result.totals || result
           Logger.info('Overriding server totals. ', 'cart', totals)()
           const itemsAfterTotal = prepareShippingInfoForUpdateTotals(totals.items)

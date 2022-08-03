@@ -5,5 +5,5 @@ export default interface ShippingAddress {
   city: string,
   postcode: string,
   street: string[],
-  telephone: string,
+  telephone: string
 }

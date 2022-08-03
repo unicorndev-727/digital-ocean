@@ -38,7 +38,7 @@ const createOrderData = ({
       city: shippingDetails.city,
       postcode: shippingDetails.zipCode,
       street: [shippingDetails.streetAddress],
-      telephone: personalDetails.telephone,
+      telephone: personalDetails.telephone
     },
     billingAddress: {
       email: personalDetails.emailAddress,
@@ -48,7 +48,7 @@ const createOrderData = ({
       postcode: paymentDetails.zipCode,
       street: [paymentDetails.streetAddress],
       countryId: paymentDetails.country,
-      telephone: personalDetails.telephone,
+      telephone: personalDetails.telephone
     },
     method_code: shippingDetails && shippingDetails.shippingMethod ? shippingDetails.shippingMethod : shipping.method_code,
     carrier_code:

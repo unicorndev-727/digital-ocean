@@ -26,10 +26,10 @@ export const vehiclesStore = {
     opens: ['order'],
     step: -1,
     qty: 1,
-    backFlag: false,
+    backFlag: false
   },
   actions: {
-    async resetCheckoutStep({commit, dispatch}) {
+    async resetCheckoutStep ({ commit, dispatch }) {
       dispatch('saveStep', -1);
       dispatch('saveOpens', ['order']);
       dispatch('saveCompete', {
@@ -180,7 +180,7 @@ export const vehiclesStore = {
     }
   },
   getters: {
-    getBackFlag: (state)  => {
+    getBackFlag: (state) => {
       return state.backFlag;
     },
     getQTY: (state) => {

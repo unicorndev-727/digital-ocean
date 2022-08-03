@@ -51,7 +51,7 @@ export const Shipping = {
       personalDetails: 'checkout/getPersonalDetails',
       locationKind: 'omLocator/locationKind',
       activeLocation: 'omLocator/activeLocation',
-      getShippingDetails: "checkout/getShippingDetails",
+      getShippingDetails: 'checkout/getShippingDetails'
     }),
     checkoutShippingDetails () {
       return this.$store.state.checkout.shippingDetails
@@ -93,14 +93,14 @@ export const Shipping = {
       this.shipping.telephone = value.telephone;
     },
     getShippingDetails (value) {
-      this.shipping = {...value};
+      this.shipping = { ...value };
     }
   },
   mounted () {
     // this.checkDefaultShippingAddress()
     // this.checkDefaultShippingMethod()
     // this.changeShippingMethod()
-    this.shipping = {...this.getShippingDetails};
+    this.shipping = { ...this.getShippingDetails };
     // this.changeShippingMethod()
   },
   methods: {
@@ -208,10 +208,10 @@ export const Shipping = {
       let currentMethod = this.shippingMethods ? this.shippingMethods.find(item => item.method_code === shippingCode) : {}
       return currentMethod
     },
-    changeShippingMethodContent() {
+    changeShippingMethodContent () {
       let currentShippingMethod = this.getCurrentShippingMethod()
       if (currentShippingMethod) {
-        this.shipping = {...this.shipping, shippingMethod: currentShippingMethod.method_code, shippingCarrier: currentShippingMethod.carrier_code };
+        this.shipping = { ...this.shipping, shippingMethod: currentShippingMethod.method_code, shippingCarrier: currentShippingMethod.carrier_code };
         this.$store.dispatch('checkout/saveShippingDetails', this.shipping)
       }
     },
@@ -220,12 +220,12 @@ export const Shipping = {
       // if (currentShippingMethod) {
       //   this.shipping = Object.assign(this.shipping, { shippingCarrier: currentShippingMethod.carrier_code })
       //   this.$store.dispatch('checkout/saveShippingDetails', this.shipping)
-        this.$bus.$emit('checkout-after-shippingMethodChanged', {
-          country: this.getShippingDetails.country,
-          method_code: this.getShippingDetails.shippingMethod,
-          carrier_code: this.getShippingDetails.shippingCarrier,
-          payment_method: this.paymentMethod[0].code
-        })
+      this.$bus.$emit('checkout-after-shippingMethodChanged', {
+        country: this.getShippingDetails.country,
+        method_code: this.getShippingDetails.shippingMethod,
+        carrier_code: this.getShippingDetails.shippingCarrier,
+        payment_method: this.paymentMethod[0].code
+      })
       // }
     },
     notInMethods (method) {

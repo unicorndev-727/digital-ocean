@@ -30,8 +30,8 @@ export const Payment = {
     ...mapGetters({
       paymentMethods: 'checkout/getPaymentMethods',
       paymentDetails: 'checkout/getPaymentDetails',
-      isVirtualCart: 'cart/isVirtualCart',      
-      locationKind: 'omLocator/locationKind',
+      isVirtualCart: 'cart/isVirtualCart',
+      locationKind: 'omLocator/locationKind'
     })
   },
   created () {
@@ -57,14 +57,14 @@ export const Payment = {
     this.$bus.$off('checkout-after-load', this.onCheckoutLoad)
   },
   watch: {
-    locationKind(value) {
+    locationKind (value) {
       if (value === 'click_collect_free') {
         this.sendToBillingAddress = true;
       }
     },
     shippingDetails: {
       handler () {
-        if (this.sendToShippingAddress ) {
+        if (this.sendToShippingAddress) {
           // this.copyShippingToBillingAddress()
         }
       },

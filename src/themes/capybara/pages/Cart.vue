@@ -1,72 +1,73 @@
 <template>
-  <div id="detailed-cart">
-    <div class="detailed-cart">
-      <div v-if="totalItems" class="detailed-cart__aside">
-        <OOrderSummary />
-        <SfButton class="om-btn--primary checkout--btn" @click="goToCheckout">
-          Go to checkout
-        </SfButton>
-      </div>
-      <div class="detailed-cart__main">
-        <transition name="sf-fade" mode="out-in">
-          <div
-            v-if="totalItems"
-            key="detailed-cart"
-            class="collected-product-list"
-          >
-            <transition-group name="sf-fade">
-              <SfCollectedProduct
-                v-for="product in productsInCart"
-                :key="product.id"
-                v-model="product.qty"
-                :image="getThumbnailForProductExtend(product)"
-                :regular-price="getProductPrice(product).regular"
-                :special-price="getProductPrice(product).special"
-                class="sf-collected-product--detailed collected-product"
-                @click:remove="removeHandler(product)"
-                @input="changeQuantity(product, $event)"
-              >
-                <template v-if="!isJpgRender(product)" #image>
-                  <OmSvgViewer
-                    :width="50"
-                    :height="50"
-                    :image-code="getImage(product)"
-                    :dom-id="product.id"
-                  />
-                </template>
-                <template #title>
-                  <div v-if="product.groupedParents" class="title-container">
-                    <div
-                      v-for="(p, index) in product.groupedParents"
-                      :key="p.name"
-                    >
-                      <span v-if="index !== 0" class="divider">|</span>
-                      <router-link
-                        :to="localizedRoute(p.link)"
-                        :title="$t('Home Page')"
-                        class="a-logo"
-                      >
-                        {{ p.name }}
-                      </router-link>
-                    </div>
-                  </div>
-                  <div v-else>
-                    {{ product.name }}
-                  </div>
-                </template>
-                <template #configuration>
-                  <div class="collected-product__properties">
-                    <SfProperty
-                      v-for="(property, key) in product.configuration"
-                      :key="key"
-                      :name="property.name"
-                      :value="property.value"
+  <NoSSR>
+    <div id="detailed-cart">
+      <div class="detailed-cart">
+        <div v-if="totalItems" class="detailed-cart__aside">
+          <OOrderSummary />
+          <SfButton class="om-btn--primary checkout--btn" @click="goToCheckout">
+            Go to checkout
+          </SfButton>
+        </div>
+        <div class="detailed-cart__main">
+          <transition name="sf-fade" mode="out-in">
+            <div
+              v-if="totalItems"
+              key="detailed-cart"
+              class="collected-product-list"
+            >
+              <transition-group name="sf-fade">
+                <SfCollectedProduct
+                  v-for="product in productsInCart"
+                  :key="product.id"
+                  v-model="product.qty"
+                  :image="getThumbnailForProductExtend(product)"
+                  :regular-price="getProductPrice(product).regular"
+                  :special-price="getProductPrice(product).special"
+                  class="sf-collected-product--detailed collected-product"
+                  @click:remove="removeHandler(product)"
+                  @input="changeQuantity(product, $event)"
+                >
+                  <template v-if="!isJpgRender(product)" #image>
+                    <OmSvgViewer
+                      :width="50"
+                      :height="50"
+                      :image-code="getImage(product)"
+                      :dom-id="product.id"
                     />
-                  </div>
-                </template>
-                <template #actions>
-                  <div class="actions desktop-only">
-                    <!-- <SfButton class="sf-button--text actions__button"
+                  </template>
+                  <template #title>
+                    <div v-if="product.groupedParents" class="title-container">
+                      <div
+                        v-for="(p, index) in product.groupedParents"
+                        :key="p.name"
+                      >
+                        <span v-if="index !== 0" class="divider">|</span>
+                        <router-link
+                          :to="localizedRoute(p.link)"
+                          :title="$t('Home Page')"
+                          class="a-logo"
+                        >
+                          {{ p.name }}
+                        </router-link>
+                      </div>
+                    </div>
+                    <div v-else>
+                      {{ product.name }}
+                    </div>
+                  </template>
+                  <template #configuration>
+                    <div class="collected-product__properties">
+                      <SfProperty
+                        v-for="(property, key) in product.configuration"
+                        :key="key"
+                        :name="property.name"
+                        :value="property.value"
+                      />
+                    </div>
+                  </template>
+                  <template #actions>
+                    <div class="actions desktop-only">
+                      <!-- <SfButton class="sf-button--text actions__button"
                       >Edit</SfButton
                     >
                     <SfButton class="sf-button--text actions__button"
@@ -78,53 +79,54 @@
                     <SfButton class="sf-button--text actions__button"
                       >Add message or gift wrap</SfButton
                     > -->
-                    <div v-if="product.fitVehicles && product.fitVehicles.length">
-                      <p class="fitment-vehicles">
-                        <b>Fitment Vehicles</b>
-                      </p>
-                      <p v-for="vehicle in product.fitVehicles" :key="vehicle.National_Code">
-                        {{ vehicle.Model }} : {{ vehicle.VRN }}
-                      </p>
-                    </div>
+                      <div v-if="product.fitVehicles && product.fitVehicles.length">
+                        <p class="fitment-vehicles">
+                          <b>Fitment Vehicles</b>
+                        </p>
+                        <p v-for="vehicle in product.fitVehicles" :key="vehicle.National_Code">
+                          {{ vehicle.Model }} : {{ vehicle.VRN }}
+                        </p>
+                      </div>
 
-                    <!-- <span class="actions__description">
+                      <!-- <span class="actions__description">
                       Usually arrives in 5-13 business days. A shipping timeline
                       specific to your destination can be viewed in Checkout.
                     </span> -->
-                    <OmRadioCheckbox
-                      v-if="isFittingProduct(product.sku)"
-                      v-model="fittingRadioModels[product.sku]"
-                      :items="fittingItems"
-                      @change="onFittingChange(product)"
-                      :price="getFittingPrice(product.sku, product.qty)"
+                      <OmRadioCheckbox
+                        v-if="isFittingProduct(product.sku)"
+                        v-model="fittingRadioModels[product.sku]"
+                        :items="fittingItems"
+                        @change="onFittingChange(product)"
+                        :price="getFittingPrice(product.sku, product.qty)"
+                      />
+                    </div>
+                  </template>
+                </SfCollectedProduct>
+              </transition-group>
+            </div>
+            <div v-else key="empty-cart" class="empty-cart">
+              <transition name="fade" mode="out-in">
+                <div key="empty-cart" class="empty-cart">
+                  <div class="empty-cart__banner">
+                    <SfHeading
+                      :title="$t('Your bag is empty')"
+                      :subtitle="
+                        $t(
+                          'Looks like you haven’t added any items to the bag yet. Start shopping to fill it in.'
+                        )
+                      "
+                      :level="2"
+                      class="empty-cart__heading"
                     />
                   </div>
-                </template>
-              </SfCollectedProduct>
-            </transition-group>
-          </div>
-          <div v-else key="empty-cart" class="empty-cart">
-            <transition name="fade" mode="out-in">
-              <div key="empty-cart" class="empty-cart">
-                <div class="empty-cart__banner">
-                  <SfHeading
-                    :title="$t('Your bag is empty')"
-                    :subtitle="
-                      $t(
-                        'Looks like you haven’t added any items to the bag yet. Start shopping to fill it in.'
-                      )
-                    "
-                    :level="2"
-                    class="empty-cart__heading"
-                  />
                 </div>
-              </div>
-            </transition>
-          </div>
-        </transition>
+              </transition>
+            </div>
+          </transition>
+        </div>
       </div>
     </div>
-  </div>
+  </NoSSR>
 </template>
 <script>
 import {
@@ -149,6 +151,7 @@ import rates from 'theme/resource/rates.json';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 import OmSvgViewer from 'theme/components/svg-viewer.vue';
 import { ModalList } from 'theme/store/ui/modals'
+import NoSSR from 'vue-no-ssr'
 
 export default {
   name: 'CartPage',

@@ -76,14 +76,14 @@ export default {
       openModal: 'openModal'
     }),
     async addToCart () {
-      if (this.status !== 'have-vin'
-          && this.product.national_code) {
+      if (this.status !== 'have-vin' &&
+          (this.product.national_code || this.product.mlo_code)) {
         this.openModal({
-            name: ModalList.OmVinPopupModal,
-            payload: {
-              vin: ''
-            }
-          })
+          name: ModalList.OmVinPopupModal,
+          payload: {
+            vin: ''
+          }
+        })
       } else {
         try {
           this.loading = true;
@@ -144,20 +144,19 @@ export default {
             { root: true }
           );
 
-          //sending the vin/reg to endpoint
+          // sending the vin/reg to endpoint
           if (this.status === 'have-vin') {
             let cartId = this.cartToken;
             let body = {
               giftMessage: {
-                sender: "customer",
-                recipient: "vehicle_data",
+                sender: 'customer',
+                recipient: 'vehicle_data',
                 message: this.activeVehicle.VIN || this.activeVehicle.VRN || this.activeVehicle.vin || this.activeVehicle.vrn,
                 VIN: this.activeVehicle.VIN || this.activeVehicle.vin,
-                VRN: this.activeVehicle.VRN || this.activeVehicle.vrn,
+                VRN: this.activeVehicle.VRN || this.activeVehicle.vrn
               }
             };
-            const result = await axios({method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}&token=${this.token}`, headers: {}, data: body});
-
+            const result = await axios({ method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}&token=${this.token}`, headers: {}, data: body });
           }
 
           this.openModal({

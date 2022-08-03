@@ -96,7 +96,7 @@ export default {
       location: 'omLocator/location',
       activeLocation: 'omLocator/activeLocation',
       locationKind: 'omLocator/locationKind',
-      isVirtualCart: 'cart/isVirtualCart',
+      isVirtualCart: 'cart/isVirtualCart'
     })
   },
   props: {
@@ -183,7 +183,7 @@ export default {
     openTermsAndConditionsModal () {
       this.openModal({ name: ModalList.TermsAndConditions })
     },
-    async goToShipping () { 
+    async goToShipping () {
       this.nextAccordion(0);
       this.sendDataToCheckout();
       await this.$store.dispatch('cart/pullMethods', { forceServerSync: true })

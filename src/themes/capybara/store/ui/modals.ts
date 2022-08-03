@@ -40,7 +40,7 @@ export const modalComponents = new Map([
   [ModalList.OmInfoModal, () => import(/* webpackChunkName: "vsf-modals" */ 'theme/components/omni/modals/om-info-modal.vue')],
   [ModalList.OmEnquiryModal, () => import(/* webpackChunkName: "vsf-modals" */ 'theme/components/omni/modals/om-enquiry-modal.vue')],
   [ModalList.OmContactModal, () => import(/* webpackChunkName: "vsf-modals" */ 'theme/components/omni/modals/om-contact-modal.vue')],
-  [ModalList.OmVinPopupModal, () => import(/* webpackChunkName: "vsf-modals" */ 'theme/components/omni/modals/om-vin-popup.vue')],
+  [ModalList.OmVinPopupModal, () => import(/* webpackChunkName: "vsf-modals" */ 'theme/components/omni/modals/om-vin-popup.vue')]
 ])
 
 /**

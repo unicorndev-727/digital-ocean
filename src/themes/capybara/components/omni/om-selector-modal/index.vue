@@ -69,7 +69,7 @@ import config from 'config';
 import axios from 'axios';
 import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 import { mapActions } from 'vuex';
-import { ModalList } from "theme/store/ui/modals";
+import { ModalList } from 'theme/store/ui/modals';
 
 export default {
   name: 'OmSelectorModal',
@@ -133,7 +133,7 @@ export default {
   methods: {
     ...mapActions({
       toggleSidebar: 'ui/toggleSidebar',
-      close: "ui/closeModal",
+      close: 'ui/closeModal'
     }),
     async onSelectVehicle (label) {
       this.searchPattern = [...this.searchPattern, label];
@@ -296,7 +296,6 @@ export default {
                 this.currentStep = 1;
               }
             }
-            
           } else {
             this.searchPattern = [brand, ...this.searchPattern];
             this.currentStep = 0;

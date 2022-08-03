@@ -1,5 +1,8 @@
 <template>
-  <div class="sb-sign-post" :style="{ backgroundColor: theme.bgColor, color: theme.color }">
+  <div
+    class="sb-sign-post"
+    :style="{ backgroundColor: theme.bgColor, color: theme.color }"
+  >
     <div class="content">
       <h2 class="title">
         {{ title }}
@@ -35,35 +38,40 @@ export default {
   },
   computed: {
     title () {
-      return this.content.title || ''
+      return this.content.title || '';
     },
     copy () {
-      return this.content.copy || ''
+      return this.content.copy || '';
     },
     image () {
-      return this.content.image.filename
+      return this.content.image.filename;
+    },
+    cta_link () {
+      return this.content.cta_link.url;
+    },
+    cta_title () {
+      return this.content.title;
     },
     theme () {
       if (this.varient === 'light') {
         return {
           bgColor: '#f8f9f9',
           color: '#0c121c'
-        }
+        };
       } else if (this.varient === 'grey') {
         return {
           bgColor: '#e9ecec',
           color: '#0c121c'
-        }
+        };
       } else if (this.varient === 'dark') {
         return {
           bgColor: '#262626',
           color: 'white'
-        }
+        };
       }
     }
   },
-  methods: {
-  }
+  methods: {}
 };
 </script>
 <style lang="scss">

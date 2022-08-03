@@ -87,14 +87,14 @@
         v-model.trim="payment.state"
         class="form__element form__element--half form__element--half-even"
         name="state"
-        :label="$t('State / Province')"
+        :label="$t('County')"
       />
       <SfInput
         v-if="sendToBillingAddress"
         v-model.trim="payment.zipCode"
         class="form__element form__element--half"
         name="zipCode"
-        :label="$t('Zip-code')"
+        :label="$t('Postcode')"
         required
         :valid="!$v.payment.zipCode.$error"
         :error-message="
@@ -193,10 +193,10 @@
       v-show="!sendToBillingAddress"
       :title="$t('Payment method')"
       :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
+      class="sf-heading--left sf-heading--no-underline title mt40"
     />
-    <div class="form"  v-show="!sendToBillingAddress">
-      <div class="form__radio-group" style="width: 100%"  v-show="isShowPaymentMethod">
+    <div class="form" v-show="!sendToBillingAddress">
+      <div class="form__radio-group" style="width: 100%" v-show="isShowPaymentMethod">
         <SfRadio
           v-for="method in paymentMethods"
           :key="method.code"
@@ -210,8 +210,6 @@
         <div class="stripe-container">
           <payment-stripe ref="paymentStripe" />
         </div>
-        <payment-checkout-com/>
-        <paypal-button />
       </div>
       <div class="form__action">
         <!-- it's epdq form -->
@@ -227,7 +225,7 @@
         </SfButton>
       </div>
     </div>
-    <OmCheckoutModal :errors="errors" :isVisible="isVisible" @update=" value => isVisible = value" />
+    <OmCheckoutModal :errors="errors" :is-visible="isVisible" @update=" value => isVisible = value" />
   </div>
 </template>
 <script>
@@ -255,7 +253,7 @@ import {
   SfLoader
 } from '@storefront-ui/vue';
 import { createSmoothscroll } from 'theme/helpers';
-import PaymentStripe from 'src/modules/payment-stripe/components/PaymentStripe';
+import PaymentStripe from 'src/modules/stripe/components/PaymentStripe';
 import PaypalButton from 'src/modules/payment-paypal/components/Button';
 import PaymentCheckoutCom from 'src/modules/payment-checkout_com/components/payment-frame';
 import config from 'config';
@@ -300,7 +298,7 @@ export default {
       },
       country: {
         required,
-        minLength: minLength(2),
+        minLength: minLength(2)
       },
       streetAddress: {
         required,
@@ -401,12 +399,12 @@ export default {
       },
       disableOrder: false,
       defaultCountry: config.tax.defaultCountry,
-      isValid: false,      
+      isValid: false,
       isVisible: false,
       errors: []
     };
   },
-  methods: {    
+  methods: {
     updatePhoneNumber (data) {
       this.isValid = data.isValid;
     },
@@ -420,10 +418,10 @@ export default {
       //   this.disableOrder = false;
       //   this.isVisible = true;
       // } else {
-        this.sendDataToCheckout();
-        await this.$store.dispatch('cart/pullMethods', { forceServerSync: true })
-        this.placeOrder();
-      // }      
+      this.sendDataToCheckout();
+      await this.$store.dispatch('cart/pullMethods', { forceServerSync: true })
+      this.placeOrder();
+      // }
     },
     epdqSubmit () {
       this.sendDataToCheckout();
@@ -489,6 +487,7 @@ export default {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
+    margin-bottom: 20px;
   }
   &_button {
     color: #654855;
@@ -528,7 +527,7 @@ export default {
 .billing-address-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--spacer-sm);
+  margin-bottom: 0;
   width: 100%;
   &__title {
     font-weight: bold;

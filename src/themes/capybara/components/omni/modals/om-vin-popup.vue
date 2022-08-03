@@ -10,17 +10,17 @@
           <p>please provide your vehicle VIN or registration number so our expert parts team can confirm compatibility</p>
         </div>
         <!-- <div class="product-count"> -->
-          <SfInput
-            v-model.trim="vin"
-            class="form__element form__element--half form__element--half-even"
-            name="vin"
-            :label="$t('VIN / Reg')"
-            :required="true"
-            :valid="!$v.vin.$error"
-            :error-message="!$v.vin.minLength ? $t('Vin must be at least 4 character.') : $t('Field is required')"
-            @blur="$v.vin.$touch()"
-            :disabled="loading"
-          />
+        <SfInput
+          v-model.trim="vin"
+          class="form__element form__element--half form__element--half-even"
+          name="vin"
+          :label="$t('VIN / Reg')"
+          :required="true"
+          :valid="!$v.vin.$error"
+          :error-message="!$v.vin.minLength ? $t('Vin must be at least 4 character.') : $t('Field is required')"
+          @blur="$v.vin.$touch()"
+          :disabled="loading"
+        />
         <!-- </div> -->
         <div class="actions">
           <SfButton
@@ -79,7 +79,7 @@ export default {
     const rules = {
       vin: {
         required,
-        minLength: minLength(4),
+        minLength: minLength(4)
       }
     }
 
@@ -89,7 +89,7 @@ export default {
     return {
       vin: this.modalData.payload.vin,
       loading: false,
-      itemId: '',
+      itemId: ''
     }
   },
   computed: {
@@ -99,9 +99,9 @@ export default {
       qty: 'vehicles/getQTY',
       cartToken: 'cart/getCartToken',
       updatedCartItem: 'cart/getUpdatedCartItem',
-      token: 'user/getToken',
+      token: 'user/getToken'
     }),
-    isRequired() {
+    isRequired () {
       const { storeId } = currentStoreView();
       return !!config?.vinRequired[storeId];
     }
@@ -139,17 +139,17 @@ export default {
       );
 
       if (flag) {
-        //post vin
-          let cartId = this.cartToken;
-          let body = {
-            giftMessage: {
-              sender: "customer",
-              recipient: "vehicle_data",
-              message: this.vin
-            }
-          };
-          const result = await axios({method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}&token=${this.token}`, headers: {}, data: body});
-        }
+        // post vin
+        let cartId = this.cartToken;
+        let body = {
+          giftMessage: {
+            sender: 'customer',
+            recipient: 'vehicle_data',
+            message: this.vin
+          }
+        };
+        const result = await axios({ method: 'POST', url: `${config.api.url}/api/cart/vehicle-data?cartId=${cartId}&itemId=${itemId}&token=${this.token}`, headers: {}, data: body });
+      }
 
       this.openModal({
         name: ModalList.OmCartPopupModal,

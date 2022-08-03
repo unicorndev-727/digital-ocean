@@ -43,10 +43,13 @@ export default {
     };
   },
   computed: {
-      ...mapGetters({
+    ...mapGetters({
       paymentDetails: 'checkout/getPaymentDetails',
       cartToken: 'cart/getCartToken',
-      totals: 'cart/getTotals'
+      totals: 'cart/getTotals',
+      locationKind: 'omLocator/locationKind',
+      locationName: 'omLocator/activeLocation'
+
     }),
     ...mapState({
       stripeConfig: state => state.config.stripe
@@ -122,10 +125,10 @@ export default {
         result,
         error
       }
-     // } = await axios.get(`http://localhost:8081/api/ext/stripe/secret`);
+        // } = await axios.get(`http://localhost:8081/api/ext/stripe/secret`);
       } = await axios.get(`${config.api.url}/api/ext/stripe/secret`, {
         params: {
-         amount: Math.round(this.prices.grand_total * 100)
+          amount: Math.round(this.prices.grand_total * 100)
         }
       });
       if (success === true) {
@@ -193,7 +196,9 @@ export default {
           self.$bus.$emit('notification-progress-stop');
         } else {
           this.$bus.$emit('checkout-do-placeOrder', {
-            paymentID: this.paymentIntent.id
+            paymentID: this.paymentIntent.id,
+            deliveryType: this.locationKind,
+            collectionName: this.locationName.location_name || 'N/A'
           });
         }
       } catch (e) {

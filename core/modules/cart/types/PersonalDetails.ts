@@ -3,5 +3,5 @@ export default interface PersonalDetails {
   emailAddress?: string,
   firstName?: string,
   lastName?: string,
-  telephone?: string,
+  telephone?: string
 }

@@ -1,18 +1,20 @@
 <template>
-    <SfModal :visible="isVisible" @close="closeModal" class="om-info-modal-1">
-      <SfHeading
-        :title="$t('Order Payload Errors')"
-        :level="3"
-        class="sf-heading--left sf-heading--no-underline title"
-      />
-      <div>
-        <p v-for="error in errors">{{error}}</p>
-      </div>
-    </SfModal>
+  <SfModal :visible="isVisible" @close="closeModal" class="om-info-modal-1">
+    <SfHeading
+      :title="$t('Order Payload Errors')"
+      :level="3"
+      class="sf-heading--left sf-heading--no-underline title"
+    />
+    <div>
+      <p v-for="error in errors">
+        {{ error }}
+      </p>
+    </div>
+  </SfModal>
 </template>
 
 <script>
-import { SfModal, SfIcon, SfButton,  SfHeading} from '@storefront-ui/vue';
+import { SfModal, SfIcon, SfButton, SfHeading } from '@storefront-ui/vue';
 import axios from 'axios';
 
 export default {

@@ -26,7 +26,7 @@ export const omLocatorStore = {
       const location = await VehicleStorage.getActiveLocation();
       commit('setActiveLocation', location);
     },
-    async fetchLocationKind({commit}) {
+    async fetchLocationKind ({ commit }) {
       let location = await VehicleStorage.getLocationKind();
       if (!location) location = 'delivery_estimate_free';
       commit('setLocationKind', location);

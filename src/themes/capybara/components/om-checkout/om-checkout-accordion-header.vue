@@ -1,11 +1,12 @@
 <template>
   <h2 class="step-heading heading heading-sm" :id="id">
-    <span class="progress-step" v-if="!isComplete"><span class="checkout__step-title">Step</span> {{ step }} of {{allStep}}
+    <span class="progress-step" v-if="!isComplete"><span class="checkout__step-title">Step</span> {{ step }} of {{ allStep }}
     </span>
     <span v-else class="progress-step progress-step--complete"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-width="16" height="16"
-viewBox="0 0 30 30"
-style=" fill:#fff;"><path d="M9.293,23.707a1,1,0,0,0,1.414,0l17-17a1,1,0,1,0-1.414-1.414L10,21.586,4.707,16.293a1,1,0,0,0-1.414,1.414Z"></path></svg></span>
+                                                                    width="16" height="16"
+                                                                    viewBox="0 0 30 30"
+                                                                    style=" fill:#fff;"
+    ><path d="M9.293,23.707a1,1,0,0,0,1.414,0l17-17a1,1,0,1,0-1.414-1.414L10,21.586,4.707,16.293a1,1,0,0,0-1.414,1.414Z" /></svg></span>
     {{ title }}
   </h2>
 </template>
@@ -62,9 +63,9 @@ export default {
   display: inline-block;
   background: grey;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 0;
   margin-right: 8px;
-  padding: 4px 12px;
+  padding: 0 12px;
   font-size: 0.9375rem;
   &--complete{
     background: green;

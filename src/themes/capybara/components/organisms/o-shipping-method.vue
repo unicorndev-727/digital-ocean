@@ -4,7 +4,7 @@
       :title="$t('Shipping method')"
       :level="4"
       class="sf-heading--left sf-heading--no-underline title"
-       v-show="locationKind !== 'click_collect_free'"
+      v-show="locationKind !== 'click_collect_free'"
     />
     <div class="form">
       <div class="form__radio-group" v-show="locationKind !== 'click_collect_free'">
@@ -74,8 +74,8 @@ export default {
   mounted () {
     // createSmoothscroll(document.documentElement.scrollTop || document.body.scrollTop, 0);
   },
- methods: {
-  async clickContinuePayment () {
+  methods: {
+    async clickContinuePayment () {
       this.nextAccordion(2);
       this.sendDataToCheckout();
       await this.$store.dispatch('cart/pullMethods', { forceServerSync: true })

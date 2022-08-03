@@ -35,7 +35,7 @@ export function getProductPrice (product, customOptions = {}, fittingPrice = 0) 
   }
 
   const priceInclTax =
-           product.price_incl_tax || product.priceInclTax || 0;
+    product.priceInclTax || product.price_incl_tax || 0;
   const originalPriceInclTax =
            product.original_price_incl_tax || product.originalPriceInclTax || 0;
   const specialPrice =
@@ -49,16 +49,14 @@ export function getProductPrice (product, customOptions = {}, fittingPrice = 0) 
   );
 
   const special =
-           (priceInclTax + product.finalPriceTax || product.final_price_tax + priceDelta) * product.qty || priceInclTax;
+           (priceInclTax + priceDelta) * product.qty || (priceInclTax + priceDelta);
   const original =
-           (originalPriceInclTax + priceDelta) * product.qty ||
+  (originalPriceInclTax + priceDelta) * product.qty ||
            originalPriceInclTax;
-  const regular =
-           product.regular_price ||
+  const regular = priceInclTax || product.regular_price ||
            calculateBundleOptionsPrice(product) ||
-           (priceInclTax + priceDelta) * product.qty ||
-           priceInclTax;
-
+           (priceInclTax + priceDelta) * product.qty;
+  console.log(special, 'special', original, 'original', regular, 'regular', isSpecialPrice, 'isSpecial');
   return {
     regular: isSpecialPrice
       ? formatPrice(original + fittingPrice)
