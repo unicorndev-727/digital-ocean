@@ -51,7 +51,8 @@ export const Shipping = {
       personalDetails: 'checkout/getPersonalDetails',
       locationKind: 'omLocator/locationKind',
       activeLocation: 'omLocator/activeLocation',
-      getShippingDetails: 'checkout/getShippingDetails'
+      getShippingDetails: 'checkout/getShippingDetails',
+      CollectOnly: 'cart/CollectOnly',
     }),
     checkoutShippingDetails () {
       return this.$store.state.checkout.shippingDetails

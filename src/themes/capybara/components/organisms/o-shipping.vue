@@ -1,6 +1,18 @@
 <template>
   <div class="o-shipping">
     <OmLocator />
+    <OmAlertBox
+      type="info" style="margin-top: 20px"
+      v-if="CollectOnly"
+    >
+      <template #message>
+        <div class="om-alert-box-message">
+          <div>
+            <p>{{$t('One or more of the items in your cart must be collected or fitted at one of our sites. Please select your preferred location below. ')}}</p>
+          </div>
+        </div>
+      </template>
+    </OmAlertBox>
     <div class="form" v-show="locationKind !== 'click_collect_free'">
       <SfCheckbox
         v-if="currentUser && hasShippingDetails()"
@@ -136,6 +148,7 @@ import {
 } from '@storefront-ui/vue';
 import { createSmoothscroll } from 'theme/helpers';
 import OmLocator from 'theme/components/omni/om-locator';
+import OmAlertBox from 'theme/components/omni/om-alert-box';
 
 export default {
   name: 'OShipping',
@@ -146,7 +159,8 @@ export default {
     SfSelect,
     SfHeading,
     SfCheckbox,
-    OmLocator
+    OmLocator,
+    OmAlertBox
   },
   mixins: [Shipping],
   validations: {

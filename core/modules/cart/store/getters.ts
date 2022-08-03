@@ -31,8 +31,8 @@ const getters: GetterTree<CartState, RootState> = {
   getItemsTotalQuantity: ({ cartItems }) => config.cart.minicartCountType === 'items' ? cartItems.length : sumBy(cartItems, p => p.qty),
   getCoupon: ({ platformTotals }): AppliedCoupon | false =>
     !(platformTotals && platformTotals.hasOwnProperty('coupon_code')) ? false : { code: platformTotals.coupon_code, discount: platformTotals.discount_amount },
-  isVirtualCart: ({ cartItems }) => cartItems.length ? cartItems.every(itm => itm.type_id === 'downloadable' || itm.type_id === 'virtual') : false,
-  CollectOnly: ({ cartItems }) => cartItems.length ? cartItems.some(itm => itm.collection_only === 1) : false,
+  isVirtualCart: ({ cartItems }) => cartItems.length ? cartItems.some(itm => itm.type_id === 'downloadable' || itm.type_id === 'virtual') : false,
+  CollectOnly: ({ cartItems }) => cartItems.length ? cartItems.some(itm => itm.includes_fitting === 1) : false,
   canUpdateMethods: (state, getters) => getters.isCartSyncEnabled && getters.isCartConnected,
   canSyncTotals: (state, getters) => getters.isTotalsSyncEnabled && getters.isCartConnected,
   isCartEmpty: state => state.cartItems.length === 0,

@@ -108,7 +108,8 @@ export default {
       paymentMethod: 'checkout/getPaymentMethods',
       getPersonalDetails: 'checkout/getPersonalDetails',
       getShippingDetails: 'checkout/getShippingDetails',
-      getPaymentDetails: 'checkout/getPaymentDetails'
+      getPaymentDetails: 'checkout/getPaymentDetails',
+      CollectOnly: 'cart/CollectOnly',
     }),
     currentProductBrand () {
       return this.getCurrentProduct?.brand
@@ -281,21 +282,36 @@ export default {
   },
   async mounted () {
     await this.initialization();
+    if (this.CollectOnly) {
+      this.data[0].disabled = true;
+      this.clickHandler('click_collect_free');
+    }
   },
   beforeMount () {
     this.$bus.$on('changeShippingMethod', this.onChangeShippingMethod);
   },
   beforeDestroy () {
     this.$bus.$off('changeShippingMethod', this.onChangeShippingMethod);
+  },
+  watch: {
+    CollectOnly(value) {
+      console.log(value, 'collection')
+      if (value) {
+        this.data = this.data.map( d=> {
+          if (d.label === 'Delivery') {
+            d.disabled = true;
+          }
+        });
+        this.clickHandler('click_collect_free');
+      } else {
+        this.data = this.data.map( d=> {
+          if (d.label === 'Delivery') {
+            d.disabled = false;
+          }
+        });
+      }
+    }
   }
-  // watch: {
-  //   activeLocation (value) {
-  //     this.changeShippingMethod();
-  //   },
-  //   locationKind (value) {
-  //     this.changeShippingMethod(value);
-  //   }
-  // }
 };
 </script>
 <style lang="scss" scoped>
