@@ -8,7 +8,7 @@
       <template #message>
         <div class="om-alert-box-message">
           <div>
-            <p>{{$t('One or more of the items in your cart must be collected or fitted at one of our sites. Please select your preferred location below. ')}}</p>
+            <p>{{$t('One or more of the items in your cart must be collected or fitted at one of our sites. Please select your preferred location above. ')}}</p>
           </div>
         </div>
       </template>
