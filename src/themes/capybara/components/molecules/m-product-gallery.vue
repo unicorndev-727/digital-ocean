@@ -31,7 +31,7 @@
         @clickPartSvg="saveClickedSvgID"
       />
     </OmPanZoom>
-    <div @click="toggleFullImage" v-if="!isJpgRender && isFit" class="fitting-position">
+    <div @click="toggleFullImage" v-if="!isJpgRender && isFit && !isLifestyle" class="fitting-position">
       <span>See Fitting Position</span>
       <SfIcon
         v-if="!isJpgRender && isFit"
@@ -82,6 +82,19 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      getAttributeListByCode: 'attribute/getAttributeListByCode',
+    }),    
+    isLifestyle() {
+      const { product_group } = this.product;
+      const productGroups = this.getAttributeListByCode?.product_group?.options;
+      if (productGroups?.length) {
+        const row = productGroups.find(productGroup => productGroup?.value === product_group.toString());
+        if (row?.label === 'Lifestyle') return true;
+      }
+
+      return false;
+    },
     variantImage () {
       let variantImage = this.gallery.find((image) => {
         let selectThis = true;

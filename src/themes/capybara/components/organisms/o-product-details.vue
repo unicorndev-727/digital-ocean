@@ -106,6 +106,7 @@
             </div>
             <OmAlertBox
               type="info" style="margin-top: 20px"
+              v-if="!isLifestyle"
             >
               <template #message>
                 <div class="om-alert-box-message">
@@ -132,10 +133,11 @@
         </SfSticky>
       </div>
       <h3>Product Description</h3>
-      <p>This {{ product.name }} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust. </p>
+      <p v-if="!isLifestyle">This {{ product.name }} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust. </p>
       <div v-html="product.description" class="product-copy" />
       <OmAlertBox
         type="info"
+        v-if="!isLifestyle"
       >
         <template #message>
           <div class="om-alert-box-message">
@@ -221,8 +223,19 @@ export default {
     ...mapGetters({
       getAttributeIdByLabel: 'vehicles/getAttributeIdByLabel',
       activeVehicle: 'vehicles/activeVehicle',
-      tooltips: 'vehicles/tooltips'
+      tooltips: 'vehicles/tooltips',
+      getAttributeListByCode: 'attribute/getAttributeListByCode',
     }),
+    isLifestyle() {
+      const { product_group } = this.product;
+      const productGroups = this.getAttributeListByCode?.product_group?.options;
+      if (productGroups?.length) {
+        const row = productGroups.find(productGroup => productGroup?.value === product_group.toString());
+        if (row?.label === 'Lifestyle') return true;
+      }
+
+      return false;
+    },
     gallery () {
       return this.productGallery.map(imageObject => ({
         id: imageObject.id,
@@ -280,14 +293,14 @@ export default {
         return this.activeVehicle.VRN
       }
     },
-    isLifestyle () {
-      const productLabel = this.getAttributeLabelById('product_group', this.getCurrentProduct.product_group)
-      if (productLabel === 'lifestyle') {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    // isLifestyle1 () {
+    //   const productLabel = this.getAttributeLabelById('product_group', this.getCurrentProduct.product_group)
+    //   if (productLabel === 'lifestyle') {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // },
     isCollectionOnly () {
       const collect = this.product.collection_only
       if (collect === 1) {
