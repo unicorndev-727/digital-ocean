@@ -84,16 +84,14 @@ export default {
   computed: {
     ...mapGetters({
       getAttributeListByCode: 'attribute/getAttributeListByCode',
-    }),    
-    isLifestyle() {
-      const { product_group } = this.product;
-      const productGroups = this.getAttributeListByCode?.product_group?.options;
-      if (productGroups?.length) {
-        const row = productGroups.find(productGroup => productGroup?.value === product_group.toString());
-        if (row?.label === 'Lifestyle') return true;
+    }),
+    isLifestyle () {
+      const productLabel = this.currentProduct.product_group
+      if (productLabel === 302) {
+        return true;
+      } else {
+        return false;
       }
-
-      return false;
     },
     variantImage () {
       let variantImage = this.gallery.find((image) => {
