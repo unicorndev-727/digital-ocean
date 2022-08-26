@@ -165,7 +165,7 @@ export default {
     },
     isJpgRender () {
       const productLabel = this.currentProduct.product_group
-      if (productLabel === 301) {
+      if (productLabel === 301 || productLabel === 302) {
         return true;
       } else {
         return false;
