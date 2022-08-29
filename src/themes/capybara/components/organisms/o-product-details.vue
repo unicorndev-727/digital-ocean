@@ -226,15 +226,13 @@ export default {
       tooltips: 'vehicles/tooltips',
       getAttributeListByCode: 'attribute/getAttributeListByCode',
     }),
-    isLifestyle() {
-      const { product_group } = this.product;
-      const productGroups = this.getAttributeListByCode?.product_group?.options;
-      if (productGroups?.length) {
-        const row = productGroups.find(productGroup => productGroup?.value === product_group.toString());
-        if (row?.label === 'Lifestyle') return true;
+    isLifestyle () {
+      const productLabel = this.product.product_group
+      if (productLabel === 302) {
+        return true;
+      } else {
+        return false;
       }
-
-      return false;
     },
     gallery () {
       return this.productGallery.map(imageObject => ({
