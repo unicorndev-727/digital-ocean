@@ -108,7 +108,7 @@ export const actions: ActionTree<UrlState, any> = {
 
     // search for record in ES based on `url`
     const fallbackData = await dispatch('getFallbackByUrl', { url, params })
-
+    
     // if there is record in ES then map data
     if (fallbackData) {
       const [result] = await Promise.all([
@@ -116,6 +116,34 @@ export const actions: ActionTree<UrlState, any> = {
         dispatch('saveFallbackData', fallbackData)
       ])
       return result
+    } else {
+      const urls = url.split("/");
+      if (urls?.length && urls[0] === 'p') {
+        let routeData = {};
+        if (urls.length === 3) {
+          routeData = {
+            name: 'virtual-product',
+            params: {
+              parentSku: urls[1],
+              slug: urls[2],
+            }
+          }
+        } else if (urls.length === 4) {
+          routeData = {
+            name: 'product',
+            params: {
+              parentSku: urls[1],
+              slug: urls[2],
+              childSku: urls[3]
+            }
+          }
+        }
+        const [result] = await Promise.all([
+          routeData,
+          {}
+        ])
+        return result
+      }
     }
 
     return {
@@ -133,6 +161,7 @@ export const actions: ActionTree<UrlState, any> = {
     const groupToken = context.rootState.user.groupToken || null
     try {
       const requestUrl = `${adjustMultistoreApiUrl(processURLAddress(config.urlModule.map_endpoint))}`
+      console.log(requestUrl, 'requestUrl');
       let response: any = await fetch(
         requestUrl,
         {
@@ -162,10 +191,12 @@ export const actions: ActionTree<UrlState, any> = {
           })
         }
       )
+
       if (!response.ok) {
         return null
       }
       response = await response.json()
+      console.log(response, 'response');
       return response
     } catch (err) {
       Logger.error('FetchError in request to ES: ', 'search', err)()
