@@ -109,7 +109,7 @@ export default {
       getPersonalDetails: 'checkout/getPersonalDetails',
       getShippingDetails: 'checkout/getShippingDetails',
       getPaymentDetails: 'checkout/getPaymentDetails',
-      CollectOnly: 'cart/CollectOnly',
+      CollectOnly: 'cart/CollectOnly'
     }),
     currentProductBrand () {
       return this.getCurrentProduct?.brand
@@ -294,17 +294,17 @@ export default {
     this.$bus.$off('changeShippingMethod', this.onChangeShippingMethod);
   },
   watch: {
-    CollectOnly(value) {
+    CollectOnly (value) {
       console.log(value, 'collection')
       if (value) {
-        this.data = this.data.map( d=> {
+        this.data = this.data.map(d => {
           if (d.label === 'Delivery') {
             d.disabled = true;
           }
         });
         this.clickHandler('click_collect_free');
       } else {
-        this.data = this.data.map( d=> {
+        this.data = this.data.map(d => {
           if (d.label === 'Delivery') {
             d.disabled = false;
           }
