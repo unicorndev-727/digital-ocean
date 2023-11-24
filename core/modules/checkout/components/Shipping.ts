@@ -52,7 +52,7 @@ export const Shipping = {
       locationKind: 'omLocator/locationKind',
       activeLocation: 'omLocator/activeLocation',
       getShippingDetails: 'checkout/getShippingDetails',
-      CollectOnly: 'cart/CollectOnly',
+      CollectOnly: 'cart/CollectOnly'
     }),
     checkoutShippingDetails () {
       return this.$store.state.checkout.shippingDetails

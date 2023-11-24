@@ -2,7 +2,7 @@
   <div class="mb15 mt20 vsf-stripe-container">
     <h4 class="mt0">
       <label for="vsf-stripe-card-element">
-        Credit or debit card
+        Stripe Credit or debit card
       </label>
     </h4>
     <div class="bg-cl-secondary px20 py20">
@@ -242,6 +242,14 @@ export default {
 
     .StripeElement--webkit-autofill {
       background-color: #fefde5 !important;
+    }
+
+    .StripeElement:hover {
+      background-color: rgb(240, 237, 237);
+      border: 1px solid transparent;
+      box-shadow: 0 1px 3px 0 #e7edf5;
+      -webkit-transition: box-shadow 150ms ease;
+      transition: box-shadow 150ms ease;
     }
   }
   #vsf-stripe-card-errors {

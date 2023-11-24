@@ -133,7 +133,9 @@
         </SfSticky>
       </div>
       <h3>Product Description</h3>
-      <p v-if="!isLifestyle">This {{ product.name }} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust. </p>
+      <p v-if="!isLifestyle">
+        This {{ product.name }} has been made to fit the exact specification of your vehicle, giving you piece of mind. As an official BMW & MINI Dealer with 3 sites across the the South West, we are the experts you can trust.
+      </p>
       <div v-html="product.description" class="product-copy" />
       <OmAlertBox
         type="info"
@@ -224,7 +226,7 @@ export default {
       getAttributeIdByLabel: 'vehicles/getAttributeIdByLabel',
       activeVehicle: 'vehicles/activeVehicle',
       tooltips: 'vehicles/tooltips',
-      getAttributeListByCode: 'attribute/getAttributeListByCode',
+      getAttributeListByCode: 'attribute/getAttributeListByCode'
     }),
     isLifestyle () {
       const productLabel = this.product.product_group

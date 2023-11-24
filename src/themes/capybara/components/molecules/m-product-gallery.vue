@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getAttributeListByCode: 'attribute/getAttributeListByCode',
+      getAttributeListByCode: 'attribute/getAttributeListByCode'
     }),
     isLifestyle () {
       const productLabel = this.currentProduct.product_group

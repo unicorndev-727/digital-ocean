@@ -108,7 +108,7 @@ export const actions: ActionTree<UrlState, any> = {
 
     // search for record in ES based on `url`
     const fallbackData = await dispatch('getFallbackByUrl', { url, params })
-    
+
     // if there is record in ES then map data
     if (fallbackData) {
       const [result] = await Promise.all([
@@ -117,7 +117,7 @@ export const actions: ActionTree<UrlState, any> = {
       ])
       return result
     } else {
-      const urls = url.split("/");
+      const urls = url.split('/');
       if (urls?.length && urls[0] === 'p') {
         let routeData = {};
         if (urls.length === 3) {
@@ -125,7 +125,7 @@ export const actions: ActionTree<UrlState, any> = {
             name: 'virtual-product',
             params: {
               parentSku: urls[1],
-              slug: urls[2],
+              slug: urls[2]
             }
           }
         } else if (urls.length === 4) {
